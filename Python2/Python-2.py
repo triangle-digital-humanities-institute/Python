@@ -1,13 +1,11 @@
 
 # coding: utf-8
 
-# <center>
-# <h1>Python 2</h1>
-# </center>
+# # Python II
 # 
+# [*Matt Jansen, Davis Library Research Hub*](https://guides.lib.unc.edu/mattjansen)
 # 
-# Matt Jansen, Davis Library Research Hub <br>
-# February 6, 2018
+# October 30, 2018
 # 
 # ** Abstract:**
 # This workshop will:
@@ -41,6 +39,7 @@
 
 # In[19]:
 
+
 random_words=["statement", "toy", "cars", "shoes", "ear", "busy", 
               "magnificent", "brainy", "healthy", "narrow", "join", 
               "decay", "dashing", "river", "gather", "stop", "satisfying", 
@@ -72,6 +71,7 @@ for word in random_words:
 
 # In[1]:
 
+
 #1. Get or define the list my_numbers
 my_numbers=list(range(100))
 
@@ -100,6 +100,7 @@ my_numbers=list(range(100))
 
 # In[4]:
 
+
 import os #functions for working with your operating system
 
 
@@ -113,11 +114,13 @@ import os #functions for working with your operating system
 
 # In[2]:
 
+
 myfile="C:/Users/mtjansen/Dropbox/Python_Sales/day1.txt" #absolute path
 os.path.isfile(myfile) #check if Python can find my file 
 
 
 # In[3]:
+
 
 os.chdir("C:/Users/mtjansen/Dropbox/Python_Sales") #set working directory
 myfile="day1.txt"
@@ -127,6 +130,7 @@ os.path.isfile(myfile)
 # Once we've set a working directory, we can get a list of all files with `os.listdir(".")`.
 
 # In[4]:
+
 
 print(os.listdir("."))
 print(os.listdir("C:/Users/mtjansen/Dropbox/Python_Sales")) #alternatively we can specify a folder
@@ -147,6 +151,7 @@ print(os.listdir("C:/Users/mtjansen/Dropbox/Python_Sales")) #alternatively we ca
 
 # In[5]:
 
+
 with open('Day1.txt',"r") as txtfile: #"r" indicates that we are reading the textfile and not writing to it
     raw=txtfile.read() #read() retrieves raw text information from the file opened in txtfile
     
@@ -155,11 +160,13 @@ print(raw)
 
 # In[6]:
 
+
 rawlist=raw.split("\n") #.split("\n") uses each new line, denoted by "\n" to split the string into a list
 print(rawlist)
 
 
 # In[7]:
+
 
 total=0
 for item in rawlist:
@@ -171,6 +178,7 @@ print(total)
 # Let's write a new file with the total.
 
 # In[8]:
+
 
 total=str(total) #we need to convert numerics to strings before writing
 with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that we're writing to the file
@@ -191,6 +199,7 @@ with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that 
 
 # In[9]:
 
+
 class_dict = {"course":"Python II","location":"Davis Library","time":"4pm"}
 type(class_dict)
 
@@ -199,12 +208,14 @@ type(class_dict)
 
 # In[10]:
 
+
 print(class_dict["location"])
 
 
 # We can also generate a list of all of the keys for a dictionary using the `.keys()` method. 
 
 # In[8]:
+
 
 print(class_dict.keys())
 
@@ -214,6 +225,7 @@ print(class_dict.keys())
 # Python provides some shortcuts to generating lists and dictionaries, especially those that you might (now) generate with a list.  For example, let's generate a list of the square of each number from 1 to 15.
 
 # In[6]:
+
 
 squares=[]
 for n in range(1,16):
@@ -225,6 +237,7 @@ print(squares)
 
 # In[7]:
 
+
 squares=[x**2 for x in range(1,16)]
 print(squares)
 
@@ -232,6 +245,7 @@ print(squares)
 # The same general format holds for defining dictionaries.
 
 # In[8]:
+
 
 squaresdict={k:k**2 for k in range(1,16)}
 print(squaresdict)
@@ -242,6 +256,7 @@ print(squaresdict)
 # While Python (and its available packages) provide a wide variety of functions, sometimes it's useful to create your own.  Python's syntax for defining a function to return the mean of a list of numbers.  (Base Python does not include a function for the mean.)
 
 # In[11]:
+
 
 def mean(number_list):
     s=sum(number_list)
@@ -269,6 +284,7 @@ print(mean(numbers))
 
 # In[18]:
 
+
 data1 = list(range(1,100))
 
 #Normally Distributed Data:
@@ -282,12 +298,14 @@ data2 = normal(loc=0,scale=2,size=100) #scale=2 defines the standard deviation a
 
 # In[10]:
 
+
 user_ages=["34","27","54","19","giraffe","15","83","61","43","91","sixteen"]
 
 
 # It would be useful to convert these values to a numeric type to get the average age of our users, but we want to build something that can set non-numeric values aside.  We can attempt to convert to numeric and give Python instructions for errors with a `try`-`except` statement:
 
 # In[3]:
+
 
 ages=[]
 problems=[]
@@ -327,6 +345,7 @@ print(problems)
 
 # In[7]:
 
+
 import pandas as pd #pd shortens the name to make it easier to call functions from pandas
 os.chdir("C:/Users/mtjansen/Dropbox/Python_Spring18")
 
@@ -336,6 +355,7 @@ df.head()
 
 
 # In[10]:
+
 
 df.groupby("Region").mean()
 
@@ -359,6 +379,7 @@ df.groupby("Region").mean()
 # Python's built-in `urllib.request` package makes it relatively easy to download the underlying html from a web page. Note that the `from package import function` notation used here allows you to selectively import only parts of a package as needed.
 
 # In[4]:
+
 
 from urllib.request import urlopen
 page = urlopen("http://gis.unc.edu/instruction/Python/Python_1_S18.html")  #The Python 1 materials!
