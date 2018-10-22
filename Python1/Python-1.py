@@ -11,7 +11,7 @@
 # 
 # ** Goals:**
 # 
-# * Get Python 3.6 downloaded and installed on your computer
+# * Get the Anaconda Distribution of Python 3.7 downloaded and installed on your computer
 # * Learn the types of projects Python can help you with
 # * Learn how to write and execute basic Python code with Spyder
 # 
@@ -31,19 +31,31 @@
 #     
 # [Download Anaconda Here](https://www.anaconda.com/download/)
 # 
-# Download Python 3.6, 64-bit.
+# Download Python 3.7, 64-bit.
 # 
 # ![Download](https://github.com/UNC-Libraries-data/Python/raw/master/Python1/images/Conda_dl.png)
 # 
 # ####  PATH Variables and Default Installation
 # 
-# In most cases, it is best to leave the default settings for installation.  Your version may or may not have "Register Anaconda as the system Python", depending on whether you already have other Python-dependent software on your computer (e.g. ArcGIS Desktop).
+# In most cases, it is best to leave the default settings for installation. 
+# 
+# 
+# * If you are installing Python for the first time, select "Register Anaconda as the system Python"
 # 
 # ![Anaconda_install_settings.png](https://github.com/UNC-Libraries-data/Python/raw/master/Python1/images/Anaconda_install_settings.png)
 # 
+# * If you have Python-dependent software (e.g. ArcGIS, CAD software, etc), do not check "Register Anaconda as the system Python" or it may cause issues with your other programs.
+#     + If you're unsure, open your PC's Command Line (Start>Windows System>Command Prompt) or Mac's Terminal (Applications>Utilities>Terminal) and type `python` and press Enter.  If you already have Python you should see something like the image below - do not check Register Anaconda as the system Python.
+# ![Command Prompt Python](https://github.com/UNC-Libraries-data/Python/raw/master/Python1/images/Test_CMD.png)
+# 
+# 
 # ####  Python 2 vs Python 3
 # 
-# Both Python 2 and Python 3 are widely used in research.  Unfortunately, while both Python 2 and 3 are very similar, they are not completely compatible.  Python 3 was released in 2008, and as of 2017 nearly all important tools have been re-written or updated for Python 3.  Python 2 will no longer be supported after 2020.  This workshop will focus on Python 3.
+# Both Python 2 and Python 3 are widely used in research.  Unfortunately, while both Python 2 and 3 are very similar, they are not completely compatible.  Python 3 was released in 2008, and as of 2017 nearly all important tools had been re-written or updated for Python 3.  Python 2 will no longer be supported after 2020.  This workshop will focus on Python 3.
+# 
+# ### Anaconda Alternative - Pyfiddle
+# 
+# If you have problems installing Anaconda, you can also follow along today with [pyfiddle.io](https://pyfiddle.io/).  Make sure you set Python version to 3.6 on the left side of the screen.
 # 
 # ## Integrated Development Environments (IDEs)
 # 
@@ -90,32 +102,6 @@
 
 
 3*3
-
-
-# We can also work with the Boolean values, `True` and `False`.
-
-# In[55]:
-
-
-True and False
-
-
-# In[56]:
-
-
-True or False
-
-
-# In[57]:
-
-
-True or (False and False)
-
-
-# In[58]:
-
-
-(True or False) and False
 
 
 # **Note:** We can annotate our code with comments.  Python uses `#` to denote comments.  Anything typed after a `#` will be ignored on execution of the code.
@@ -271,11 +257,11 @@ my_list1.append("dog")
 print(my_list1)
 
 
-# ** Exercise ** 
+# **Exercise** 
 # 
 # Create a list of:
 #  * your favorite color
-#  * your two favorite holidays (in a list within the list)
+#  * your two favorite holidays (as a list within the list)
 # 
 # ### Indexing
 # 
@@ -404,10 +390,163 @@ nato=[["A","Alfa"],
 # There are several other important data types we won't cover today.  We will cover Python's data type for mapping between values, dictionaries, in Python II.
 # 
 # Read more about Python's built-in data types <a href=https://docs.python.org/3/library/stdtypes.html>here</a>.
-
-# # 3. Loops and Conditionals
 # 
-# Loops and conditionals are fundamental building blocks for many tasks in Python.
+# # 3. Conditionals
+# 
+# ## Conditions and Booleans
+# 
+# Conditionals allow for more flexible instructions, letting our code react differently as our inputs change.
+# 
+# Conditions often arise from comparisons:
+# 
+#         <          strictly less than
+#         <= 	    less than or equal
+#         > 	     strictly greater than
+#         >= 	    greater than or equal
+#         == 	    equal
+#         != 	    not equal
+#         is 	    object identity
+#         is not 	negated object identity
+#         in 	    sequence membership
+#         not in 	sequence non-membership
+# 
+# **Note:** `=` is used for assignment, whereas `==` checks if two objects are equal.
+# 
+# Each condition considered evaluates to a Boolean value - `True` or `False`.
+
+# In[11]:
+
+
+num=5
+num<3
+
+
+# In[10]:
+
+
+letter="a"
+letter in ["a","b","c"]
+
+
+# ## Conditional Statements
+# 
+# A conditional statement allows your code to branch and behave differently based on these conditions.
+# 
+# A simple conditional statement takes the form:
+# 
+# ```
+# if <condition>:
+#     <do something only if condition1 is true>
+# ```
+# 
+# Your instructions can be as long as necessary, provided they remain indented.  Indentation is very important in Python as it groups lines of code without using explict characters like `{` and `}` as in many other language.  You can indent with spaces or tabs, but you must be **consistent**.
+#  
+# We can supply alternate steps if the condition is false with `else`, or even consider multiple conditions with `elif` (i.e. else if).
+# 
+# ```
+# if <condition1>:
+#     <do something if condition1 is true>
+# elif <condition2>:
+#     <do a different thing if condition1 is false and condition2 is true>
+# else
+#     <do a third thing if neither condition is true>
+# ```
+
+# In[8]:
+
+
+num=5
+if num>4:
+    print("This number is greater than four")
+
+
+# In[7]:
+
+
+num=3
+if num>4:
+    print("This number is greater than four")
+
+
+# Adding `else` lets us give instructions if our condition is `False`.
+
+# In[13]:
+
+
+num=3
+if num>4:
+    print("This number is greater than than four")
+else:
+    print("This number is less than or equal to four")
+
+
+# Finally, the `elif` command lets us split the possible values of `num` into more groups.
+
+# In[17]:
+
+
+num=8
+if num<3:
+    print("This number is less than three")
+elif num<10:
+    print("This number is greater than or equal to three and less than ten")
+else:
+    print("This number is greater than ten")
+
+
+# ## Compound Conditions
+# 
+# As our needs become more complex, we can combine conditions using Boolean Algebra operators `and` and `or`.
+
+# In[5]:
+
+
+num=5
+letter="a"
+(letter in ["a","b","c"]) and num<3 
+
+
+# This is equivalent to using Boolean values directly:
+
+# In[55]:
+
+
+True and False
+
+
+# Similarly:
+
+# In[6]:
+
+
+(letter in ["a","b","c"]) or num<3 
+
+
+# In[56]:
+
+
+True or False
+
+
+# Conditions can be grouped with 
+
+# In[57]:
+
+
+True or (False and False)
+
+
+# In[58]:
+
+
+(True or False) and False
+
+
+# Remember, complex conditions can be simplified: `(True or False) and False` is equivalent to `True and False` since `(True or False)` evaluates to `True`.
+# 
+# Conditions become far more powerful, when combined with Loops.
+
+# # 4. Loops 
 # 
 # ## For Loops
 # 
@@ -434,9 +573,9 @@ print(total_sales)
 #         do something based on name
 #         
 #     
-# * `<name>` is completely arbitrary, though i,j,k, and n are relatively common
-# * `<list>` is a pre-defined list.
-# * **Indentation is very important in Python and must be used consistently across the loop(s)** Only the code indented under the loop will be run in each iteration.
+# * `<name>` is **completely arbitrary**, though i,j,k, and n are relatively common
+# * `<list>` is a pre-defined list or other iterable object.
+# * **Reminder: Indentation is very important in Python and must be used consistently across the loop(s)** Only the code indented under the loop will be run in each iteration.
 
 # In[83]:
 
@@ -490,30 +629,11 @@ while a<5:
 #  * Press the red square at the top corner of the console window in Spyder
 #  * Press CTRL+c
 
-# ## Conditionals
+# ## Loops with Conditionals
 # 
-# Loops become even more useful when combined with conditionals.  A simple conditional takes the form:
-# 
-# `if <condition>:`
-# 
-#         do something
-#  
-# We can supply alternate steps if the condition is false with `else`, or even consider multiple conditions with `elif` (i.e. else if).
-# 
-# Conditions often arise from comparisons:
-# 
-#         <          strictly less than
-#         <= 	    less than or equal
-#         > 	     strictly greater than
-#         >= 	    greater than or equal
-#         == 	    equal
-#         != 	    not equal
-#         is 	    object identity
-#         is not 	negated object identity
-# 
-# **Note:** `=` is used for assignment, whereas `==` checks if two objects are equal.
+# Loops become even more useful when combined with conditionals, to perform different steps based on each value in the loop.
 
-# In[87]:
+# In[18]:
 
 
 for number in range(10):
@@ -521,20 +641,20 @@ for number in range(10):
         print(number)
 
 
-# We can combine multiple conditions with `and` as below.  We can also use `or` as with the Booleans shown earlier.
+# Recall that we can combine multiple conditions with `and`.
 
-# In[88]:
+# In[14]:
 
 
 scores=[95,90,66,83,71,78,93,81,87,81]
 grades=[]
 for score in scores:
-    if score>=90:
+    if score<80 and score>=70:
+        grade="C"
+    elif score>=90:
         grade="A"
     elif score<90 and score>=80:
         grade="B"
-    elif score<80 and score>=70:
-        grade="C"
     elif score<70 and score>=60:
         grade="D"
     else:
@@ -544,16 +664,26 @@ print(grades)
 
 
 # ** Exercise: **
-# 1. How many numbers between 1 and 100 are divisible by 7?
-# 1. Make a new list of NATO codes keeping only those that use the letter "a" in their code.
+# 1. How could I change the `for scores in scores` loop above to no longer need the `and` statements?  (Remember how `elif` works!).
+# 2. How many numbers between 1 and 100 are divisible by 7?
+# 3. Make a new list of NATO codes keeping only those that use the letter "a" in their code.
 
+# ## Next Up (Python II):
+# * Reading and writing external files 
+# * Saving and executing .py scripts outside Spyder
+# * Dictionaries
+# * Comprehensions
+# * User-defined Functions
+# * Error handling with Try and Except
+# * Survey of useful packages for Data Analysis
+# 
 # ## Questions?
 # 
 # If you're planning to attend Python II next week, please feel free to share any ideas or topics you'd like to see covered.  
 # 
 # You can also share ideas while filling out our [**Feedback Survey**](unc.libsurveys.com/davishubfeedback).
 # 
-# I'm available for one-on-one consultations on Python if you need help.  Contact me at the link below.
+# I'm available for one-on-one consultations on Python if you need help.  [Contact me here.](http://guides.lib.unc.edu/mattjansen)
 # 
 # Thanks for coming!
 
@@ -565,6 +695,10 @@ print(grades)
 # 
 # * <a href="https://www.google.com/">Google!</a>
 # 
-# * <a href="http://guides.lib.unc.edu/mattjansen">Make an appointment with Matt</a>
-# 
 # * <a href="http://www.karsdorp.io/python-course/">Python Programming for the Humanities</a>
+
+# In[ ]:
+
+
+
+
