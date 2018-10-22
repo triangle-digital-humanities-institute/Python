@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # # Python II
@@ -399,7 +399,7 @@ print(html[:1000]) #print only the first 1000 characters
 # 
 # ## Feedback
 # 
-# Please fill out our feedback form available here: http://bit.ly/hubSpring2018
+# Please fill out our [**Feedback Survey**](unc.libsurveys.com/davishubfeedback).
 # 
 # We'd love your input on future workshop topics and ways we could improve this workshop next time we teach it!
 
@@ -407,4 +407,22 @@ print(html[:1000]) #print only the first 1000 characters
 # 
 # * <a href="https://jakevdp.github.io/PythonDataScienceHandbook/">Python Data Science Handbook</a>  This free ebook emphasizes Numpy, Scipy, Matplotlib, Pandas and other data analysis packages in Python, assuming some familiarity with the basic principles of the language.
 # 
+# ### From Python I:
 # 
+# * <a href="https://automatetheboringstuff.com/">Automate the Boring Stuff with Python</a>
+# 
+# * <a href="https://stackoverflow.com/questions/tagged/python-3.x?sort=frequent&pageSize=15">Stack Overflow</a>
+# 
+# * <a href="https://www.google.com/">Google!</a>
+# 
+# * <a href="http://guides.lib.unc.edu/mattjansen">Make an appointment with Matt</a>
+# 
+# * <a href="http://www.karsdorp.io/python-course/">Python Programming for the Humanities</a>
+# 
+# 
+
+# In[ ]:
+
+
+
+

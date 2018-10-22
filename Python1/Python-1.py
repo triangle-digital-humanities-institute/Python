@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # # Python I
@@ -7,7 +7,7 @@
 # 
 # October 23, 2018
 
-# **<font color='red'>Note:</font>** Please begin downloading the Anaconda distribution of Python <a href=https://www.anaconda.com/download/>here</a> as soon as you can.  It's a large download and can be somewhat slow with a large number of attendees downloading at the same time over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.
+# **<font color=red>Note:</font>** Please begin downloading the [Anaconda distribution of Python](https://www.anaconda.com/download/) as soon as you can.  It's a large download and can be somewhat slow with a large number of attendees downloading at the same time over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.
 # 
 # ** Goals:**
 # 
@@ -27,9 +27,9 @@
 # 
 # Anaconda packages the current version of Python 2 or 3 with over 150 packages included in the installation and hundreds of other supported.  This includes many of the most heavily used packages supporting data transformation and analysis, and software to manage and add new packages.
 # 
-# <a href=https://docs.anaconda.com/anaconda/packages/pkg-docs>Read more here.</a>
+# [Read more here](https://docs.anaconda.com/anaconda/packages/pkg-docs)
 #     
-# <a href=https://www.anaconda.com/download/>Download Anaconda Here</a>
+# [Download Anaconda Here](https://www.anaconda.com/download/)
 # 
 # Download Python 3.6, 64-bit.
 # 
