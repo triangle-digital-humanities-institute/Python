@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+
 # coding: utf-8
 
 # # Python I
@@ -77,7 +77,7 @@
 # 
 # For the purposes of this workshop, Python code will be presented in numbered grey cells as below.  Any output generated will also be displayed.
 
-# In[53]:
+# In[2]:
 
 
 2+2
@@ -98,7 +98,7 @@
 # 
 # Standard arithmetic operations are available in Python.
 
-# In[54]:
+# In[3]:
 
 
 3*3
@@ -106,7 +106,7 @@
 
 # **Note:** We can annotate our code with comments.  Python uses `#` to denote comments.  Anything typed after a `#` will be ignored on execution of the code.
 
-# In[59]:
+# In[4]:
 
 
 #1+2
@@ -129,7 +129,7 @@
 # 
 # We assign a value to a variable using `=`.  We do not need to declare a type or give any other information.
 
-# In[60]:
+# In[5]:
 
 
 text="Hello, World"
@@ -138,11 +138,11 @@ number=42
 
 # String objects, like `text` above, contain textual values.  These are identified to Python by quotes; you can use either ' or " as long as you use the same type to begin and end your string.
 # 
-# Python uses several different numeric data types for storing different values. Examples include integers, long integers, and floating point numbers (decimals).  Numbers can also be stored in string values using double quotes.
+# Python uses several different numeric data types for storing different values. Examples include integers, long integers, and floating point numbers (decimals).  Numbers can also be stored in string values using quotes.
 # 
 # For example:
 
-# In[61]:
+# In[6]:
 
 
 notnumber="42"
@@ -150,19 +150,19 @@ notnumber="42"
 
 # Once we have defined an object, we can use it again, most simply by printing it.
 
-# In[62]:
+# In[7]:
 
 
 print(text)
 
 
-# **Note:** The print command is one of the most basic differences between Python 2 and Python 3. In Python 2, print does require parentheses:
+# **Note:** The print command is one of the most basic differences between Python 2 and Python 3. In Python 2, print does not require parentheses:
 # 
 # `print text`
 # 
 # We can also modify the contents of objects in various ways such as redefining them or changing their type. In some cases this is crucial to how Python can work with them.  For example:
 
-# In[63]:
+# In[8]:
 
 
 print(number+58)
@@ -171,13 +171,13 @@ print(number+58)
 
 # So we can add a value, 58, to our number object, but we can't add our notnumber object.  Let's double check what notnumber contains:
 
-# In[64]:
+# In[9]:
 
 
 print(notnumber)
 
 
-# In[65]:
+# In[10]:
 
 
 print(number)
@@ -185,7 +185,7 @@ print(number)
 
 # Even those these appear the same to our eye, Python uses them very differently.  Remember how we defined notnumber?  Let's check what data type Python is using with `type`.
 
-# In[66]:
+# In[11]:
 
 
 type(notnumber)
@@ -195,7 +195,7 @@ type(notnumber)
 # 
 # The `int` function takes an object as an argument and converts it to an `int` (integer) numeric object.  The usage is as follows:
 
-# In[67]:
+# In[12]:
 
 
 newnumber=int(notnumber)
@@ -205,7 +205,7 @@ type(newnumber)
 
 # `int` objects can only hold integer values.  If you have decimal values, use the `float` (floating decimal) type instead.
 
-# In[68]:
+# In[13]:
 
 
 myfloat=float(newnumber)+0.5
@@ -214,7 +214,7 @@ print(myfloat)
 
 # Now we can try adding objects again.
 
-# In[69]:
+# In[14]:
 
 
 print(number+newnumber)
@@ -229,7 +229,7 @@ print(number+newnumber)
 # 
 # Python's lists store objects in a sequence.  For example, we can save numbers and characters:
 
-# In[70]:
+# In[15]:
 
 
 my_list=[1,2,3,"four"]
@@ -238,7 +238,7 @@ print(my_list)
 
 # We can also directly place previously defined objects into a list (even other lists!):
 
-# In[71]:
+# In[16]:
 
 
 obj0=12
@@ -250,7 +250,7 @@ print(my_list1)
 
 # Once we've defined a list, we can add more elements to it with the `.append` function.
 
-# In[72]:
+# In[17]:
 
 
 my_list1.append("dog")
@@ -271,7 +271,7 @@ print(my_list1)
 # 
 # ** Most importantly, ** Python starts counting at **zero**.  So confusingly, the first element in your list is denoted `[0]`, the second `[1]`, the third `[2]` and so on.
 
-# In[73]:
+# In[18]:
 
 
 my_list2 = ["cat","dog","parrot"]
@@ -280,7 +280,7 @@ print(my_list2[2])
 
 # We can use multiple indices for lists within lists, one after the other:
 
-# In[74]:
+# In[19]:
 
 
 #recall
@@ -290,7 +290,7 @@ print(my_list1[2][1]) #i.e. the second element of the list held in the third ele
 
 # The `len` function provides the length of an object in Python.
 
-# In[75]:
+# In[20]:
 
 
 print(len(my_list1))
@@ -298,7 +298,7 @@ print(len(my_list1))
 
 # If `len(my_new_list)=10` that means there are ten elements in the list, so the indices are 0 through 9.  We can use the `range` function with `len` to generate a list of indices.
 
-# In[76]:
+# In[21]:
 
 
 my_indices1 = list(range(len(my_list1)))
@@ -311,7 +311,7 @@ print(my_indices1)
 # 
 # For example:
 
-# In[77]:
+# In[22]:
 
 
 my_str="The quick brown fox jumps over the lazy dog."
@@ -321,7 +321,7 @@ print(my_str[4:9]) #4:9 indicates characters 4-8
 
 # We can also work from right to left using negative numbers.  Furthermore, using `:` ranges with one end blank will automatically go to the end of the object.
 
-# In[78]:
+# In[23]:
 
 
 print(my_str[-4:])
@@ -330,19 +330,19 @@ print(my_str[:4])
 
 # We can still use multiple nested indices across sequential data types.  For instance, a list of strings:
 
-# In[79]:
+# In[24]:
 
 
 ["home","away"][0][0:3]
 
 
-# Unfortunately, not all data types are sequential, so indices will not work with them. This includes numbers.  
+# Unfortunately, not all data types are sequential - indices will not work on numeric values:  
 # 
 # **Exercise**
 # 
 # 1. Try to use indexing to get the tenth digit of `my_pi` as defined below
 
-# In[80]:
+# In[25]:
 
 
 my_pi=3.141592653589793
@@ -352,7 +352,7 @@ my_pi=3.141592653589793
 
 # 3. Below is a list of lists containing the NATO phonetic codes for each letter of the alphabet.  Each list within `nato` contains a letter of the alphabet and its corresponding code.
 
-# In[81]:
+# In[26]:
 
 
 nato=[["A","Alfa"],
@@ -414,14 +414,14 @@ nato=[["A","Alfa"],
 # 
 # Each condition considered evaluates to a Boolean value - `True` or `False`.
 
-# In[11]:
+# In[27]:
 
 
 num=5
 num<3
 
 
-# In[10]:
+# In[28]:
 
 
 letter="a"
@@ -452,7 +452,7 @@ letter in ["a","b","c"]
 #     <do a third thing if neither condition is true>
 # ```
 
-# In[8]:
+# In[29]:
 
 
 num=5
@@ -460,7 +460,7 @@ if num>4:
     print("This number is greater than four")
 
 
-# In[7]:
+# In[30]:
 
 
 num=3
@@ -470,7 +470,7 @@ if num>4:
 
 # Adding `else` lets us give instructions if our condition is `False`.
 
-# In[13]:
+# In[31]:
 
 
 num=3
@@ -482,7 +482,7 @@ else:
 
 # Finally, the `elif` command lets us split the possible values of `num` into more groups.
 
-# In[17]:
+# In[32]:
 
 
 num=8
@@ -498,7 +498,7 @@ else:
 # 
 # As our needs become more complex, we can combine conditions using Boolean Algebra operators `and` and `or`.
 
-# In[5]:
+# In[33]:
 
 
 num=5
@@ -508,7 +508,7 @@ letter="a"
 
 # This is equivalent to using Boolean values directly:
 
-# In[55]:
+# In[34]:
 
 
 True and False
@@ -516,13 +516,13 @@ True and False
 
 # Similarly:
 
-# In[6]:
+# In[35]:
 
 
 (letter in ["a","b","c"]) or num<3 
 
 
-# In[56]:
+# In[36]:
 
 
 True or False
@@ -530,13 +530,13 @@ True or False
 
 # Conditions can be grouped with 
 
-# In[57]:
+# In[37]:
 
 
 True or (False and False)
 
 
-# In[58]:
+# In[38]:
 
 
 (True or False) and False
@@ -552,7 +552,7 @@ True or (False and False)
 # 
 # A "for loop" allows us to apply the same steps to each element in a list or other iterable.  In essence, loops let us automate tasks relative to some sequence that we might otherwise write like this:
 
-# In[82]:
+# In[39]:
 
 
 sales=[5,2,7,9,3]
@@ -577,7 +577,7 @@ print(total_sales)
 # * `<list>` is a pre-defined list or other iterable object.
 # * **Reminder: Indentation is very important in Python and must be used consistently across the loop(s)** Only the code indented under the loop will be run in each iteration.
 
-# In[83]:
+# In[40]:
 
 
 my_nums=list(range(6))
@@ -588,7 +588,7 @@ for n in my_nums:
 
 # We can also loop within loops.  Indentation is key to control which blocks of code are executed within which loop.
 
-# In[84]:
+# In[41]:
 
 
 #Nesting loops - indentation is key!
@@ -606,7 +606,7 @@ print(newnato)
 # 
 # The while loop behaves a little differently, though it has a similar format, using `while` instead of `for`.  Instead of looping through a pre-defined set, a while loop continues running until a certain condition is no longer true.
 
-# In[85]:
+# In[42]:
 
 
 a=0
@@ -617,7 +617,7 @@ while a<5:
 
 # Because there isn't a pre-defined end to a while loop, they can also be dangerous to your code!  If you aren't careful your while loop can go on forever.  A trivial example uses `while True:`.
 
-# In[86]:
+# In[43]:
 
 
 #Warning: this will run forever...
@@ -633,7 +633,7 @@ while a<5:
 # 
 # Loops become even more useful when combined with conditionals, to perform different steps based on each value in the loop.
 
-# In[18]:
+# In[44]:
 
 
 for number in range(10):
@@ -643,7 +643,7 @@ for number in range(10):
 
 # Recall that we can combine multiple conditions with `and`.
 
-# In[14]:
+# In[45]:
 
 
 scores=[95,90,66,83,71,78,93,81,87,81]
@@ -696,9 +696,3 @@ print(grades)
 # * <a href="https://www.google.com/">Google!</a>
 # 
 # * <a href="http://www.karsdorp.io/python-course/">Python Programming for the Humanities</a>
-
-# In[ ]:
-
-
-
-
