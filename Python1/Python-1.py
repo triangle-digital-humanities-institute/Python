@@ -111,7 +111,7 @@
 # 
 # For the purposes of this workshop, Python code will be presented in numbered grey cells as below.  Any output generated will also be displayed.
 
-# In[105]:
+# In[147]:
 
 
 2+2
@@ -132,7 +132,7 @@
 # 
 # Standard arithmetic operations are available in Python.
 
-# In[106]:
+# In[148]:
 
 
 3*3
@@ -140,7 +140,7 @@
 
 # **Note:** We can annotate our code with comments.  Python uses `#` to denote comments.  Anything typed after a `#` will be ignored on execution of the code.
 
-# In[107]:
+# In[149]:
 
 
 #1+2
@@ -154,8 +154,6 @@
 # 1. What is 126544 squared? (Exponentiation is denoted `**`)
 # 
 # 2. What is 5 divided by 0?
-# 
-# </font>
 
 # <center> <h1>2. Variables</h1> </center>
 # 
@@ -165,7 +163,7 @@
 # 
 # We assign a value to a variable using `=`.  We do not need to declare a type or give any other information.
 
-# In[108]:
+# In[150]:
 
 
 text="Hello, World"
@@ -178,7 +176,7 @@ number=42
 # 
 # For example:
 
-# In[109]:
+# In[151]:
 
 
 notnumber="42"
@@ -186,7 +184,7 @@ notnumber="42"
 
 # Once we have defined an object, we can use it again, most simply by printing it.
 
-# In[110]:
+# In[152]:
 
 
 print(text)
@@ -198,7 +196,7 @@ print(text)
 # 
 # We can also modify the contents of objects in various ways such as redefining them or changing their type. In some cases this is crucial to how Python can work with them.  For example:
 
-# In[111]:
+# In[153]:
 
 
 print(number+58)
@@ -207,13 +205,13 @@ print(number+58)
 
 # So we can add a value, 58, to our number object, but we can't add our notnumber object.  Let's double check what notnumber contains:
 
-# In[112]:
+# In[154]:
 
 
 print(notnumber)
 
 
-# In[113]:
+# In[155]:
 
 
 print(number)
@@ -221,7 +219,7 @@ print(number)
 
 # Even those these appear the same to our eye, Python uses them very differently.  Remember how we defined notnumber?  Let's check what data type Python is using with `type`.
 
-# In[114]:
+# In[156]:
 
 
 type(notnumber)
@@ -231,7 +229,7 @@ type(notnumber)
 # 
 # The `int` function takes an object as an argument and converts it to an `int` (integer) numeric object.  The usage is as follows:
 
-# In[115]:
+# In[157]:
 
 
 newnumber=int(notnumber)
@@ -241,7 +239,7 @@ type(newnumber)
 
 # `int` objects can only hold integer values.  If you have decimal values, use the `float` (floating decimal) type instead.
 
-# In[116]:
+# In[158]:
 
 
 myfloat=float(newnumber)+0.5
@@ -250,7 +248,7 @@ print(myfloat)
 
 # Now we can try adding objects again.
 
-# In[117]:
+# In[159]:
 
 
 print(number+newnumber)
@@ -272,7 +270,7 @@ print(number+newnumber)
 # 
 # Python's lists store objects in a sequence.  For example, we can save numbers and characters:
 
-# In[118]:
+# In[160]:
 
 
 my_list=[1,2,3,"four"]
@@ -281,7 +279,7 @@ print(my_list)
 
 # We can also directly place previously defined objects into a list (even other lists!):
 
-# In[119]:
+# In[161]:
 
 
 obj0=12
@@ -293,7 +291,7 @@ print(my_list1)
 
 # Once we've defined a list, we can add more elements to it with the `.append` function.
 
-# In[120]:
+# In[162]:
 
 
 my_list1.append("dog")
@@ -321,7 +319,7 @@ print(my_list1)
 # 
 # Most importantly,**Python starts counting at zero**: The first element in your list is denoted `[0]`, the second `[1]`, the third `[2]` and so on.
 
-# In[121]:
+# In[163]:
 
 
 my_list2 = ["cat","dog","parrot"]
@@ -330,7 +328,7 @@ print(my_list2[2])
 
 # We can use multiple indices for lists within lists, one after the other:
 
-# In[122]:
+# In[164]:
 
 
 #recall
@@ -340,7 +338,7 @@ print(my_list1[2][1]) #i.e. the second element of the list held in the third ele
 
 # The `len` function provides the length of an object in Python.
 
-# In[123]:
+# In[165]:
 
 
 print(len(my_list1))
@@ -348,7 +346,7 @@ print(len(my_list1))
 
 # If `len(my_new_list)=10` that means there are ten elements in the list, so the indices are 0 through 9.  We can use the `range` function with `len` to generate a list of indices.
 
-# In[124]:
+# In[166]:
 
 
 my_indices1 = list(range(len(my_list1)))
@@ -361,7 +359,7 @@ print(my_indices1)
 # 
 # For example:
 
-# In[125]:
+# In[167]:
 
 
 my_str="The quick brown fox jumps over the lazy dog."
@@ -371,7 +369,7 @@ print(my_str[4:9]) #4:9 indicates characters 4-8
 
 # We can also work from right to left using negative numbers.  Furthermore, using `:` ranges with one end blank will automatically go to the end of the object.
 
-# In[126]:
+# In[168]:
 
 
 print(my_str[-4:])
@@ -380,7 +378,7 @@ print(my_str[:4])
 
 # We can still use multiple nested indices across sequential data types.  For instance, a list of strings:
 
-# In[127]:
+# In[169]:
 
 
 ["home","away"][0][0:3]
@@ -457,14 +455,14 @@ print(my_str[:4])
 # 
 # Each condition considered evaluates to a Boolean value - `True` or `False`.
 
-# In[128]:
+# In[170]:
 
 
 num=5
 num<3
 
 
-# In[129]:
+# In[171]:
 
 
 letter="a"
@@ -495,7 +493,7 @@ letter in ["a","b","c"]
 #     <do a third thing if neither condition is true>
 # ```
 
-# In[130]:
+# In[172]:
 
 
 num=5
@@ -503,7 +501,7 @@ if num>4:
     print("This number is greater than four")
 
 
-# In[131]:
+# In[173]:
 
 
 num=3
@@ -513,7 +511,7 @@ if num>4:
 
 # Adding `else` lets us give instructions if our condition is `False`.
 
-# In[132]:
+# In[174]:
 
 
 num=3
@@ -525,7 +523,7 @@ else:
 
 # Finally, the `elif` command lets us split the possible values of `num` into more groups.
 
-# In[133]:
+# In[175]:
 
 
 num=8
@@ -554,7 +552,7 @@ else:
 # 
 # As our needs become more complex, we can combine conditions using Boolean Algebra operators `and` and `or`.
 
-# In[134]:
+# In[176]:
 
 
 num=5
@@ -564,7 +562,7 @@ letter="a"
 
 # This is equivalent to using Boolean values directly:
 
-# In[135]:
+# In[177]:
 
 
 True and False
@@ -572,13 +570,13 @@ True and False
 
 # Similarly:
 
-# In[136]:
+# In[178]:
 
 
 (letter in ["a","b","c"]) or num<3 
 
 
-# In[137]:
+# In[179]:
 
 
 True or False
@@ -586,13 +584,13 @@ True or False
 
 # Conditions can be grouped with parentheses, or negated with `not`)
 
-# In[138]:
+# In[180]:
 
 
 True or (False and False)
 
 
-# In[139]:
+# In[181]:
 
 
 (True or False) and not 5<3
@@ -625,7 +623,7 @@ True or (False and False)
 # 
 # A "for loop" allows us to apply the same steps to each element in a list or other iterable.  In essence, loops let us automate tasks relative to some sequence that we might *otherwise* write like this:
 
-# In[140]:
+# In[182]:
 
 
 sales=[5,2,7,9,3]
@@ -650,7 +648,7 @@ print(total_sales)
 # * `<list>` is a pre-defined list or other iterable object.
 # * **Reminder: Indentation is very important in Python and must be used consistently across the loop(s)** Only the code indented under the loop will be run in each iteration.
 
-# In[141]:
+# In[183]:
 
 
 my_nums=list(range(6))
@@ -661,7 +659,7 @@ for n in my_nums:
 
 # We can also loop within loops.  Indentation is key to control which blocks of code are executed within which loop.
 
-# In[142]:
+# In[184]:
 
 
 #Nesting loops - indentation is key!
@@ -681,7 +679,7 @@ print(newnato)
 # 
 # Loops become even more useful when combined with conditionals, to perform different steps based on each value in the loop.
 
-# In[143]:
+# In[185]:
 
 
 for number in range(10):
@@ -691,7 +689,7 @@ for number in range(10):
 
 # Recall that we can combine multiple conditions with `and`.
 
-# In[144]:
+# In[186]:
 
 
 scores=[95,90,66,83,71,78,93,81,87,81]
@@ -727,7 +725,7 @@ print(grades)
 # 
 # You can read more about the functions in the `random` package [here](https://docs.python.org/3/library/random.html).  We'll revisit packages next week!
 
-# In[145]:
+# In[187]:
 
 
 from random import choices,seed 
@@ -738,7 +736,7 @@ test=choices(population=range(100),k=50)
 print(test)
 
 
-# In[146]:
+# In[188]:
 
 
 total=0
@@ -757,7 +755,7 @@ print(total)
 # <h3><font color=blue>Exercise (Advanced)</font></h3>
 # </center>
 # 
-# 1. Use the choices function above to generate a random list of 50 numbers in 0-99. Write a loop that will find the sum of only the first 6 even numbers.
+# 1. Use the `choices` function above to generate a random list of 50 numbers in 0-99. Write a loop that will find the sum of only the first 6 even numbers.
 
 # ## Next Up (Python II):
 # * Reading and writing external files 
