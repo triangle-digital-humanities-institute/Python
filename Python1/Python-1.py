@@ -1,37 +1,57 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
-# # Python I
+# <center><h1>Python I</h1></center>
 # 
 # [*Matt Jansen, Davis Library Research Hub*](https://guides.lib.unc.edu/mattjansen)
 # 
 # October 23, 2018
 
-# **<font color=red>Note:</font>** Please begin downloading the [Anaconda distribution of Python](https://www.anaconda.com/download/) as soon as you can.  It's a large download and can be somewhat slow with a large number of attendees downloading at the same time over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.
+# **<font color=red>Note:</font>** If you haven't already, please begin downloading the [Anaconda distribution of Python](https://www.anaconda.com/download/) as soon as you can.  It's a large download and can be slow to download over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.
 # 
-# ** Goals:**
+# **Goals:**
 # 
 # * Get the Anaconda Distribution of Python 3.7 downloaded and installed on your computer
-# * Learn the types of projects Python can help you with
-# * Learn how to write and execute basic Python code with Spyder
+# * Learn to work with basic Python objects
+# * Introduce Loops and Conditionals
 # 
-# # 0. Installing Python
+# ### Why Python?
 # 
-# If you use macOS or Linux, then you most likely already have Python on your computer!  Python does not come with Windows, but it may be on your machine if you have certain software installed.
+# Python is a general-purpose programming language that has become popular in a number of application areas.  Python can be easier to learn than some other languages because it emphasizes (human) readability and flexibility.  Python is [the third most used language on GitHub](https://octoverse.github.com/projects#languages); this popularity translates into a wide variety of packages (user-developed functionality) to apply Python to different problems and tasks.
+# 
+# If you haven't worked with a programming language before, learning Python will introduce you to approaches and thought processes common to many similar programming languages.
+# 
+# #### Use Cases:
+# 
+# * Scripting: writing code to automate labor-intensive, repeptitive tasks.  For example, extracting text from thousands of pdf files, and sorting them into directories based on the resulting text files.'
+# 
+# * Quantitative analysis: specialized tools and functions for everything from fitting deep learning models with `tensorflow` to  creating interactive visualizations with `bokeh`.
+# 
+# * Natural Language Processing: extracting text from different file formats and parsing and analyzing sentiment using tools from the `NLTK` package.
+# 
+# * Web development, Image processing, Web scraping, Acessing APIs, and many more.
+# 
+# However, there are few things you can do in Python that can't also be done elsewhere!  If you already know one or more programming language, you'll have to decide where Python best fits or helps in your own workflows.
+# 
+# #### <font color=red>Warning!</font>
+# 
+# If you're already very comfortable with coding, you may find this workshop too simple.  You're welcome to come back next week for Python II, if you're already familiar with the concepts below and just need to learn the syntax.  You're also welcome to stay, review, and help other attendees!
+# 
+# <center> <h1>0. Setup</h1> </center>
+# 
+# If you use macOS or Linux, then you most likely already have Python on your computer!  Python does not come with Windows, but it may be on your machine as part of other software (e.g. ArcGIS Desktop).
 # 
 # ### Why not work with an existing installation?
 # 
-# Unless you've worked with Python already, your pre-existing installation may only include the bare minimum and may be an out of date version.  Therefore, we recommend installing a distribution, with Python and many useful add-ons.
+# Unless you've worked with Python already, your pre-existing installation may only include the bare minimum and may be an out of date version.  Therefore, we recommend installing a distribution, with Python and many useful add-ons already setup.
 # 
 # ## Anaconda distribution
 # 
-# Anaconda packages the current version of Python 2 or 3 with over 150 packages included in the installation and hundreds of other supported.  This includes many of the most heavily used packages supporting data transformation and analysis, and software to manage and add new packages.
+# Anaconda packages the current version of Python 2 or 3 with over 150 packages included in the installation and supports hundreds of others.  This includes many of the most heavily used packages supporting data transformation and analysis, and software to manage and add new packages, create virtual environments, and more.
 # 
 # [Read more here](https://docs.anaconda.com/anaconda/packages/pkg-docs)
 #     
-# [Download Anaconda Here](https://www.anaconda.com/download/)
-# 
-# Download Python 3.7, 64-bit.
+# [Download Anaconda Python 3.7, 64-bit](https://www.anaconda.com/download/)
 # 
 # ![Download](https://github.com/UNC-Libraries-data/Python/raw/master/Python1/images/Conda_dl.png)
 # 
@@ -39,19 +59,29 @@
 # 
 # In most cases, it is best to leave the default settings for installation. 
 # 
-# 
-# * If you are installing Python for the first time, select "Register Anaconda as the system Python"
-# 
 # ![Anaconda_install_settings.png](https://github.com/UNC-Libraries-data/Python/raw/master/Python1/images/Anaconda_install_settings.png)
 # 
-# * If you have Python-dependent software (e.g. ArcGIS, CAD software, etc), do not check "Register Anaconda as the system Python" or it may cause issues with your other programs.
-#     + If you're unsure, open your PC's Command Line (Start>Windows System>Command Prompt) or Mac's Terminal (Applications>Utilities>Terminal) and type `python` and press Enter.  If you already have Python you should see something like the image below - do not check Register Anaconda as the system Python.
-# ![Command Prompt Python](https://github.com/UNC-Libraries-data/Python/raw/master/Python1/images/Test_CMD.png)
+# 1. **PATH**
 # 
+#   * Do not add Anaconda to your PATH variable.
+#   
+# 2. **Registering Python**
+# 
+#   * If you are installing Python for the first time, select "Register Anaconda as the system Python"
+# 
+#   * If you have Python-dependent software (e.g. ArcGIS, CAD software, etc), do not check "Register Anaconda as the system Python" or it may cause issues with your other programs.
+#     + If you're unsure, open your PC's Command Line (Start>Windows System>Command Prompt) or Mac's Terminal (Applications>Utilities>Terminal) and type `python` and press Enter.  If you already have Python you should see something like the image below - do not check Register Anaconda as the system Python.
+#     
+#   ![Command Prompt Python](https://github.com/UNC-Libraries-data/Python/raw/master/Python1/images/Test_CMD.png)
+# 
+# 
+# 3. **Visual Studio Code**
+# 
+#   * **Skip** installing Microsoft VSCode.
 # 
 # ####  Python 2 vs Python 3
 # 
-# Both Python 2 and Python 3 are widely used in research.  Unfortunately, while both Python 2 and 3 are very similar, they are not completely compatible.  Python 3 was released in 2008, and as of 2017 nearly all important tools had been re-written or updated for Python 3.  Python 2 will no longer be supported after 2020.  This workshop will focus on Python 3.
+# Both Python 2 and Python 3 are widely used in research.  Unfortunately, while both Python 2 and 3 are very similar, they are not completely compatible.  Python 3 was released in 2008; nearly all important tools have been re-written or updated for Python 3.  Python 2 will no longer be supported after 2020.  This workshop will focus on Python 3.
 # 
 # ### Anaconda Alternative - Pyfiddle
 # 
@@ -60,6 +90,10 @@
 # ## Integrated Development Environments (IDEs)
 # 
 # While not required, an IDE can make Python easier to use.  As you gain experience, you can choose whether an IDE is right for your uses.  For the purposes of this workshop, we will use the Spyder IDE, which comes packaged with Anaconda.
+# 
+# Open Spyder:
+# * **Windows**: Start>Anaconda3 64-bit>Spyder
+# * **Mac**: Applications>Anaconda Navigator>Spyder
 # 
 # ![SpyderIDE.png](https://github.com/UNC-Libraries-data/Python/raw/master/Python1/images/SpyderIDE.png)
 # 
@@ -71,13 +105,13 @@
 # 
 # 
 
-# # 1. Entering code
+# <center> <h1>1. Entering code</h1> </center>
 # 
 # We'll begin by using Python as a simple calculator.  
 # 
 # For the purposes of this workshop, Python code will be presented in numbered grey cells as below.  Any output generated will also be displayed.
 
-# In[2]:
+# In[105]:
 
 
 2+2
@@ -98,7 +132,7 @@
 # 
 # Standard arithmetic operations are available in Python.
 
-# In[3]:
+# In[106]:
 
 
 3*3
@@ -106,22 +140,24 @@
 
 # **Note:** We can annotate our code with comments.  Python uses `#` to denote comments.  Anything typed after a `#` will be ignored on execution of the code.
 
-# In[4]:
+# In[107]:
 
 
 #1+2
 5/2 #division
 
 
-# **Exercises**
+# <center>
+# <h3>Exercises</h3>
+# </center>
 # 
-# 1. What is 126544 squared? (Note: exponentiation is denoted `**`)
+# 1. What is 126544 squared? (Exponentiation is denoted `**`)
 # 
 # 2. What is 5 divided by 0?
 # 
-# 3. Does Python follow the usual order of operations (PEMDAS)?
+# </font>
 
-# # 2. Variables
+# <center> <h1>2. Variables</h1> </center>
 # 
 # Ultimately, we need Python to store various values and objects for future re-use. Python has many default data types available.  We will focus on a few common examples.
 # 
@@ -129,7 +165,7 @@
 # 
 # We assign a value to a variable using `=`.  We do not need to declare a type or give any other information.
 
-# In[5]:
+# In[108]:
 
 
 text="Hello, World"
@@ -142,7 +178,7 @@ number=42
 # 
 # For example:
 
-# In[6]:
+# In[109]:
 
 
 notnumber="42"
@@ -150,7 +186,7 @@ notnumber="42"
 
 # Once we have defined an object, we can use it again, most simply by printing it.
 
-# In[7]:
+# In[110]:
 
 
 print(text)
@@ -162,7 +198,7 @@ print(text)
 # 
 # We can also modify the contents of objects in various ways such as redefining them or changing their type. In some cases this is crucial to how Python can work with them.  For example:
 
-# In[8]:
+# In[111]:
 
 
 print(number+58)
@@ -171,13 +207,13 @@ print(number+58)
 
 # So we can add a value, 58, to our number object, but we can't add our notnumber object.  Let's double check what notnumber contains:
 
-# In[9]:
+# In[112]:
 
 
 print(notnumber)
 
 
-# In[10]:
+# In[113]:
 
 
 print(number)
@@ -185,7 +221,7 @@ print(number)
 
 # Even those these appear the same to our eye, Python uses them very differently.  Remember how we defined notnumber?  Let's check what data type Python is using with `type`.
 
-# In[11]:
+# In[114]:
 
 
 type(notnumber)
@@ -195,7 +231,7 @@ type(notnumber)
 # 
 # The `int` function takes an object as an argument and converts it to an `int` (integer) numeric object.  The usage is as follows:
 
-# In[12]:
+# In[115]:
 
 
 newnumber=int(notnumber)
@@ -205,7 +241,7 @@ type(newnumber)
 
 # `int` objects can only hold integer values.  If you have decimal values, use the `float` (floating decimal) type instead.
 
-# In[13]:
+# In[116]:
 
 
 myfloat=float(newnumber)+0.5
@@ -214,13 +250,20 @@ print(myfloat)
 
 # Now we can try adding objects again.
 
-# In[14]:
+# In[117]:
 
 
 print(number+newnumber)
 
 
-# **Exercise**
+# ### Getting help with functions
+# 
+# You can access documentation for functions in Python with `help`, for example `help(sum)`.  Base Python functions and those provided by packages also usually have online documentation that may be easier to read.
+# 
+# <center>
+# <h3>Exercises</h3>
+# </center>
+# 
 # 1. Define two variables, `j` and `k` with values 37 and 52 respectively.
 # 2. What is the sum of `j` and `k`? The product?  Write code for each of these in the editor window.
 # 3. Now define `j` and `k` to be 8 and 3.  Re-use your code from the editor to determine their sum and product.
@@ -229,7 +272,7 @@ print(number+newnumber)
 # 
 # Python's lists store objects in a sequence.  For example, we can save numbers and characters:
 
-# In[15]:
+# In[118]:
 
 
 my_list=[1,2,3,"four"]
@@ -238,7 +281,7 @@ print(my_list)
 
 # We can also directly place previously defined objects into a list (even other lists!):
 
-# In[16]:
+# In[119]:
 
 
 obj0=12
@@ -250,18 +293,25 @@ print(my_list1)
 
 # Once we've defined a list, we can add more elements to it with the `.append` function.
 
-# In[17]:
+# In[120]:
 
 
 my_list1.append("dog")
 print(my_list1)
 
 
-# **Exercise** 
+# <center>
+# <h3>Exercise</h3>
+# </center>
 # 
-# Create a list of:
-#  * your favorite color
-#  * your two favorite holidays (as a list within the list)
+# 1. Create a list of:
+#      * your favorite color
+#      * your two favorite holidays (as a list within the list)
+#     
+#     For example:
+#     `["red",["Halloween","New Years"]]`
+#  
+# 
 # 
 # ### Indexing
 # 
@@ -269,9 +319,9 @@ print(my_list1)
 # 
 # We use `[` and `]` to contain indices.
 # 
-# ** Most importantly, ** Python starts counting at **zero**.  So confusingly, the first element in your list is denoted `[0]`, the second `[1]`, the third `[2]` and so on.
+# Most importantly,**Python starts counting at zero**: The first element in your list is denoted `[0]`, the second `[1]`, the third `[2]` and so on.
 
-# In[18]:
+# In[121]:
 
 
 my_list2 = ["cat","dog","parrot"]
@@ -280,7 +330,7 @@ print(my_list2[2])
 
 # We can use multiple indices for lists within lists, one after the other:
 
-# In[19]:
+# In[122]:
 
 
 #recall
@@ -290,7 +340,7 @@ print(my_list1[2][1]) #i.e. the second element of the list held in the third ele
 
 # The `len` function provides the length of an object in Python.
 
-# In[20]:
+# In[123]:
 
 
 print(len(my_list1))
@@ -298,7 +348,7 @@ print(len(my_list1))
 
 # If `len(my_new_list)=10` that means there are ten elements in the list, so the indices are 0 through 9.  We can use the `range` function with `len` to generate a list of indices.
 
-# In[21]:
+# In[124]:
 
 
 my_indices1 = list(range(len(my_list1)))
@@ -311,7 +361,7 @@ print(my_indices1)
 # 
 # For example:
 
-# In[22]:
+# In[125]:
 
 
 my_str="The quick brown fox jumps over the lazy dog."
@@ -321,7 +371,7 @@ print(my_str[4:9]) #4:9 indicates characters 4-8
 
 # We can also work from right to left using negative numbers.  Furthermore, using `:` ranges with one end blank will automatically go to the end of the object.
 
-# In[23]:
+# In[126]:
 
 
 print(my_str[-4:])
@@ -330,7 +380,7 @@ print(my_str[:4])
 
 # We can still use multiple nested indices across sequential data types.  For instance, a list of strings:
 
-# In[24]:
+# In[127]:
 
 
 ["home","away"][0][0:3]
@@ -338,60 +388,53 @@ print(my_str[:4])
 
 # Unfortunately, not all data types are sequential - indices will not work on numeric values:  
 # 
-# **Exercise**
+# <center>
+# <h3>Exercises</h3>
+# </center>
 # 
-# 1. Try to use indexing to get the tenth digit of `my_pi` as defined below
-
-# In[25]:
-
-
-my_pi=3.141592653589793
-
-
-# 2. Can you think of a way we could change pi to make indexing work on it?
-
-# 3. Below is a list of lists containing the NATO phonetic codes for each letter of the alphabet.  Each list within `nato` contains a letter of the alphabet and its corresponding code.
-
-# In[26]:
-
-
-nato=[["A","Alfa"],
-      ["B","Bravo"],
-      ["C","Charlie"],
-      ["D","Delta"],
-      ["E","Echo"],
-      ["F","Foxtrot"],
-      ["G","Golf"],
-      ["H","Hotel"],
-      ["I","India"],
-      ["J","Juliett"],
-      ["K","Kilo"],
-      ["L","Lima"],
-      ["M","Mike"],
-      ["N","November"],
-      ["O","Oscar"],
-      ["P","Papa"],
-      ["Q","Quebec"],
-      ["R","Romeo"],
-      ["S","Sierra"],
-      ["T","Tango"],
-      ["U","Uniform"],
-      ["V","Victor"],
-      ["W","Whiskey"],
-      ["X","X-ray"],
-      ["Y","Yankee"],
-      ["Z","Zulu"]]
-
-
+# 1. Try to use indexing to get the tenth digit of `my_pi` as defined below.  Does it work as defined?  Do we need to change the variable somehow?
+# ```
+# my_pi=3.141592653589793
+# ```
+# 2. Below is a list of lists containing the NATO phonetic codes for each letter of the alphabet.  Each list within `nato` contains a letter of the alphabet and its corresponding code.
+# ```
+# nato=[["A","Alfa"],
+#           ["B","Bravo"],
+#           ["C","Charlie"],
+#           ["D","Delta"],
+#           ["E","Echo"],
+#           ["F","Foxtrot"],
+#           ["G","Golf"],
+#           ["H","Hotel"],
+#           ["I","India"],
+#           ["J","Juliett"],
+#           ["K","Kilo"],
+#           ["L","Lima"],
+#           ["M","Mike"],
+#           ["N","November"],
+#           ["O","Oscar"],
+#           ["P","Papa"],
+#           ["Q","Quebec"],
+#           ["R","Romeo"],
+#           ["S","Sierra"],
+#           ["T","Tango"],
+#           ["U","Uniform"],
+#           ["V","Victor"],
+#           ["W","Whiskey"],
+#           ["X","X-ray"],
+#           ["Y","Yankee"],
+#           ["Z","Zulu"]]
+# ```
+# 
 # * What is the fifteenth letter of the alphabet?
 # * What is the code for the twenty-third letter of the alphabet?
 # * What is the fourth letter of the code for the eighth letter of the alphabet?
-
+# 
 # There are several other important data types we won't cover today.  We will cover Python's data type for mapping between values, dictionaries, in Python II.
 # 
 # Read more about Python's built-in data types <a href=https://docs.python.org/3/library/stdtypes.html>here</a>.
-# 
-# # 3. Conditionals
+
+# <center> <h1>3. Conditionals</h1> </center>
 # 
 # ## Conditions and Booleans
 # 
@@ -414,14 +457,14 @@ nato=[["A","Alfa"],
 # 
 # Each condition considered evaluates to a Boolean value - `True` or `False`.
 
-# In[27]:
+# In[128]:
 
 
 num=5
 num<3
 
 
-# In[28]:
+# In[129]:
 
 
 letter="a"
@@ -452,7 +495,7 @@ letter in ["a","b","c"]
 #     <do a third thing if neither condition is true>
 # ```
 
-# In[29]:
+# In[130]:
 
 
 num=5
@@ -460,7 +503,7 @@ if num>4:
     print("This number is greater than four")
 
 
-# In[30]:
+# In[131]:
 
 
 num=3
@@ -470,7 +513,7 @@ if num>4:
 
 # Adding `else` lets us give instructions if our condition is `False`.
 
-# In[31]:
+# In[132]:
 
 
 num=3
@@ -482,7 +525,7 @@ else:
 
 # Finally, the `elif` command lets us split the possible values of `num` into more groups.
 
-# In[32]:
+# In[133]:
 
 
 num=8
@@ -494,11 +537,24 @@ else:
     print("This number is greater than ten")
 
 
-# ## Compound Conditions
+# <center>
+# <h3>Exercise</h3>
+# </center>
+# 
+# 1. Using indexing, write a conditional that print a word only if it ends with the letter 'e'.
+# Template:
+# ```
+# testword=<your choice of word>
+# if <condition using testword>:
+#         print(testword)
+# ```
+# 
+
+# ## <font color=blue>Compound Conditions (Advanced)</font>
 # 
 # As our needs become more complex, we can combine conditions using Boolean Algebra operators `and` and `or`.
 
-# In[33]:
+# In[134]:
 
 
 num=5
@@ -508,7 +564,7 @@ letter="a"
 
 # This is equivalent to using Boolean values directly:
 
-# In[34]:
+# In[135]:
 
 
 True and False
@@ -516,43 +572,60 @@ True and False
 
 # Similarly:
 
-# In[35]:
+# In[136]:
 
 
 (letter in ["a","b","c"]) or num<3 
 
 
-# In[36]:
+# In[137]:
 
 
 True or False
 
 
-# Conditions can be grouped with 
+# Conditions can be grouped with parentheses, or negated with `not`)
 
-# In[37]:
+# In[138]:
 
 
 True or (False and False)
 
 
-# In[38]:
+# In[139]:
 
 
-(True or False) and False
+(True or False) and not 5<3
 
 
-# Remember, complex conditions can be simplified: `(True or False) and False` is equivalent to `True and False` since `(True or False)` evaluates to `True`.
+# Remember, complex conditions can be simplified: 
 # 
-# Conditions become far more powerful, when combined with Loops.
+# `(True or False) and False` is equivalent to `True and False` since 
+# 
+# `(True or False)` evaluates to `True`.
+# 
+# <center>
+# <h3><font color=blue>Exercise (Advanced)</font></h3>
+# </center>
+# 
+# 1. Define `a` and `b` as conditions evaluating to True and False.  Write a line corresponding to exclusive or - it should retrun `True` if only one, but not both of `a` and `b` are `True`. Check your function against the built-in exclusive or operator, `^`.
+# 
+# ```
+# a=True
+# b=False
+# # should return True
+# a=False
+# b=False
+# # should return False
+# ```
 
-# # 4. Loops 
+# <center> <h1>4. Loops</h1> </center>
 # 
 # ## For Loops
 # 
-# A "for loop" allows us to apply the same steps to each element in a list or other iterable.  In essence, loops let us automate tasks relative to some sequence that we might otherwise write like this:
+# A "for loop" allows us to apply the same steps to each element in a list or other iterable.  In essence, loops let us automate tasks relative to some sequence that we might *otherwise* write like this:
 
-# In[39]:
+# In[140]:
 
 
 sales=[5,2,7,9,3]
@@ -577,7 +650,7 @@ print(total_sales)
 # * `<list>` is a pre-defined list or other iterable object.
 # * **Reminder: Indentation is very important in Python and must be used consistently across the loop(s)** Only the code indented under the loop will be run in each iteration.
 
-# In[40]:
+# In[141]:
 
 
 my_nums=list(range(6))
@@ -588,7 +661,7 @@ for n in my_nums:
 
 # We can also loop within loops.  Indentation is key to control which blocks of code are executed within which loop.
 
-# In[41]:
+# In[142]:
 
 
 #Nesting loops - indentation is key!
@@ -602,38 +675,13 @@ for index in range(5):
 print(newnato)
 
 
-# ## While Loops
-# 
-# The while loop behaves a little differently, though it has a similar format, using `while` instead of `for`.  Instead of looping through a pre-defined set, a while loop continues running until a certain condition is no longer true.
+# Notice that before the loop begins we create an **empty list**.  This is a common stragegy to collect outputs from some or all of the loops iterations.  This can generalize to numbers by defining a zero-valued variable before the loop and modifying it with each iteration.
 
-# In[42]:
-
-
-a=0
-while a<5:
-    a=a+1
-    print(a)
-
-
-# Because there isn't a pre-defined end to a while loop, they can also be dangerous to your code!  If you aren't careful your while loop can go on forever.  A trivial example uses `while True:`.
-
-# In[43]:
-
-
-#Warning: this will run forever...
-#while True:
-#    print("oops")
-
-
-# If you run something like this, or need to stop code currently executing for any reason, you can either:
-#  * Press the red square at the top corner of the console window in Spyder
-#  * Press CTRL+c
-
-# ## Loops with Conditionals
+# ## For Loops with Conditionals
 # 
 # Loops become even more useful when combined with conditionals, to perform different steps based on each value in the loop.
 
-# In[44]:
+# In[143]:
 
 
 for number in range(10):
@@ -643,19 +691,19 @@ for number in range(10):
 
 # Recall that we can combine multiple conditions with `and`.
 
-# In[45]:
+# In[144]:
 
 
 scores=[95,90,66,83,71,78,93,81,87,81]
 grades=[]
 for score in scores:
-    if score<80 and score>=70:
-        grade="C"
-    elif score>=90:
+    if score>=90:
         grade="A"
-    elif score<90 and score>=80:
+    elif score>=80:
         grade="B"
-    elif score<70 and score>=60:
+    elif score>=70:
+        grade="C"
+    elif score>=60:
         grade="D"
     else:
         grade="F"
@@ -663,18 +711,60 @@ for score in scores:
 print(grades)
 
 
-# ** Exercise: **
-# 1. How could I change the `for scores in scores` loop above to no longer need the `and` statements?  (Remember how `elif` works!).
+# **Exercise:**
+# 1. Why do I only specify `score>=80` etc. in the `elif` statements?
 # 2. How many numbers between 1 and 100 are divisible by 7?
 # 3. Make a new list of NATO codes keeping only those that use the letter "a" in their code.
 
+# ### <font color=blue>Breaks(Advanced)</font>
+# 
+# We can use the break statement with a conditional to stop the loop if a certain condition occurs.
+# 
+# First, lets get some new functions from a package called `random`.  
+# * `from random import choices,seed` makes the functions `choices` and `seed` from the `random` package available in our Python session.
+# * `choices(population=range(100),k=50)` will sample 50 random numbers (with replacement) from the numbers 0-99.  
+# * `seed(1234)` locks the pseudo-random number generator so your results should match mine - try running this again without `seed`!
+# 
+# You can read more about the functions in the `random` package [here](https://docs.python.org/3/library/random.html).  We'll revisit packages next week!
+
+# In[145]:
+
+
+from random import choices,seed 
+
+seed(1234)
+
+test=choices(population=range(100),k=50)
+print(test)
+
+
+# In[146]:
+
+
+total=0
+for number in test:
+    if number>10:
+        total=total+number
+    else:
+        print("This number is too low:",number)
+        break
+print(total)
+
+
+# What does the above loop do?  How would this run differently if we disabled the break by commenting (i.e. `#break`)?
+# 
+# <center>
+# <h3><font color=blue>Exercise (Advanced)</font></h3>
+# </center>
+# 
+# 1. Use the choices function above to generate a random list of 50 numbers in 0-99. Write a loop that will find the sum of only the first 6 even numbers.
+
 # ## Next Up (Python II):
 # * Reading and writing external files 
-# * Saving and executing .py scripts outside Spyder
 # * Dictionaries
 # * Comprehensions
 # * User-defined Functions
-# * Error handling with Try and Except
+# * Packages
 # * Survey of useful packages for Data Analysis
 # 
 # ## Questions?
