@@ -61,7 +61,7 @@
 # 
 # 1.  Write pseudocode to summarize what's happening in the following code:
 
-# In[19]:
+# In[45]:
 
 
 random_words=["statement", "toy", "cars", "shoes", "ear", "busy", 
@@ -93,7 +93,7 @@ for word in random_words:
 # 
 # Here's a possible answer to the previous exercise.
 
-# In[20]:
+# In[46]:
 
 
 #1. Get or define the list my_numbers
@@ -132,7 +132,7 @@ my_numbers=list(range(100))
 # 
 # Once you've installed a package, you can load it into your current Python session with the `import` function.  Otherwise these functions will not be available.
 
-# In[21]:
+# In[47]:
 
 
 import os #functions for working with your operating system
@@ -144,7 +144,7 @@ import os #functions for working with your operating system
 # 
 # If a file is located in your working directory, its relative path is just the name of the file!
 
-# In[22]:
+# In[48]:
 
 
 myfile="C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales/day1.txt" #absolute path
@@ -159,7 +159,7 @@ os.path.isfile(myfile) #check if Python can find my file
 #         `r"C:\Users\mtjansen\Desktop"`
 # 
 
-# In[23]:
+# In[49]:
 
 
 os.chdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales") #set working directory
@@ -169,7 +169,7 @@ os.path.isfile(myfile)
 
 # Once we've set a working directory, we can get a list of all files with `os.listdir(".")`.
 
-# In[24]:
+# In[50]:
 
 
 print(os.listdir("."))
@@ -191,7 +191,7 @@ print(os.listdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales")) #alte
 # 
 # Best practices for reading and writing files use the `with` function to make sure files are automatically closed.
 
-# In[25]:
+# In[51]:
 
 
 with open('Day1.txt',"r") as txtfile: #"r" indicates that we are reading the textfile and not writing to it
@@ -200,14 +200,14 @@ with open('Day1.txt',"r") as txtfile: #"r" indicates that we are reading the tex
 print(raw)
 
 
-# In[26]:
+# In[52]:
 
 
 rawlist=raw.splitlines() #.splitlines() uses each new line to split the string into a list
 print(rawlist)
 
 
-# In[27]:
+# In[53]:
 
 
 total=0
@@ -219,7 +219,7 @@ print(total)
 
 # Let's write a new file with the total.
 
-# In[28]:
+# In[54]:
 
 
 total=str(total) #we need to convert numerics to strings before writing
@@ -243,7 +243,7 @@ with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that 
 # 
 # A dictionary is defined as follows:
 
-# In[29]:
+# In[55]:
 
 
 class_dict = {"course":"Python II","location":"Davis Library","time":"4pm"}
@@ -252,7 +252,7 @@ type(class_dict)
 
 # In this case, `"course"`, `"location"`, and `"time"` serve as the "keys" for this dictionary.  Keys play a similar role to the indices we use for lists (or strings).  We can print a particular value by placing its key in the same square brackets `[]` used by list indices.
 
-# In[30]:
+# In[56]:
 
 
 print(class_dict["location"])
@@ -262,7 +262,7 @@ print(class_dict["location"])
 # 
 # We can also generate a list of all of the keys for a dictionary using the `.keys()` method. 
 
-# In[31]:
+# In[57]:
 
 
 print(class_dict.keys())
@@ -272,7 +272,7 @@ print(class_dict.keys())
 # 
 # Python provides some shortcuts to generating lists and dictionaries, especially those that you might (now) generate with a list.  For example, let's generate a list of the square of each number from 1 to 15.
 
-# In[32]:
+# In[58]:
 
 
 squares=[]
@@ -283,7 +283,7 @@ print(squares)
 
 # Using a "comprehension", we can shorten this to a single line, effectively bringing the loop inside the `[]` used to define the list.
 
-# In[33]:
+# In[59]:
 
 
 squares=[x**2 for x in range(1,16)]
@@ -292,7 +292,7 @@ print(squares)
 
 # The same general format holds for defining dictionaries.
 
-# In[34]:
+# In[60]:
 
 
 squaresdict={k:k**2 for k in range(1,16)}
@@ -301,7 +301,7 @@ print(squaresdict)
 
 # We can include conditional statements at the end of the comprehension to build more flexible comprehensions.
 
-# In[35]:
+# In[61]:
 
 
 sentence="the quick brown fox jumped over the lazy dog"
@@ -315,6 +315,8 @@ print([w for w in sentence if len(w)>4])
 # </center>
 # 
 # 1. Write a list comprehension to create a list of just the values (i.e. the squares) from `squaresdict`.
+# 
+# 2. Write a list comprehension with `os.listdir` to list all of the files in a directory that have a particular extension (e.g. end with .txt).  Try it against a folder in your computer with at least one such file.
 
 # # Defining your own Functions
 # 
@@ -329,7 +331,7 @@ print([w for w in sentence if len(w)>4])
 # 
 # The `mean` function below returns the mean of a list of numbers.  (Base Python does not include a function for the mean.)
 
-# In[36]:
+# In[62]:
 
 
 def mean(number_list):
@@ -356,7 +358,7 @@ print(mean(numbers))
 # * Test your function(s) with the lists below:
 # 
 
-# In[37]:
+# In[63]:
 
 
 data1 = list(range(1,100))
@@ -370,7 +372,7 @@ data2 = normal(loc=0,scale=2,size=100) #scale=2 defines the standard deviation a
 # 
 # Errors and warnings are a regular occurrence in coding, and an important part of the learning process.  In some cases, they can also be useful in designing an algorithm.  For example, suppose we have a stream of user entered data that is supposed to contain the user's age in years.  You might expect to get a few errors or nonsense entries.
 
-# In[38]:
+# In[64]:
 
 
 user_ages=["34","27","54","19","giraffe","15","83","61","43","91","sixteen"]
@@ -378,7 +380,7 @@ user_ages=["34","27","54","19","giraffe","15","83","61","43","91","sixteen"]
 
 # It would be useful to convert these values to a numeric type to get the average age of our users, but we want to build something that can set non-numeric values aside.  We can attempt to convert to numeric and give Python instructions for errors with a `try`-`except` statement:
 
-# In[39]:
+# In[65]:
 
 
 ages=[]
@@ -417,7 +419,7 @@ print(problems)
 # Download the csv file <a href="http://gis.unc.edu/instruction/Python/CountyHealthData_2014-2015.csv"> 
 # CountyHealthData_2014-2015.csv</a>.
 
-# In[41]:
+# In[66]:
 
 
 import pandas as pd #pd shortens the name to make it easier to call functions from pandas
@@ -428,7 +430,7 @@ df = pd.read_csv("CountyHealthData_2014-2015.csv")
 df.head()
 
 
-# In[ ]:
+# In[67]:
 
 
 df.groupby("Region").mean()
@@ -452,13 +454,21 @@ df.groupby("Region").mean()
 # 
 # Python's built-in `urllib.request` package makes it relatively easy to download the underlying html from a web page. Note that the `from package import function` notation used here allows you to selectively import only parts of a package as needed.
 
-# In[ ]:
+# In[68]:
 
 
 from urllib.request import urlopen
-page = urlopen("https://unc-libraries-data.github.io/Python/Python1/Python-1.html")  #The Python 1 materials!
+from bs4 import BeautifulSoup
+page = urlopen("https://unc-libraries-data.github.io/Python/Python2/Python-2.html")  #The Python 2 materials!
 html = page.read()
-print(html[:1000]) #print only the first 1000 characters
+print(html[:300]) #print only the first 300 characters
+
+
+# In[69]:
+
+
+soup=BeautifulSoup(html,"html.parser")
+[x.text for x in soup.find_all("h1")] # find all h1 (top-level headers)
 
 
 # **Note:** Always check a site's Terms of Service before scraping it.  Some sites explicitly prohibit web scraping of their data.
@@ -494,9 +504,3 @@ print(html[:1000]) #print only the first 1000 characters
 # * <a href="http://www.karsdorp.io/python-course/">Python Programming for the Humanities</a>
 # 
 # 
-
-# In[ ]:
-
-
-
-
