@@ -7,15 +7,36 @@
 # 
 # October 30, 2018
 # 
-# ** Abstract:**
+# **Abstract:**
 # This workshop will:
 # * Briefly review the basics covered in Python 1
 # * Learn how to work with files and directory
-# * Consider new data types and statements
+# * Introduce dictionaries
 # * Survey some of the more important data-related packages
 
 # ### NOTE:
-# This workshop assumes that you already have the <a href="https://www.anaconda.com/download/">Anaconda distribution</a> of Python 3.6 installed.  Detailed installation instructions are available in the <a href="http://gis.unc.edu/instruction/Python/Python_1_S18.html">Python 1 materials</a>. 
+# This workshop assumes that you already have the <a href="https://www.anaconda.com/download/">Anaconda distribution</a> of Python 3.7 installed.  Detailed installation instructions are available in the [Python I materials](https://unc-libraries-data.github.io/Python/Python1/Python-1.html). 
+# 
+# # Review
+# 
+# Last week, we introduced:
+# 
+# * Numeric types (`int`,`float`): `my_int=4`
+# * Strings (`str`): `my_string="cat"`
+# * Lists (`list`): `my_list=[my_int,my_string]`
+# * For loops:
+# ```
+# for k in range(10):
+#     print(k)
+# ```
+# * Conditionals
+# ```
+# if my_string=="cat":
+#     print("This is a cat!")
+# else:
+#     print("This is not a cat!")
+# ```
+# 
 # 
 # # Pseudocode
 # 
@@ -23,19 +44,22 @@
 # 
 # Pseudocode is essentially a first draft of your code, written in English for **human consumption**, though with the tools of your programming language in mind.  For example, we might write pseudocode for extracting text from pdf files as:
 # 
-# 1. Set Working Directory
-# 2. Loop through each pdf in the directory:
-#     * open the pdf file
-#     * extract text
-#     * check length of text extracted
-#         * if length is zero: add to problems list
-#         * otherwise, add to output file
-# 3. Write output file(s)
+#     1. Set Working Directory
+#     2. Loop through each pdf in the directory:
+#         * open the pdf file
+#         * extract text
+#         * check length of text extracted
+#             * if length is zero: add to problems list
+#             * otherwise, add to output file
+#     3. Write output file(s)
 # 
 # This process can divide a complicated task into more digestible parts.  You may not know how to open a pdf file or extract text from it, but you'll often have better luck finding existing help online on smaller tasks like these than with your overall goal or project.
 # 
-# **Exercise:**
-# * Write pseudocode to summarize what's happening in the following code:
+# <center>
+# <h3>Exercises</h3>
+# </center>
+# 
+# 1.  Write pseudocode to summarize what's happening in the following code:
 
 # In[19]:
 
@@ -56,10 +80,10 @@ for word in random_words:
         if char in vowels:
             count=count+1
     if count>=3:
-        output.append(word)
+        output.append([word,count])
 
 
-# * Write pseudocode to check an arbitrary list of numbers, `my_numbers`, to find all even numbers and convert them to odd numbers by adding one.  Put the resulting numbers into a new list `my_numbers2`.  (Recall `for` loops ,`if` conditions, and the modulo function `%` from Python 1.)
+# 2.  Write pseudocode to check an arbitrary list of numbers, `my_numbers`, to find all even numbers and convert them to odd numbers by adding one.  Put the resulting numbers into a new list `my_numbers2`.  (Recall `for` loops ,`if` conditions, and the modulo function `%` from Python 1.)
 # 
 # # Comments
 # 
@@ -69,7 +93,7 @@ for word in random_words:
 # 
 # Here's a possible answer to the previous exercise.
 
-# In[1]:
+# In[20]:
 
 
 #1. Get or define the list my_numbers
@@ -86,19 +110,29 @@ my_numbers=list(range(100))
     #3c. Append the resulting number to the my_numbers2 list.
 
 
-# **Exercise:**
+# <center>
+# <h3>Exercise</h3>
+# </center>
 # 
-# * Use your own pseudocode or the example above as an outline to fill in with Python code.  Test your code with the `my_numbers` object defined above.
+# 1. Use your own pseudocode or the example above as an outline to fill in with Python code.  Test your code with the `my_numbers` object defined above.
 
 # # Reading and Writing Files from Python
 # 
 # ## Packages
 # 
+# ### Installation
+# 
 # Packages provide additional tools and functions not present in base Python.  Python includes a number of packages to start with, and others can be installed using `pip install <package name>` and/or `conda install <package name>` commands **in your terminal**. 
 # 
-# Before you can use these functions, you'll need to load them with with the `import` function.
+# Open your terminal by:
+# * (PC) Start > Anaconda3(64-bit) > Anaconda Prompt
+# * (Mac) Finder > Applications > Anaconda Navigator > Environments Tab > (play button listed next to "root") > Open Terminal
+# 
+# ### Loading
+# 
+# Once you've installed a package, you can load it into your current Python session with the `import` function.  Otherwise these functions will not be available.
 
-# In[4]:
+# In[21]:
 
 
 import os #functions for working with your operating system
@@ -109,36 +143,44 @@ import os #functions for working with your operating system
 # To open a file with Python, you'll need to tell your computer where it's located on your computer.  You can specify the entire absolute filepath (starting with C:\ on PC or / on Mac), or you can set a working directory and work with relative file paths.  
 # 
 # If a file is located in your working directory, its relative path is just the name of the file!
-# 
-# **Note:** Windows filepaths use `\`, which Python interprets as escape characters.  File paths need to be modified to either use `/` or `\\` in place of `\`.
 
-# In[2]:
+# In[22]:
 
 
-myfile="C:/Users/mtjansen/Dropbox/Python_Sales/day1.txt" #absolute path
+myfile="C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales/day1.txt" #absolute path
 os.path.isfile(myfile) #check if Python can find my file 
 
 
-# In[3]:
+# #### Windows Paths
+# Windows filepaths use `\`, which Python interprets as *escape characters*.  This can be fixed in several ways:
+# 1. Replace `\` with `/`.
+# 2. Replace `\` with `\\`.
+# 3. Preface your path with `r`: 
+#         `r"C:\Users\mtjansen\Desktop"`
+# 
+
+# In[23]:
 
 
-os.chdir("C:/Users/mtjansen/Dropbox/Python_Sales") #set working directory
+os.chdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales") #set working directory
 myfile="day1.txt"
 os.path.isfile(myfile)
 
 
 # Once we've set a working directory, we can get a list of all files with `os.listdir(".")`.
 
-# In[4]:
+# In[24]:
 
 
 print(os.listdir("."))
-print(os.listdir("C:/Users/mtjansen/Dropbox/Python_Sales")) #alternatively we can specify a folder
+print(os.listdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales")) #alternatively we can specify a folder
 
 
-# **Exercise:**
+# <center>
+# <h3>Exercise</h3>
+# </center>
 # 
-# Download the zipped data availalble <a href="http://gis.unc.edu/instruction/Python/Python_Sales/Python_Sales.zip">here</a>. Unzip them somewhere on your computer.
+# Download the zipped data availalble [here](https://github.com/UNC-Libraries-data/Python/raw/master/Python2/Python_Sales/Python_Sales.zip). Unzip them somewhere on your computer.
 # 
 # Use `import os` and `os.chdir` to set your working directory to the unzipped folder "Python Sales".  Use `os.listdir` to check what files are stored there.
 # 
@@ -149,7 +191,7 @@ print(os.listdir("C:/Users/mtjansen/Dropbox/Python_Sales")) #alternatively we ca
 # 
 # Best practices for reading and writing files use the `with` function to make sure files are automatically closed.
 
-# In[5]:
+# In[25]:
 
 
 with open('Day1.txt',"r") as txtfile: #"r" indicates that we are reading the textfile and not writing to it
@@ -158,14 +200,14 @@ with open('Day1.txt',"r") as txtfile: #"r" indicates that we are reading the tex
 print(raw)
 
 
-# In[6]:
+# In[26]:
 
 
-rawlist=raw.split("\n") #.split("\n") uses each new line, denoted by "\n" to split the string into a list
+rawlist=raw.splitlines() #.splitlines() uses each new line to split the string into a list
 print(rawlist)
 
 
-# In[7]:
+# In[27]:
 
 
 total=0
@@ -177,7 +219,7 @@ print(total)
 
 # Let's write a new file with the total.
 
-# In[8]:
+# In[28]:
 
 
 total=str(total) #we need to convert numerics to strings before writing
@@ -185,9 +227,11 @@ with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that 
     txtfile.write(total)
 
 
-# ** Exercise: **
+# <center>
+# <h3>Exercises</h3>
+# </center>
 # 
-# * Use a loop to extend the above to get the total for each of the three files, Day1.txt, Day2.txt, and Day3.txt. Create a new file that contains the overall total.  There shouldn't be any sales over 100, so if you find any exclude them!
+# 1. Use a loop to extend the above to get the total for each of the three files, Day1.txt, Day2.txt, and Day3.txt. Create a new file that contains the overall total.  There shouldn't be any sales over 100, so if you find any exclude them!
 
 # # Data Objects: continued
 # 
@@ -195,26 +239,30 @@ with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that 
 # 
 # ## Dictionaries
 # 
-# Dictionaries provide a "mapping object"; instead of an index, they used named "keys" to organized data.  Dictionaries also benefit from faster performance than lists in most cases, due to their use of <a href="https://en.wikipedia.org/wiki/Hash_table">hash tables</a>.  A dictionary is defined as follows:
+# Dictionaries provide a "mapping object"; instead of an index, they used named "keys" to organized data.  Dictionaries also benefit from faster performance than lists in most cases, due to their use of <a href="https://en.wikipedia.org/wiki/Hash_table">hash tables</a>.  
+# 
+# A dictionary is defined as follows:
 
-# In[9]:
+# In[29]:
 
 
 class_dict = {"course":"Python II","location":"Davis Library","time":"4pm"}
 type(class_dict)
 
 
-# In this case, `"course"`, `"location"`, and `"time"` serve as the "keys" for this dictionary.  They serve to index a list, like the numbers we use to index lists.  We can print a particular value by placing its key in the same square brackets `[]` used by list indices.
+# In this case, `"course"`, `"location"`, and `"time"` serve as the "keys" for this dictionary.  Keys play a similar role to the indices we use for lists (or strings).  We can print a particular value by placing its key in the same square brackets `[]` used by list indices.
 
-# In[10]:
+# In[30]:
 
 
 print(class_dict["location"])
 
 
+# A numeric index **will not** work with dictionaries.
+# 
 # We can also generate a list of all of the keys for a dictionary using the `.keys()` method. 
 
-# In[8]:
+# In[31]:
 
 
 print(class_dict.keys())
@@ -224,7 +272,7 @@ print(class_dict.keys())
 # 
 # Python provides some shortcuts to generating lists and dictionaries, especially those that you might (now) generate with a list.  For example, let's generate a list of the square of each number from 1 to 15.
 
-# In[6]:
+# In[32]:
 
 
 squares=[]
@@ -235,7 +283,7 @@ print(squares)
 
 # Using a "comprehension", we can shorten this to a single line, effectively bringing the loop inside the `[]` used to define the list.
 
-# In[7]:
+# In[33]:
 
 
 squares=[x**2 for x in range(1,16)]
@@ -244,18 +292,44 @@ print(squares)
 
 # The same general format holds for defining dictionaries.
 
-# In[8]:
+# In[34]:
 
 
 squaresdict={k:k**2 for k in range(1,16)}
 print(squaresdict)
 
 
+# We can include conditional statements at the end of the comprehension to build more flexible comprehensions.
+
+# In[35]:
+
+
+sentence="the quick brown fox jumped over the lazy dog"
+sentence=sentence.split(" ")
+print(sentence)
+print([w for w in sentence if len(w)>4])
+
+
+# <center>
+# <h3>Exercises</h3>
+# </center>
+# 
+# 1. Write a list comprehension to create a list of just the values (i.e. the squares) from `squaresdict`.
+
 # # Defining your own Functions
 # 
-# While Python (and its available packages) provide a wide variety of functions, sometimes it's useful to create your own.  Python's syntax for defining a function to return the mean of a list of numbers.  (Base Python does not include a function for the mean.)
+# While Python (and its available packages) provide a wide variety of functions, sometimes it's useful to create your own.  Python's syntax for defining a function is as follows:
+# 
+# ```
+# def <function_name> ( <arguments> ):
+#     <code depending on arguments>
+#     return <value>
+#         
+# ```
+# 
+# The `mean` function below returns the mean of a list of numbers.  (Base Python does not include a function for the mean.)
 
-# In[11]:
+# In[36]:
 
 
 def mean(number_list):
@@ -282,7 +356,7 @@ print(mean(numbers))
 # * Test your function(s) with the lists below:
 # 
 
-# In[18]:
+# In[37]:
 
 
 data1 = list(range(1,100))
@@ -296,7 +370,7 @@ data2 = normal(loc=0,scale=2,size=100) #scale=2 defines the standard deviation a
 # 
 # Errors and warnings are a regular occurrence in coding, and an important part of the learning process.  In some cases, they can also be useful in designing an algorithm.  For example, suppose we have a stream of user entered data that is supposed to contain the user's age in years.  You might expect to get a few errors or nonsense entries.
 
-# In[10]:
+# In[38]:
 
 
 user_ages=["34","27","54","19","giraffe","15","83","61","43","91","sixteen"]
@@ -304,7 +378,7 @@ user_ages=["34","27","54","19","giraffe","15","83","61","43","91","sixteen"]
 
 # It would be useful to convert these values to a numeric type to get the average age of our users, but we want to build something that can set non-numeric values aside.  We can attempt to convert to numeric and give Python instructions for errors with a `try`-`except` statement:
 
-# In[3]:
+# In[39]:
 
 
 ages=[]
@@ -343,18 +417,18 @@ print(problems)
 # Download the csv file <a href="http://gis.unc.edu/instruction/Python/CountyHealthData_2014-2015.csv"> 
 # CountyHealthData_2014-2015.csv</a>.
 
-# In[7]:
+# In[41]:
 
 
 import pandas as pd #pd shortens the name to make it easier to call functions from pandas
-os.chdir("C:/Users/mtjansen/Dropbox/Python_Spring18")
+os.chdir("C:/Users/mtjansen/Desktop/Python/Python2")
 
 df = pd.read_csv("CountyHealthData_2014-2015.csv")
 
 df.head()
 
 
-# In[10]:
+# In[ ]:
 
 
 df.groupby("Region").mean()
@@ -378,11 +452,11 @@ df.groupby("Region").mean()
 # 
 # Python's built-in `urllib.request` package makes it relatively easy to download the underlying html from a web page. Note that the `from package import function` notation used here allows you to selectively import only parts of a package as needed.
 
-# In[4]:
+# In[ ]:
 
 
 from urllib.request import urlopen
-page = urlopen("http://gis.unc.edu/instruction/Python/Python_1_S18.html")  #The Python 1 materials!
+page = urlopen("https://unc-libraries-data.github.io/Python/Python1/Python-1.html")  #The Python 1 materials!
 html = page.read()
 print(html[:1000]) #print only the first 1000 characters
 
@@ -399,7 +473,7 @@ print(html[:1000]) #print only the first 1000 characters
 # 
 # ## Feedback
 # 
-# Please fill out our [**Feedback Survey**](unc.libsurveys.com/davishubfeedback).
+# Please fill out our [**Feedback Survey**](http://unc.libsurveys.com/davishubfeedback).
 # 
 # We'd love your input on future workshop topics and ways we could improve this workshop next time we teach it!
 

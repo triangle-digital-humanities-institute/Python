@@ -13118,12 +13118,12 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Python-II">Python II<a class="anchor-link" href="#Python-II">&#182;</a></h1><p><a href="https://guides.lib.unc.edu/mattjansen"><em>Matt Jansen, Davis Library Research Hub</em></a></p>
 <p>October 30, 2018</p>
-<p><strong> Abstract:</strong>
+<p><strong>Abstract:</strong>
 This workshop will:</p>
 <ul>
 <li>Briefly review the basics covered in Python 1</li>
 <li>Learn how to work with files and directory</li>
-<li>Consider new data types and statements</li>
+<li>Introduce dictionaries</li>
 <li>Survey some of the more important data-related packages</li>
 </ul>
 
@@ -13133,28 +13133,42 @@ This workshop will:</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="NOTE:">NOTE:<a class="anchor-link" href="#NOTE:">&#182;</a></h3><p>This workshop assumes that you already have the <a href="https://www.anaconda.com/download/">Anaconda distribution</a> of Python 3.6 installed.  Detailed installation instructions are available in the <a href="http://gis.unc.edu/instruction/Python/Python_1_S18.html">Python 1 materials</a>.</p>
+<h3 id="NOTE:">NOTE:<a class="anchor-link" href="#NOTE:">&#182;</a></h3><p>This workshop assumes that you already have the <a href="https://www.anaconda.com/download/">Anaconda distribution</a> of Python 3.7 installed.  Detailed installation instructions are available in the <a href="https://unc-libraries-data.github.io/Python/Python1/Python-1.html">Python I materials</a>.</p>
+<h1 id="Review">Review<a class="anchor-link" href="#Review">&#182;</a></h1><p>Last week, we introduced:</p>
+<ul>
+<li>Numeric types (<code>int</code>,<code>float</code>): <code>my_int=4</code></li>
+<li>Strings (<code>str</code>): <code>my_string="cat"</code></li>
+<li>Lists (<code>list</code>): <code>my_list=[my_int,my_string]</code></li>
+<li>For loops:
+<pre><code>for k in range(10):
+  print(k)</code></pre>
+</li>
+<li>Conditionals
+<pre><code>if my_string=="cat":
+  print("This is a cat!")
+else:
+  print("This is not a cat!")</code></pre>
+</li>
+</ul>
 <h1 id="Pseudocode">Pseudocode<a class="anchor-link" href="#Pseudocode">&#182;</a></h1><p>As you get started coding in Python, there will be many many tasks and steps you aren't familiar with!  As you learn new functions and approaches, you'll become better and better at searching for help online and reviewing documentation.  Learning to write and use pseudocode where appropriate can help organize your plan for any individual script.</p>
 <p>Pseudocode is essentially a first draft of your code, written in English for <strong>human consumption</strong>, though with the tools of your programming language in mind.  For example, we might write pseudocode for extracting text from pdf files as:</p>
-<ol>
-<li>Set Working Directory</li>
-<li>Loop through each pdf in the directory:<ul>
-<li>open the pdf file</li>
-<li>extract text</li>
-<li>check length of text extracted<ul>
-<li>if length is zero: add to problems list</li>
-<li>otherwise, add to output file</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Write output file(s)</li>
-</ol>
+
+<pre><code>1. Set Working Directory
+2. Loop through each pdf in the directory:
+    * open the pdf file
+    * extract text
+    * check length of text extracted
+        * if length is zero: add to problems list
+        * otherwise, add to output file
+3. Write output file(s)
+
+</code></pre>
 <p>This process can divide a complicated task into more digestible parts.  You may not know how to open a pdf file or extract text from it, but you'll often have better luck finding existing help online on smaller tasks like these than with your overall goal or project.</p>
-<p><strong>Exercise:</strong></p>
-<ul>
+<center>
+<h3>Exercises</h3>
+</center><ol>
 <li>Write pseudocode to summarize what's happening in the following code:</li>
-</ul>
+</ol>
 
 </div>
 </div>
@@ -13180,7 +13194,7 @@ This workshop will:</p>
         <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">:</span>
             <span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span>
     <span class="k">if</span> <span class="n">count</span><span class="o">&gt;=</span><span class="mi">3</span><span class="p">:</span>
-        <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">word</span><span class="p">,</span><span class="n">count</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13191,9 +13205,9 @@ This workshop will:</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
+<ol>
 <li>Write pseudocode to check an arbitrary list of numbers, <code>my_numbers</code>, to find all even numbers and convert them to odd numbers by adding one.  Put the resulting numbers into a new list <code>my_numbers2</code>.  (Recall <code>for</code> loops ,<code>if</code> conditions, and the modulo function <code>%</code> from Python 1.)</li>
-</ul>
+</ol>
 <h1 id="Comments">Comments<a class="anchor-link" href="#Comments">&#182;</a></h1><p>Recall that Python ignores anything following a <code>#</code> as a comment.  Comments are a vital part of your code, as they leave notes about how or why you're doing something.  As you gain experience, you'll use comments in different ways.</p>
 <p>Comments can also provide a link between pseudocode and real code.  Once you've written your pseudocode, use comments to put the major steps into your code file itself.  Then fill in the gaps with actual code as you figure it out.</p>
 <p>Here's a possible answer to the previous exercise.</p>
@@ -13203,7 +13217,7 @@ This workshop will:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#1. Get or define the list my_numbers</span>
@@ -13228,10 +13242,11 @@ This workshop will:</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Exercise:</strong></p>
-<ul>
+<center>
+<h3>Exercise</h3>
+</center><ol>
 <li>Use your own pseudocode or the example above as an outline to fill in with Python code.  Test your code with the <code>my_numbers</code> object defined above.</li>
-</ul>
+</ol>
 
 </div>
 </div>
@@ -13239,15 +13254,20 @@ This workshop will:</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Reading-and-Writing-Files-from-Python">Reading and Writing Files from Python<a class="anchor-link" href="#Reading-and-Writing-Files-from-Python">&#182;</a></h1><h2 id="Packages">Packages<a class="anchor-link" href="#Packages">&#182;</a></h2><p>Packages provide additional tools and functions not present in base Python.  Python includes a number of packages to start with, and others can be installed using <code>pip install &lt;package name&gt;</code> and/or <code>conda install &lt;package name&gt;</code> commands <strong>in your terminal</strong>.</p>
-<p>Before you can use these functions, you'll need to load them with with the <code>import</code> function.</p>
+<h1 id="Reading-and-Writing-Files-from-Python">Reading and Writing Files from Python<a class="anchor-link" href="#Reading-and-Writing-Files-from-Python">&#182;</a></h1><h2 id="Packages">Packages<a class="anchor-link" href="#Packages">&#182;</a></h2><h3 id="Installation">Installation<a class="anchor-link" href="#Installation">&#182;</a></h3><p>Packages provide additional tools and functions not present in base Python.  Python includes a number of packages to start with, and others can be installed using <code>pip install &lt;package name&gt;</code> and/or <code>conda install &lt;package name&gt;</code> commands <strong>in your terminal</strong>.</p>
+<p>Open your terminal by:</p>
+<ul>
+<li>(PC) Start &gt; Anaconda3(64-bit) &gt; Anaconda Prompt</li>
+<li>(Mac) Finder &gt; Applications &gt; Anaconda Navigator &gt; Environments Tab &gt; (play button listed next to "root") &gt; Open Terminal</li>
+</ul>
+<h3 id="Loading">Loading<a class="anchor-link" href="#Loading">&#182;</a></h3><p>Once you've installed a package, you can load it into your current Python session with the <code>import</code> function.  Otherwise these functions will not be available.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span> <span class="c1">#functions for working with your operating system</span>
@@ -13263,17 +13283,16 @@ This workshop will:</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Working-Directories">Working Directories<a class="anchor-link" href="#Working-Directories">&#182;</a></h2><p>To open a file with Python, you'll need to tell your computer where it's located on your computer.  You can specify the entire absolute filepath (starting with C:\ on PC or / on Mac), or you can set a working directory and work with relative file paths.</p>
 <p>If a file is located in your working directory, its relative path is just the name of the file!</p>
-<p><strong>Note:</strong> Windows filepaths use <code>\</code>, which Python interprets as escape characters.  File paths need to be modified to either use <code>/</code> or <code>\\</code> in place of <code>\</code>.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">myfile</span><span class="o">=</span><span class="s2">&quot;C:/Users/mtjansen/Dropbox/Python_Sales/day1.txt&quot;</span> <span class="c1">#absolute path</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">myfile</span><span class="o">=</span><span class="s2">&quot;C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales/day1.txt&quot;</span> <span class="c1">#absolute path</span>
 <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">myfile</span><span class="p">)</span> <span class="c1">#check if Python can find my file </span>
 </pre></div>
 
@@ -13287,7 +13306,7 @@ This workshop will:</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[2]:</div>
+    <div class="prompt output_prompt">Out[22]:</div>
 
 
 
@@ -13302,12 +13321,27 @@ This workshop will:</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Windows-Paths">Windows Paths<a class="anchor-link" href="#Windows-Paths">&#182;</a></h4><p>Windows filepaths use <code>\</code>, which Python interprets as <em>escape characters</em>.  This can be fixed in several ways:</p>
+<ol>
+<li>Replace <code>\</code> with <code>/</code>.</li>
+<li>Replace <code>\</code> with <code>\\</code>.</li>
+<li>Preface your path with <code>r</code>: 
+<pre><code> `r"C:\Users\mtjansen\Desktop"`</code></pre>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;C:/Users/mtjansen/Dropbox/Python_Sales&quot;</span><span class="p">)</span> <span class="c1">#set working directory</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales&quot;</span><span class="p">)</span> <span class="c1">#set working directory</span>
 <span class="n">myfile</span><span class="o">=</span><span class="s2">&quot;day1.txt&quot;</span>
 <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">myfile</span><span class="p">)</span>
 </pre></div>
@@ -13322,7 +13356,7 @@ This workshop will:</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[23]:</div>
 
 
 
@@ -13347,11 +13381,11 @@ This workshop will:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;C:/Users/mtjansen/Dropbox/Python_Sales&quot;</span><span class="p">))</span> <span class="c1">#alternatively we can specify a folder</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales&quot;</span><span class="p">))</span> <span class="c1">#alternatively we can specify a folder</span>
 </pre></div>
 
     </div>
@@ -13368,8 +13402,8 @@ This workshop will:</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;Day1.txt&#39;, &#39;Day2.txt&#39;, &#39;Day3.txt&#39;]
-[&#39;Day1.txt&#39;, &#39;Day2.txt&#39;, &#39;Day3.txt&#39;]
+<pre>[&#39;Day1.txt&#39;, &#39;Day1_TOTAL.txt&#39;, &#39;Day2.txt&#39;, &#39;Day3.txt&#39;, &#39;Python_Sales.zip&#39;]
+[&#39;Day1.txt&#39;, &#39;Day1_TOTAL.txt&#39;, &#39;Day2.txt&#39;, &#39;Day3.txt&#39;, &#39;Python_Sales.zip&#39;]
 </pre>
 </div>
 </div>
@@ -13381,8 +13415,9 @@ This workshop will:</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Exercise:</strong></p>
-<p>Download the zipped data availalble <a href="http://gis.unc.edu/instruction/Python/Python_Sales/Python_Sales.zip">here</a>. Unzip them somewhere on your computer.</p>
+<center>
+<h3>Exercise</h3>
+</center><p>Download the zipped data availalble <a href="https://github.com/UNC-Libraries-data/Python/raw/master/Python2/Python_Sales/Python_Sales.zip">here</a>. Unzip them somewhere on your computer.</p>
 <p>Use <code>import os</code> and <code>os.chdir</code> to set your working directory to the unzipped folder "Python Sales".  Use <code>os.listdir</code> to check what files are stored there.</p>
 <h2 id="Reading-and-Writing-Files">Reading and Writing Files<a class="anchor-link" href="#Reading-and-Writing-Files">&#182;</a></h2><p>Python requires you both open and close files explicitly.  If you forget to close a file, it can remain in use, preventing you from opening it later.</p>
 <p>Best practices for reading and writing files use the <code>with</code> function to make sure files are automatically closed.</p>
@@ -13392,7 +13427,7 @@ This workshop will:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Day1.txt&#39;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">txtfile</span><span class="p">:</span> <span class="c1">#&quot;r&quot; indicates that we are reading the textfile and not writing to it</span>
@@ -13435,10 +13470,10 @@ This workshop will:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rawlist</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#.split(&quot;\n&quot;) uses each new line, denoted by &quot;\n&quot; to split the string into a list</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rawlist</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span> <span class="c1">#.splitlines() uses each new line to split the string into a list</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">rawlist</span><span class="p">)</span>
 </pre></div>
 
@@ -13467,7 +13502,7 @@ This workshop will:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">total</span><span class="o">=</span><span class="mi">0</span>
@@ -13510,7 +13545,7 @@ This workshop will:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">total</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">total</span><span class="p">)</span> <span class="c1">#we need to convert numerics to strings before writing</span>
@@ -13526,10 +13561,11 @@ This workshop will:</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Exercise: </strong></p>
-<ul>
+<center>
+<h3>Exercises</h3>
+</center><ol>
 <li>Use a loop to extend the above to get the total for each of the three files, Day1.txt, Day2.txt, and Day3.txt. Create a new file that contains the overall total.  There shouldn't be any sales over 100, so if you find any exclude them!</li>
-</ul>
+</ol>
 
 </div>
 </div>
@@ -13538,14 +13574,15 @@ This workshop will:</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Data-Objects:-continued">Data Objects: continued<a class="anchor-link" href="#Data-Objects:-continued">&#182;</a></h1><p>Last week, we introduced a number of important data structures in Python: string and numeric types, as well as lists.  We used indexing to specify particular parts of the sequential objects - strings and lists.</p>
-<h2 id="Dictionaries">Dictionaries<a class="anchor-link" href="#Dictionaries">&#182;</a></h2><p>Dictionaries provide a "mapping object"; instead of an index, they used named "keys" to organized data.  Dictionaries also benefit from faster performance than lists in most cases, due to their use of <a href="https://en.wikipedia.org/wiki/Hash_table">hash tables</a>.  A dictionary is defined as follows:</p>
+<h2 id="Dictionaries">Dictionaries<a class="anchor-link" href="#Dictionaries">&#182;</a></h2><p>Dictionaries provide a "mapping object"; instead of an index, they used named "keys" to organized data.  Dictionaries also benefit from faster performance than lists in most cases, due to their use of <a href="https://en.wikipedia.org/wiki/Hash_table">hash tables</a>.</p>
+<p>A dictionary is defined as follows:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">class_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;course&quot;</span><span class="p">:</span><span class="s2">&quot;Python II&quot;</span><span class="p">,</span><span class="s2">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;Davis Library&quot;</span><span class="p">,</span><span class="s2">&quot;time&quot;</span><span class="p">:</span><span class="s2">&quot;4pm&quot;</span><span class="p">}</span>
@@ -13562,7 +13599,7 @@ This workshop will:</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[29]:</div>
 
 
 
@@ -13580,14 +13617,14 @@ This workshop will:</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this case, <code>"course"</code>, <code>"location"</code>, and <code>"time"</code> serve as the "keys" for this dictionary.  They serve to index a list, like the numbers we use to index lists.  We can print a particular value by placing its key in the same square brackets <code>[]</code> used by list indices.</p>
+<p>In this case, <code>"course"</code>, <code>"location"</code>, and <code>"time"</code> serve as the "keys" for this dictionary.  Keys play a similar role to the indices we use for lists (or strings).  We can print a particular value by placing its key in the same square brackets <code>[]</code> used by list indices.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">class_dict</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">])</span>
@@ -13619,6 +13656,7 @@ This workshop will:</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>A numeric index <strong>will not</strong> work with dictionaries.</p>
 <p>We can also generate a list of all of the keys for a dictionary using the <code>.keys()</code> method.</p>
 
 </div>
@@ -13626,7 +13664,7 @@ This workshop will:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">class_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -13665,7 +13703,7 @@ This workshop will:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">squares</span><span class="o">=</span><span class="p">[]</span>
@@ -13707,7 +13745,7 @@ This workshop will:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">squares</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">)]</span>
@@ -13747,7 +13785,7 @@ This workshop will:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">squaresdict</span><span class="o">=</span><span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">)}</span>
@@ -13780,14 +13818,74 @@ This workshop will:</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Defining-your-own-Functions">Defining your own Functions<a class="anchor-link" href="#Defining-your-own-Functions">&#182;</a></h1><p>While Python (and its available packages) provide a wide variety of functions, sometimes it's useful to create your own.  Python's syntax for defining a function to return the mean of a list of numbers.  (Base Python does not include a function for the mean.)</p>
+<p>We can include conditional statements at the end of the comprehension to build more flexible comprehensions.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sentence</span><span class="o">=</span><span class="s2">&quot;the quick brown fox jumped over the lazy dog&quot;</span>
+<span class="n">sentence</span><span class="o">=</span><span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">sentence</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;the&#39;, &#39;quick&#39;, &#39;brown&#39;, &#39;fox&#39;, &#39;jumped&#39;, &#39;over&#39;, &#39;the&#39;, &#39;lazy&#39;, &#39;dog&#39;]
+[&#39;quick&#39;, &#39;brown&#39;, &#39;jumped&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+<h3>Exercises</h3>
+</center><ol>
+<li>Write a list comprehension to create a list of just the values (i.e. the squares) from <code>squaresdict</code>.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Defining-your-own-Functions">Defining your own Functions<a class="anchor-link" href="#Defining-your-own-Functions">&#182;</a></h1><p>While Python (and its available packages) provide a wide variety of functions, sometimes it's useful to create your own.  Python's syntax for defining a function is as follows:</p>
+
+<pre><code>def &lt;function_name&gt; ( &lt;arguments&gt; ):
+    &lt;code depending on arguments&gt;
+    return &lt;value&gt;</code></pre>
+<p>The <code>mean</code> function below returns the mean of a list of numbers.  (Base Python does not include a function for the mean.)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">number_list</span><span class="p">):</span>
@@ -13844,7 +13942,7 @@ $$ \sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i-\mu)^2 $$<p>Where $N$ is the lengt
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
@@ -13869,7 +13967,7 @@ $$ \sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i-\mu)^2 $$<p>Where $N$ is the lengt
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">user_ages</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;34&quot;</span><span class="p">,</span><span class="s2">&quot;27&quot;</span><span class="p">,</span><span class="s2">&quot;54&quot;</span><span class="p">,</span><span class="s2">&quot;19&quot;</span><span class="p">,</span><span class="s2">&quot;giraffe&quot;</span><span class="p">,</span><span class="s2">&quot;15&quot;</span><span class="p">,</span><span class="s2">&quot;83&quot;</span><span class="p">,</span><span class="s2">&quot;61&quot;</span><span class="p">,</span><span class="s2">&quot;43&quot;</span><span class="p">,</span><span class="s2">&quot;91&quot;</span><span class="p">,</span><span class="s2">&quot;sixteen&quot;</span><span class="p">]</span>
@@ -13890,7 +13988,7 @@ $$ \sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i-\mu)^2 $$<p>Where $N$ is the lengt
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ages</span><span class="o">=</span><span class="p">[]</span>
@@ -13954,11 +14052,11 @@ CountyHealthData_2014-2015.csv</a>.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1">#pd shortens the name to make it easier to call functions from pandas</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;C:/Users/mtjansen/Dropbox/Python_Spring18&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;C:/Users/mtjansen/Desktop/Python/Python2&quot;</span><span class="p">)</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;CountyHealthData_2014-2015.csv&quot;</span><span class="p">)</span>
 
@@ -13975,23 +14073,23 @@ CountyHealthData_2014-2015.csv</a>.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[41]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -14000,17 +14098,25 @@ CountyHealthData_2014-2015.csv</a>.</p>
       <th></th>
       <th>State</th>
       <th>Region</th>
+      <th>Division</th>
       <th>County</th>
+      <th>FIPS</th>
+      <th>GEOID</th>
+      <th>SMS Region</th>
       <th>Year</th>
       <th>Premature death</th>
-      <th>Poor physical health days</th>
-      <th>Poor mental health days</th>
-      <th>Adult obesity</th>
-      <th>Food environment index</th>
-      <th>Physical inactivity</th>
-      <th>Excessive drinking</th>
-      <th>Diabetes</th>
+      <th>Poor or fair health</th>
+      <th>...</th>
+      <th>Drug poisoning deaths</th>
+      <th>Uninsured adults</th>
+      <th>Uninsured children</th>
+      <th>Health care costs</th>
+      <th>Could not see doctor due to cost</th>
+      <th>Other primary care providers</th>
       <th>Median household income</th>
+      <th>Children eligible for free lunch</th>
+      <th>Homicide rate</th>
+      <th>Inadequate social support</th>
     </tr>
   </thead>
   <tbody>
@@ -14018,84 +14124,125 @@ CountyHealthData_2014-2015.csv</a>.</p>
       <th>0</th>
       <td>AK</td>
       <td>West</td>
+      <td>Pacific</td>
       <td>Aleutians West Census Area</td>
+      <td>2016</td>
+      <td>2016</td>
+      <td>Insuff Data</td>
       <td>1/1/2014</td>
       <td>NaN</td>
-      <td>2.1</td>
-      <td>2.1</td>
-      <td>0.300</td>
-      <td>7.002</td>
-      <td>0.234</td>
-      <td>0.266</td>
-      <td>0.067</td>
+      <td>0.122</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>0.374</td>
+      <td>0.250</td>
+      <td>3791.0</td>
+      <td>0.185</td>
+      <td>216.0</td>
       <td>69192</td>
+      <td>0.127</td>
+      <td>NaN</td>
+      <td>0.287</td>
     </tr>
     <tr>
       <th>1</th>
       <td>AK</td>
       <td>West</td>
+      <td>Pacific</td>
       <td>Aleutians West Census Area</td>
+      <td>2016</td>
+      <td>2016</td>
+      <td>Insuff Data</td>
       <td>1/1/2015</td>
       <td>NaN</td>
-      <td>2.1</td>
-      <td>2.1</td>
-      <td>0.329</td>
-      <td>6.600</td>
-      <td>0.220</td>
-      <td>0.266</td>
-      <td>0.065</td>
+      <td>0.122</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>0.314</td>
+      <td>0.176</td>
+      <td>4837.0</td>
+      <td>0.185</td>
+      <td>254.0</td>
       <td>74088</td>
+      <td>0.133</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
       <td>AK</td>
       <td>West</td>
+      <td>Pacific</td>
       <td>Anchorage Borough</td>
+      <td>2020</td>
+      <td>2020</td>
+      <td>Region 22</td>
       <td>1/1/2014</td>
       <td>6827.0</td>
-      <td>3.3</td>
-      <td>3.0</td>
-      <td>0.257</td>
-      <td>8.185</td>
-      <td>0.205</td>
-      <td>0.185</td>
-      <td>0.070</td>
+      <td>0.125</td>
+      <td>...</td>
+      <td>15.37</td>
+      <td>0.218</td>
+      <td>0.096</td>
+      <td>6588.0</td>
+      <td>0.119</td>
+      <td>135.0</td>
       <td>71094</td>
+      <td>0.319</td>
+      <td>6.29</td>
+      <td>0.160</td>
     </tr>
     <tr>
       <th>3</th>
       <td>AK</td>
       <td>West</td>
+      <td>Pacific</td>
       <td>Anchorage Borough</td>
+      <td>2020</td>
+      <td>2020</td>
+      <td>Region 22</td>
       <td>1/1/2015</td>
       <td>6856.0</td>
-      <td>3.3</td>
-      <td>3.0</td>
-      <td>0.268</td>
-      <td>8.000</td>
-      <td>0.180</td>
-      <td>0.185</td>
-      <td>0.070</td>
+      <td>0.125</td>
+      <td>...</td>
+      <td>17.08</td>
+      <td>0.227</td>
+      <td>0.123</td>
+      <td>6582.0</td>
+      <td>0.119</td>
+      <td>148.0</td>
       <td>76362</td>
+      <td>0.334</td>
+      <td>5.60</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
       <td>AK</td>
       <td>West</td>
+      <td>Pacific</td>
       <td>Bethel Census Area</td>
+      <td>2050</td>
+      <td>2050</td>
+      <td>Insuff Data</td>
       <td>1/1/2014</td>
       <td>13345.0</td>
-      <td>3.3</td>
-      <td>2.6</td>
-      <td>0.315</td>
-      <td>3.210</td>
-      <td>0.283</td>
-      <td>0.171</td>
-      <td>0.067</td>
+      <td>0.211</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>0.394</td>
+      <td>0.124</td>
+      <td>5860.0</td>
+      <td>0.200</td>
+      <td>169.0</td>
       <td>41722</td>
+      <td>0.668</td>
+      <td>12.77</td>
+      <td>0.477</td>
     </tr>
   </tbody>
 </table>
+<p>5 rows × 64 columns</p>
 </div>
 </div>
 
@@ -14107,124 +14254,13 @@ CountyHealthData_2014-2015.csv</a>.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Region&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[10]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Premature death</th>
-      <th>Poor physical health days</th>
-      <th>Poor mental health days</th>
-      <th>Adult obesity</th>
-      <th>Food environment index</th>
-      <th>Physical inactivity</th>
-      <th>Excessive drinking</th>
-      <th>Diabetes</th>
-      <th>Median household income</th>
-    </tr>
-    <tr>
-      <th>Region</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Midwest</th>
-      <td>7183.902799</td>
-      <td>3.338256</td>
-      <td>3.165094</td>
-      <td>0.311058</td>
-      <td>7.695060</td>
-      <td>0.271220</td>
-      <td>0.190614</td>
-      <td>0.102460</td>
-      <td>47277.853288</td>
-    </tr>
-    <tr>
-      <th>Northeast</th>
-      <td>6233.209677</td>
-      <td>3.535047</td>
-      <td>3.514623</td>
-      <td>0.277198</td>
-      <td>8.197622</td>
-      <td>0.240961</td>
-      <td>0.176693</td>
-      <td>0.097512</td>
-      <td>53695.292627</td>
-    </tr>
-    <tr>
-      <th>South</th>
-      <td>9116.940754</td>
-      <td>4.336586</td>
-      <td>3.971896</td>
-      <td>0.322495</td>
-      <td>6.894375</td>
-      <td>0.300112</td>
-      <td>0.132786</td>
-      <td>0.122163</td>
-      <td>41787.915448</td>
-    </tr>
-    <tr>
-      <th>West</th>
-      <td>7293.756250</td>
-      <td>3.658853</td>
-      <td>3.361783</td>
-      <td>0.259058</td>
-      <td>6.927634</td>
-      <td>0.211495</td>
-      <td>0.167510</td>
-      <td>0.084556</td>
-      <td>48647.646283</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -14250,34 +14286,16 @@ CountyHealthData_2014-2015.csv</a>.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="k">import</span> <span class="n">urlopen</span>
-<span class="n">page</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;http://gis.unc.edu/instruction/Python/Python_1_S18.html&quot;</span><span class="p">)</span>  <span class="c1">#The Python 1 materials!</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;https://unc-libraries-data.github.io/Python/Python1/Python-1.html&quot;</span><span class="p">)</span>  <span class="c1">#The Python 1 materials!</span>
 <span class="n">html</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">html</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span> <span class="c1">#print only the first 1000 characters</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>b&#39;&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;&lt;meta charset=&#34;utf-8&#34; /&gt;\n&lt;title&gt;Python_1_S18&lt;/title&gt;&lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js&#34;&gt;&lt;/script&gt;\n&lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js&#34;&gt;&lt;/script&gt;\n\n&lt;style type=&#34;text/css&#34;&gt;\n    /*!\n*\n* Twitter Bootstrap\n*\n*/\n/*!\n * Bootstrap v3.3.7 (http://getbootstrap.com)\n * Copyright 2011-2016 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)\n */\n/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */\nhtml {\n  font-family: sans-serif;\n  -ms-text-size-adjust: 100%;\n  -webkit-text-size-adjust: 100%;\n}\nbody {\n  margin: 0;\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection,\nsummary {\n  display: block;\n}\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block;\n  vertical-align: baseline;\n}\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n[hidden],\ntemplate {\n  display: none&#39;
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -14288,7 +14306,7 @@ CountyHealthData_2014-2015.csv</a>.</p>
 <p><strong>Note:</strong> Always check a site's Terms of Service before scraping it.  Some sites explicitly prohibit web scraping of their data.</p>
 <h3 id="NLTK-(text-analysis)">NLTK (text analysis)<a class="anchor-link" href="#NLTK-(text-analysis)">&#182;</a></h3><p><a href="http://www.nltk.org/">The Natural Language Toolkit (`nltk`)</a> provides a wide array of tools for processing and analyzing text.  This includes operations like splitting text into sentences or words ("tokenization"), tagging them with their part of speech, classification, and more.</p>
 <h2 id="Jupyter-Notebooks">Jupyter Notebooks<a class="anchor-link" href="#Jupyter-Notebooks">&#182;</a></h2><p>Sooner or later, you'll want to share your code or projects with other people (even if only future-you!).  <a href="http://jupyter.org/">Jupyter notebooks</a>, included with Anaconda, provide integration between code, its output, images, and formatted text beyond what's possible with in-code comments.  The materials for these workshops were created in Jupyter notebooks.</p>
-<h2 id="Feedback">Feedback<a class="anchor-link" href="#Feedback">&#182;</a></h2><p>Please fill out our <a href="unc.libsurveys.com/davishubfeedback"><strong>Feedback Survey</strong></a>.</p>
+<h2 id="Feedback">Feedback<a class="anchor-link" href="#Feedback">&#182;</a></h2><p>Please fill out our <a href="http://unc.libsurveys.com/davishubfeedback"><strong>Feedback Survey</strong></a>.</p>
 <p>We'd love your input on future workshop topics and ways we could improve this workshop next time we teach it!</p>
 
 </div>
