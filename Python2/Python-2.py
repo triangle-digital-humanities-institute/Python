@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # # Python II
@@ -70,7 +70,7 @@
 # 
 # * Write pseudocode to summarize the following code:
 
-# In[3]:
+# In[51]:
 
 
 random_words=["statement", "toy", "cars", "shoes", "ear", "busy", 
@@ -102,7 +102,7 @@ for word in random_words:
 # 
 # Here's a possible answer to the previous exercise.
 
-# In[4]:
+# In[52]:
 
 
 #1. Get or define the list my_numbers
@@ -141,7 +141,7 @@ my_numbers=list(range(100))
 # 
 # Once you've installed a package, you can load it into your current Python session with the `import` function.  Otherwise these functions will not be available.
 
-# In[5]:
+# In[53]:
 
 
 import os #functions for working with your operating system
@@ -158,7 +158,7 @@ import os #functions for working with your operating system
 # 
 # If a file is located in your working directory, its relative path is just the name of the file!
 
-# In[6]:
+# In[54]:
 
 
 myfile="C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales/day1.txt" #absolute path
@@ -174,7 +174,7 @@ os.path.isfile(myfile) #check if Python can find my file
 #         r"C:\Users\mtjansen\Desktop"
 # ```
 
-# In[7]:
+# In[55]:
 
 
 os.chdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales") #set working directory
@@ -184,7 +184,7 @@ os.path.isfile(myfile)
 
 # We can get a list of all files in the working directory with `os.listdir(".")`.
 
-# In[8]:
+# In[56]:
 
 
 print(os.listdir("."))
@@ -206,7 +206,7 @@ print(os.listdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales")) #alte
 # 
 # Best practices for reading and writing files use the `with` function to make sure files are automatically closed.
 
-# In[9]:
+# In[57]:
 
 
 with open('Day1.txt',"r") as txtfile: #"r" indicates that we are reading the textfile and not writing to it
@@ -215,14 +215,14 @@ with open('Day1.txt',"r") as txtfile: #"r" indicates that we are reading the tex
 print(raw)
 
 
-# In[10]:
+# In[58]:
 
 
 rawlist=raw.splitlines() #.splitlines() uses each new line to split the string into a list
 print(rawlist)
 
 
-# In[11]:
+# In[59]:
 
 
 total=0
@@ -234,7 +234,7 @@ print(total)
 
 # Let's write a new file with the total.
 
-# In[12]:
+# In[60]:
 
 
 total=str(total) #we need to convert numerics to strings before writing
@@ -258,7 +258,7 @@ with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that 
 # 
 # A dictionary is defined as follows:
 
-# In[13]:
+# In[61]:
 
 
 class_dict = {"course":"Python II","location":"Davis Library","time":"4pm"}
@@ -267,7 +267,7 @@ type(class_dict)
 
 # In this case, `"course"`, `"location"`, and `"time"` serve as the "keys" for this dictionary.  Keys play a similar role to the indices we use for lists (or strings).  We can print a particular value by placing its key in the same square brackets `[]` used by list indices.
 
-# In[14]:
+# In[62]:
 
 
 print(class_dict["location"])
@@ -277,7 +277,7 @@ print(class_dict["location"])
 # 
 # We can also generate a list of all of the keys for a dictionary using the `.keys()` method. 
 
-# In[15]:
+# In[63]:
 
 
 print(class_dict.keys())
@@ -287,7 +287,7 @@ print(class_dict.keys())
 # 
 # Python provides some shortcuts to generating lists and dictionaries, especially those that you might (now) generate with a list.  For example, let's generate a list of the square of each number from 1 to 15.
 
-# In[16]:
+# In[64]:
 
 
 squares=[]
@@ -298,7 +298,7 @@ print(squares)
 
 # Using a "comprehension", we can shorten this to a single line, effectively bringing the loop inside the `[]` used to define the list.
 
-# In[17]:
+# In[65]:
 
 
 squares=[x**2 for x in range(1,16)]
@@ -307,7 +307,7 @@ print(squares)
 
 # The same general format holds for defining dictionaries.
 
-# In[18]:
+# In[66]:
 
 
 squaresdict={k:k**2 for k in range(1,16)}
@@ -316,7 +316,7 @@ print(squaresdict)
 
 # We can include conditional statements at the end of the comprehension to build more flexible comprehensions.
 
-# In[19]:
+# In[67]:
 
 
 sentence="the quick brown fox jumped over the lazy dog"
@@ -346,7 +346,7 @@ print([w for w in sentence if len(w)>4])
 # 
 # The `mean` function below returns the mean of a list of numbers.  (Base Python does not include a function for the mean.)
 
-# In[20]:
+# In[68]:
 
 
 def mean(number_list):
@@ -376,7 +376,7 @@ print(mean(numbers))
 # * Test your function(s) with the lists below:
 # 
 
-# In[21]:
+# In[69]:
 
 
 data1 = list(range(1,100))
@@ -390,7 +390,7 @@ data2 = normal(loc=0,scale=2,size=100) #scale=2 defines the standard deviation a
 # 
 # Errors and warnings are a regular occurrence in coding, and an important part of the learning process.  In some cases, they can also be useful in designing an algorithm.  For example, suppose we have a stream of user entered data that is supposed to contain the user's age in years.  You might expect to get a few errors or nonsense entries.
 
-# In[22]:
+# In[70]:
 
 
 user_ages=["34","27","54","19","giraffe","15","83","61","43","91","sixteen"]
@@ -398,7 +398,7 @@ user_ages=["34","27","54","19","giraffe","15","83","61","43","91","sixteen"]
 
 # It would be useful to convert these values to a numeric type to get the average age of our users, but we want to build something that can set non-numeric values aside.  We can attempt to convert to numeric and give Python instructions for errors with a `try`-`except` statement:
 
-# In[23]:
+# In[71]:
 
 
 ages=[]
@@ -415,6 +415,38 @@ print(ages)
 print(problems)
 
 
+# # Running Scripts
+# 
+# We can save our Python code into .py files with File>Save As in Spyder.  A .py file is just a simple text file with a special extension to remind you that it contains Python code.
+# 
+# We can re-open these files in Spyder with File>Open, and then run or change them.
+# 
+# ### From the terminal
+# We can also run Python scripts directly from the Anaconda Prompt.
+# 
+# Open your Anaconda Prompt / Anaconda Terminal by:
+# * (PC) Start > Anaconda3(64-bit) > Anaconda Prompt
+# * (Mac) Finder > Applications > Anaconda Navigator > Environments Tab > (play button listed next to "root") > Open Terminal
+# 
+# Download [file_explore.py](https://github.com/UNC-Libraries-data/Python/raw/master/Python2/file_explore.py)
+# 
+# First, we need to point our terminal at the folder containing our .py file.  In the command prompt type: `cd` followed by the path to the folder.
+# 
+# For example:
+# 
+#     `cd C:\Users\mtjansen\Desktop\Python\Python2`  
+# 
+# Then we can execute the script with:
+# 
+#     `python file_explore.py`
+# 
+# <center>
+# <h3>Exercises</h3>
+# </center>
+# 
+# * What happens when you execute file_explore.py?  Can you think in pseudocode about how the script might work?
+# * Use Spyder to open file_explore.py.  Add comments to describe what's happening in each part of the code.  Use a web search or `help()` to get more information about any functions you don't recognize.
+
 # # Useful Packages
 # 
 # Some of these packages may NOT be included in your Anaconda installation.  Whenever you need to install a package, you need to use the Anaconda prompt window, **NOT Python itself**.  The Anaconda Prompt window can be reached through the Windows Start Menu folder for Anaconda or right clicking and opening a terminal from the Python 3 tab in your Evnironments tab of your Anaconda Navigator on a Mac.
@@ -428,16 +460,16 @@ print(problems)
 # 
 # ### Numpy and Scipy
 # 
-# <a href="http://www.numpy.org/">`numpy`</a> provides the mathematical functionality (e.g. large arrayes, linear algebra, random numbers, etc.) for many popular statistical and machine learning tasks in Python.  This is a dependency for many of the packages we discuss below.  <a href="https://docs.scipy.org/doc/scipy/reference/">`scipy`</a> adds an array of mathematica and statistical functions that work with `numpy` objects. 
+# <a href="http://www.numpy.org/">`numpy`</a> provides the mathematical functionality (e.g. large arrayes, linear algebra, random numbers, etc.) for many popular statistical and machine learning tasks in Python.  This is a dependency for many of the packages we discuss below.  <a href="https://docs.scipy.org/doc/scipy/reference/">`scipy`</a> adds an array of mathematical and statistical functions that work with `numpy` objects. 
 # 
 # ### Pandas 
 # 
 # The <a href="https://pandas.pydata.org/">`pandas` package</a> provides high-level data manipulation functionality, similar to that found by default in R.  That means new objects like data frames and time series, as well as new functions to manage missing values, merge, and/or reshape datasets.
 # 
-# Download the csv file <a href="http://gis.unc.edu/instruction/Python/CountyHealthData_2014-2015.csv"> 
+# Download the csv file <a href="https://github.com/UNC-Libraries-data/Python/raw/master/Python2/CountyHealthData_2014-2015.csv"> 
 # CountyHealthData_2014-2015.csv</a>.
 
-# In[24]:
+# In[72]:
 
 
 import pandas as pd #pd shortens the name to make it easier to call functions from pandas
@@ -448,7 +480,7 @@ df = pd.read_csv("CountyHealthData_2014-2015.csv")
 df.head()
 
 
-# In[25]:
+# In[73]:
 
 
 df.groupby("Region").mean()
@@ -456,7 +488,7 @@ df.groupby("Region").mean()
 
 # **Learn more:**
 # * `pandas` provides a quick introduction <a href="https://pandas.pydata.org/pandas-docs/stable/10min.html">here</a>
-# * <a href="https://jakevdp.github.io/PythonDataScienceHandbook/">Python Data Science Handbook</a> provides more detail and integraion with other software.
+# * <a href="https://jakevdp.github.io/PythonDataScienceHandbook/">Python Data Science Handbook</a> provides more detail and integration with other software.
 # 
 # ### Matplotlib and Visualization
 # 
@@ -472,7 +504,7 @@ df.groupby("Region").mean()
 # 
 # Python's built-in `urllib.request` package makes it relatively easy to download the underlying html from a web page. Note that the `from package import function` notation used here allows you to selectively import only parts of a package as needed.
 
-# In[26]:
+# In[74]:
 
 
 from urllib.request import urlopen
@@ -482,7 +514,7 @@ html = page.read()
 print(html[:300]) #print only the first 300 characters
 
 
-# In[27]:
+# In[75]:
 
 
 soup=BeautifulSoup(html,"html.parser")
@@ -498,6 +530,12 @@ soup=BeautifulSoup(html,"html.parser")
 # ## Jupyter Notebooks
 # 
 # Sooner or later, you'll want to share your code or projects with other people (even if only future-you!).  <a href="http://jupyter.org/">Jupyter notebooks</a>, included with Anaconda, provide integration between code, its output, images, and formatted text beyond what's possible with in-code comments.  The materials for these workshops were created in Jupyter notebooks.
+# 
+# If you're interested in learning more about Jupyter, consider attending [Jupyter Day in the Triangle](https://libcce.github.io/TriangleJupyter/) at the Carolina Club, Tuesday November 13, 2018.
+# 
+# ## GitHub
+# 
+# The materials for this workshop series are maintained in Git and hosted on GitHub.  The materials from our Git / GitHub workshop are available [here](https://github.com/UNC-Libraries-data/Intro-to-Git).
 # 
 # ## Feedback
 # 
