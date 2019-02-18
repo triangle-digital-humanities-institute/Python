@@ -13117,7 +13117,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <center><h1>Python I</h1></center><p><a href="https://guides.lib.unc.edu/mattjansen"><em>Matt Jansen, Davis Library Research Hub</em></a></p>
-<p>October 23, 2018</p>
+<p>February 19th, 2018</p>
 
 </div>
 </div>
@@ -13125,7 +13125,11 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong><font color=red>Note:</font></strong> If you haven't already, please begin downloading the <a href="https://www.anaconda.com/download/">Anaconda distribution of Python</a> as soon as you can.  It's a large download and can be slow to download over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.</p>
+<p><strong><font color=red>Note:</font></strong></p>
+<ul>
+<li>Please install Anaconda following the instructions in section <strong>0. Setup</strong> below <strong>before</strong> the workshop if possible.</li>
+<li>If you haven't already installed Anaconda, please begin downloading the <a href="https://www.anaconda.com/download/">Anaconda distribution of Python</a> as soon as you can.  It's a large download and can be slow to download over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.</li>
+</ul>
 <p><strong>Goals:</strong></p>
 <ul>
 <li>Get the Anaconda Distribution of Python 3.7 downloaded and installed on your computer</li>
@@ -13146,7 +13150,7 @@ div#notebook {
 </ul>
 <p>However, there are few things you can do in Python that can't also be done elsewhere!  If you already know one or more programming language, you'll have to decide where Python best fits or helps in your own workflows.</p>
 <h4><font color=red>Warning!</font></h4>
-<p>If you're already very comfortable with coding, you may find this workshop too simple.  You're welcome to come back next week for Python II, if you're already familiar with the concepts below and just need to learn the syntax.  You're also welcome to stay, review, and help other attendees!</p>
+<p>If you're already very comfortable with programming, you may find this workshop very simple.  You're welcome to come back next week for Python II, if you're already familiar with the concepts below and just need to learn the syntax.  You're also welcome to stay, review, and help other attendees!</p>
 <center> <h1>0. Setup</h1> </center><p>If you use macOS or Linux, then you most likely already have Python on your computer!  Python does not come with Windows, but it may be on your machine as part of other software (e.g. ArcGIS Desktop).</p>
 <h3 id="Why-not-work-with-an-existing-installation?">Why not work with an existing installation?<a class="anchor-link" href="#Why-not-work-with-an-existing-installation?">&#182;</a></h3><p>Unless you've worked with Python already, your pre-existing installation may only include the bare minimum and may be an out of date version.  Therefore, we recommend installing a distribution, with Python and many useful add-ons already setup.</p>
 <h2 id="Anaconda-distribution">Anaconda distribution<a class="anchor-link" href="#Anaconda-distribution">&#182;</a></h2><p>Anaconda packages the current version of Python 2 or 3 with over 150 packages included in the installation and supports hundreds of others.  This includes many of the most heavily used packages supporting data transformation and analysis, and software to manage and add new packages, create virtual environments, and more.</p>
@@ -14471,261 +14475,6 @@ if &lt;condition using testword&gt;:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2><font color=blue>Compound Conditions (Advanced)</font></h2>
-<p>As our needs become more complex, we can combine conditions using Boolean Algebra operators <code>and</code> and <code>or</code>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[176]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num</span><span class="o">=</span><span class="mi">5</span>
-<span class="n">letter</span><span class="o">=</span><span class="s2">&quot;a&quot;</span>
-<span class="p">(</span><span class="n">letter</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">])</span> <span class="ow">and</span> <span class="n">num</span><span class="o">&lt;</span><span class="mi">3</span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[176]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>False</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This is equivalent to using Boolean values directly:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[177]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[177]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>False</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Similarly:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[178]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">letter</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">])</span> <span class="ow">or</span> <span class="n">num</span><span class="o">&lt;</span><span class="mi">3</span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[178]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[179]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[179]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Conditions can be grouped with parentheses, or negated with <code>not</code>)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[180]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">True</span> <span class="ow">or</span> <span class="p">(</span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[180]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[181]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="mi">5</span><span class="o">&lt;</span><span class="mi">3</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[181]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Remember, complex conditions can be simplified:</p>
-<p><code>(True or False) and False</code> is equivalent to <code>True and False</code> since</p>
-<p><code>(True or False)</code> evaluates to <code>True</code>.</p>
-<center>
-<h3><font color=blue>Exercise (Advanced)</font></h3>
-</center><ol>
-<li>Define <code>a</code> and <code>b</code> as conditions evaluating to True and False.  Write a line corresponding to exclusive or - it should retrun <code>True</code> if only one, but not both of <code>a</code> and <code>b</code> are <code>True</code>. Check your function against the built-in exclusive or operator, <code>^</code>.</li>
-</ol>
-
-<pre><code>a=True
-b=False
-# should return True
-a=False
-b=False
-# should return False</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <center> <h1>4. Loops</h1> </center><h2 id="For-Loops">For Loops<a class="anchor-link" href="#For-Loops">&#182;</a></h2><p>A "for loop" allows us to apply the same steps to each element in a list or other iterable.  In essence, loops let us automate tasks relative to some sequence that we might <em>otherwise</em> write like this:</p>
 
 </div>
@@ -15102,15 +14851,17 @@ b=False
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Next-Up-(Python-II):">Next Up (Python II):<a class="anchor-link" href="#Next-Up-(Python-II):">&#182;</a></h2><ul>
 <li>Reading and writing external files </li>
-<li>Dictionaries</li>
-<li>Comprehensions</li>
 <li>User-defined Functions</li>
-<li>Packages</li>
-<li>Survey of useful packages for Data Analysis</li>
+<li>Loading Packages</li>
+<li>Survey of useful packages for Data Analysis<ul>
+<li>Pandas</li>
 </ul>
+</li>
+</ul>
+<h2 id="Getting-ready-for-next-week:">Getting ready for next week:<a class="anchor-link" href="#Getting-ready-for-next-week:">&#182;</a></h2><p>If you'd like more practice, please attempt our <strong><a href="https://unc-libraries-data.github.io/Python/Extras/Python-1-Extras.html">Python I: Extra</a></strong>.</p>
+<p>I'm available for one-on-one consultations on Python if you need help.  <a href="http://guides.lib.unc.edu/mattjansen">Contact me here.</a></p>
 <h2 id="Questions?">Questions?<a class="anchor-link" href="#Questions?">&#182;</a></h2><p>If you're planning to attend Python II next week, please feel free to share any ideas or topics you'd like to see covered.</p>
 <p>You can also share ideas while filling out our <a href="https://unc.libsurveys.com/davishubfeedback"><strong>Feedback Survey</strong></a>.</p>
-<p>I'm available for one-on-one consultations on Python if you need help.  <a href="http://guides.lib.unc.edu/mattjansen">Contact me here.</a></p>
 <p>Thanks for coming!</p>
 
 </div>

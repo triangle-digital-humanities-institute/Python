@@ -5,9 +5,11 @@
 # 
 # [*Matt Jansen, Davis Library Research Hub*](https://guides.lib.unc.edu/mattjansen)
 # 
-# October 23, 2018
+# February 19th, 2018
 
-# **<font color=red>Note:</font>** If you haven't already, please begin downloading the [Anaconda distribution of Python](https://www.anaconda.com/download/) as soon as you can.  It's a large download and can be slow to download over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.
+# **<font color=red>Note:</font>** 
+# * Please install Anaconda following the instructions in section **0. Setup** below **before** the workshop if possible.
+# * If you haven't already installed Anaconda, please begin downloading the [Anaconda distribution of Python](https://www.anaconda.com/download/) as soon as you can.  It's a large download and can be slow to download over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.
 # 
 # **Goals:**
 # 
@@ -35,7 +37,7 @@
 # 
 # #### <font color=red>Warning!</font>
 # 
-# If you're already very comfortable with coding, you may find this workshop too simple.  You're welcome to come back next week for Python II, if you're already familiar with the concepts below and just need to learn the syntax.  You're also welcome to stay, review, and help other attendees!
+# If you're already very comfortable with programming, you may find this workshop very simple.  You're welcome to come back next week for Python II, if you're already familiar with the concepts below and just need to learn the syntax.  You're also welcome to stay, review, and help other attendees!
 # 
 # <center> <h1>0. Setup</h1> </center>
 # 
@@ -548,75 +550,6 @@ else:
 # ```
 # 
 
-# ## <font color=blue>Compound Conditions (Advanced)</font>
-# 
-# As our needs become more complex, we can combine conditions using Boolean Algebra operators `and` and `or`.
-
-# In[176]:
-
-
-num=5
-letter="a"
-(letter in ["a","b","c"]) and num<3 
-
-
-# This is equivalent to using Boolean values directly:
-
-# In[177]:
-
-
-True and False
-
-
-# Similarly:
-
-# In[178]:
-
-
-(letter in ["a","b","c"]) or num<3 
-
-
-# In[179]:
-
-
-True or False
-
-
-# Conditions can be grouped with parentheses, or negated with `not`)
-
-# In[180]:
-
-
-True or (False and False)
-
-
-# In[181]:
-
-
-(True or False) and not 5<3
-
-
-# Remember, complex conditions can be simplified: 
-# 
-# `(True or False) and False` is equivalent to `True and False` since 
-# 
-# `(True or False)` evaluates to `True`.
-# 
-# <center>
-# <h3><font color=blue>Exercise (Advanced)</font></h3>
-# </center>
-# 
-# 1. Define `a` and `b` as conditions evaluating to True and False.  Write a line corresponding to exclusive or - it should retrun `True` if only one, but not both of `a` and `b` are `True`. Check your function against the built-in exclusive or operator, `^`.
-# 
-# ```
-# a=True
-# b=False
-# # should return True
-# a=False
-# b=False
-# # should return False
-# ```
-
 # <center> <h1>4. Loops</h1> </center>
 # 
 # ## For Loops
@@ -759,19 +692,23 @@ print(total)
 
 # ## Next Up (Python II):
 # * Reading and writing external files 
-# * Dictionaries
-# * Comprehensions
 # * User-defined Functions
-# * Packages
+# * Loading Packages
 # * Survey of useful packages for Data Analysis
+#     + Pandas
+# 
+# ## Getting ready for next week:
+# 
+# If you'd like more practice, please attempt our **[Python I: Extra](https://unc-libraries-data.github.io/Python/Extras/Python-1-Extras.html)**.
+# 
+# I'm available for one-on-one consultations on Python if you need help.  [Contact me here.](http://guides.lib.unc.edu/mattjansen)
 # 
 # ## Questions?
 # 
 # If you're planning to attend Python II next week, please feel free to share any ideas or topics you'd like to see covered.  
 # 
-# You can also share ideas while filling out our [**Feedback Survey**](unc.libsurveys.com/davishubfeedback).
+# You can also share ideas while filling out our [**Feedback Survey**](https://unc.libsurveys.com/davishubfeedback).
 # 
-# I'm available for one-on-one consultations on Python if you need help.  [Contact me here.](http://guides.lib.unc.edu/mattjansen)
 # 
 # Thanks for coming!
 
