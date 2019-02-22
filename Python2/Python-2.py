@@ -5,14 +5,28 @@
 # 
 # [*Matt Jansen, Davis Library Research Hub*](https://guides.lib.unc.edu/mattjansen)
 # 
-# October 30, 2018
+# February 26, 2019
 # 
 # **Abstract:**
 # This workshop will:
 # * Briefly review the basics covered in Python 1
 # * Learn how to work with files and directory
-# * Introduce dictionaries
-# * Survey some of the more important data-related packages
+# * Define our own functions and handle errors
+# * Survey some of the more important data-related packages, especially Pandas
+# 
+# ## Contents
+# 
+# * [Review](#Review)
+#     + [Pseudocode](#Pseudocode)
+#     + [Comments](#Comments)
+# * [Try/Except](#Try-/-Except---Making-your-code-robust)
+# * [Functions](#Defining-your-own-Functions)
+# * [Reading and Writing Files from Python](#Reading-and-Writing-Files-from-Python)
+#     + [Working Directories](#Working-Directories)
+# * [Scripts](#Running-Scripts)
+# * [Useful Packages](#Useful-Packages)
+#     + [Pandas](#Pandas)
+# 
 
 # ### NOTE:
 # This workshop assumes that you already have the <a href="https://www.anaconda.com/download/">Anaconda distribution</a> of Python 3.7 installed.  Detailed installation instructions are available in the [Python I materials](https://unc-libraries-data.github.io/Python/Python1/Python-1.html). 
@@ -47,7 +61,7 @@
 # ```
 # 
 # 
-# # Pseudocode
+# ## Pseudocode
 # 
 # As you get started coding in Python, there will be many many tasks and steps you aren't familiar with!  As you learn new functions and approaches, you'll become better and better at searching for help online and reviewing documentation.  Learning to write and use pseudocode where appropriate can help organize your plan for any individual script.
 # 
@@ -70,7 +84,7 @@
 # 
 # * Write pseudocode to summarize the following code:
 
-# In[1]:
+# In[70]:
 
 
 random_words=["statement", "toy", "cars", "shoes", "ear", "busy", 
@@ -94,7 +108,7 @@ for word in random_words:
 
 # * Write pseudocode to check an arbitrary list of numbers, `my_numbers`, to find all even numbers and convert them to odd numbers by adding one.  Put the resulting numbers into a new list `my_numbers2`.  (Recall `for` loops ,`if` conditions, and the modulo function `%` from Python 1.)
 # 
-# # Comments
+# ## Comments
 # 
 # Recall that Python ignores anything following a `#` as a comment.  Comments are a vital part of your code, as they leave notes about how or why you're doing something.  As you gain experience, you'll use comments in different ways.
 # 
@@ -102,7 +116,7 @@ for word in random_words:
 # 
 # Here's a possible answer to the previous exercise.
 
-# In[2]:
+# In[71]:
 
 
 #1. Get or define the list my_numbers
@@ -125,213 +139,34 @@ my_numbers=list(range(100))
 # 
 # * Use your own pseudocode or the example above as an outline to fill in with Python code.  Test your code with the `my_numbers` object defined above.
 
-# # Reading and Writing Files from Python
+# # Try / Except - Making your code robust
 # 
-# ## Packages
-# 
-# ### Installation
-# 
-# Packages provide additional tools and functions not present in base Python.  Python includes a number of packages to start with, and others can be installed using `pip install <package name>` and/or `conda install <package name>` commands **in your terminal**. 
-# 
-# Open your terminal by:
-# * (PC) Start > Anaconda3(64-bit) > Anaconda Prompt
-# * (Mac) Finder > Applications > Anaconda Navigator > Environments Tab > (play button listed next to "root") > Open Terminal
-# 
-# ### Loading
-# 
-# Once you've installed a package, you can load it into your current Python session with the `import` function.  Otherwise these functions will not be available.
+# Errors and warnings are a regular occurrence in coding, and an important part of the learning process.  In some cases, they can also be useful in designing an algorithm.  For example, suppose we have a stream of user entered data that is supposed to contain the user's age in years.  You might expect to get a few errors or nonsense entries.
 
-# In[3]:
+# In[72]:
 
 
-import os #functions for working with your operating system
+user_ages=["34","27","54","19","giraffe","15","83","61","43","91","sixteen"]
 
 
-# ## Working Directories
-# 
-# To open a file with Python, you'll need to tell your computer where it's located on your computer.  You can specify the entire absolute filepath (starting with C:\ on PC or / on Mac), or you can set a working directory and work with relative file paths. 
-# 
-# You can determine where a file is located on your computer by:
-# 
-# * (PC) Navigate to your desired folder in Windows Explorer and click on it.  Click in the address bar at the top of the window to copy the path.
-# * (Mac) Right-click a file in your desired directory > Click Get Info > Highlight and copy the path listed next to "Where:"
-# 
-# If a file is located in your working directory, its relative path is just the name of the file!
+# It would be useful to convert these values to a numeric type to get the average age of our users, but we want to build something that can set non-numeric values aside.  We can attempt to convert to numeric and give Python instructions for errors with a `try`-`except` statement:
 
-# In[4]:
+# In[73]:
 
 
-myfile="C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales/day1.txt" #absolute path
-os.path.isfile(myfile) #check if Python can find my file 
+ages=[]
+problems=[]
 
+for age in user_ages:
+    try:
+        a=int(age)
+        ages.append(a)
+    except:
+        problems.append(age)
+        
+print(ages)
+print(problems)
 
-# #### Windows Paths
-# Windows filepaths use `\`, which Python interprets as *escape characters*.  This can be fixed in several ways:
-# 1. Replace `\` with `/`.
-# 2. Replace `\` with `\\`.
-# 3. Preface your path with `r`: 
-# ```
-#         r"C:\Users\mtjansen\Desktop"
-# ```
-
-# In[5]:
-
-
-os.chdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales") #set working directory
-myfile="day1.txt" #relative path
-os.path.isfile(myfile)
-
-
-# We can get a list of all files in the working directory with `os.listdir(".")`.
-
-# In[6]:
-
-
-print(os.listdir("."))
-print(os.listdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales")) #alternatively we can specify a folder
-
-
-# <center>
-# <h3>Exercise</h3>
-# </center>
-# 
-# * Download the zipped data availalble [here](https://github.com/UNC-Libraries-data/Python/raw/master/Python2/Python_Sales/Python_Sales.zip). Unzip them somewhere on your computer.
-# 
-# * Use `import os` and `os.chdir` to set your working directory to the unzipped folder "Python Sales".  Use `os.listdir` to check what files are stored there.
-# 
-# 
-# ## Reading and Writing Files
-# 
-# Python requires you both open and close files explicitly.  If you forget to close a file, it can remain in use, preventing you from opening it later.
-# 
-# Best practices for reading and writing files use the `with` function to make sure files are automatically closed.
-
-# In[7]:
-
-
-with open('Day1.txt',"r") as txtfile: #"r" indicates that we are reading the textfile and not writing to it
-    raw=txtfile.read() #read() retrieves raw text information from the file opened in txtfile
-    
-print(raw)
-
-
-# In[8]:
-
-
-rawlist=raw.splitlines() #.splitlines() uses each new line to split the string into a list
-print(rawlist)
-
-
-# In[9]:
-
-
-total=0
-for item in rawlist:
-    n=float(item) #convert strings to decimal numbers (i.e. floats)
-    total=total+n
-print(total)
-
-
-# Let's write a new file with the total.
-
-# In[10]:
-
-
-total=str(total) #we need to convert numerics to strings before writing
-with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that we're writing to the file
-    txtfile.write(total)
-
-
-# <center>
-# <h3>Exercises</h3>
-# </center>
-# 
-# * Use a loop to extend the above to get the total for each of the three files, Day1.txt, Day2.txt, and Day3.txt. Create a new file that contains the overall total.  There shouldn't be any sales over 100, so if you find any exclude them!
-
-# # Data Objects: continued
-# 
-# Last week, we introduced a number of important data structures in Python: string and numeric types, as well as lists.  We used indexing to specify particular parts of the sequential objects - strings and lists.  
-# 
-# ## Dictionaries
-# 
-# Dictionaries provide a "mapping object"; instead of an index, they used named "keys" to organized data.  Dictionaries also benefit from faster performance than lists in most cases, due to their use of <a href="https://en.wikipedia.org/wiki/Hash_table">hash tables</a>.  
-# 
-# A dictionary is defined as follows:
-
-# In[11]:
-
-
-class_dict = {"course":"Python II","location":"Davis Library","time":"4pm"}
-type(class_dict)
-
-
-# In this case, `"course"`, `"location"`, and `"time"` serve as the "keys" for this dictionary.  Keys play a similar role to the indices we use for lists (or strings).  We can print a particular value by placing its key in the same square brackets `[]` used by list indices.
-
-# In[12]:
-
-
-print(class_dict["location"])
-
-
-# A numeric index **will not** work with dictionaries.
-# 
-# We can also generate a list of all of the keys for a dictionary using the `.keys()` method. 
-
-# In[13]:
-
-
-print(class_dict.keys())
-
-
-# ## List and Dictionary Comprehensions
-# 
-# Python provides some shortcuts to generating lists and dictionaries, especially those that you might (now) generate with a list.  For example, let's generate a list of the square of each number from 1 to 15.
-
-# In[14]:
-
-
-squares=[]
-for n in range(1,16):
-    squares.append(n**2)
-print(squares)
-
-
-# Using a "comprehension", we can shorten this to a single line, effectively bringing the loop inside the `[]` used to define the list.
-
-# In[15]:
-
-
-squares=[x**2 for x in range(1,16)]
-print(squares)
-
-
-# The same general format holds for defining dictionaries.
-
-# In[16]:
-
-
-squaresdict={k:k**2 for k in range(1,16)}
-print(squaresdict)
-
-
-# We can include conditional statements at the end of the comprehension to build more flexible comprehensions.
-
-# In[17]:
-
-
-sentence="the quick brown fox jumped over the lazy dog"
-sentence=sentence.split(" ") #splits the string into a list with each space
-print(sentence)
-print([w for w in sentence if len(w)>4])
-
-
-# <center>
-# <h3>Exercises</h3>
-# </center>
-# 
-# * Write a list comprehension to create a list of just the values (i.e. the squares) from `squaresdict`.
-# 
-# * Write a list comprehension with `os.listdir` to list all of the files in a directory that have a particular extension (e.g. end with .txt).  Try it against a folder in your computer with at least one such file.
 
 # # Defining your own Functions
 # 
@@ -346,7 +181,7 @@ print([w for w in sentence if len(w)>4])
 # 
 # The `mean` function below returns the mean of a list of numbers.  (Base Python does not include a function for the mean.)
 
-# In[18]:
+# In[74]:
 
 
 def mean(number_list):
@@ -376,7 +211,7 @@ print(mean(numbers))
 # * Test your function(s) with the lists below:
 # 
 
-# In[19]:
+# In[75]:
 
 
 data1 = list(range(1,100))
@@ -386,34 +221,128 @@ from numpy.random import normal
 data2 = normal(loc=0,scale=2,size=100) #scale=2 defines the standard deviation as 2
 
 
-# # Try / Except - Making your code robust
+# # Reading and Writing Files from Python
 # 
-# Errors and warnings are a regular occurrence in coding, and an important part of the learning process.  In some cases, they can also be useful in designing an algorithm.  For example, suppose we have a stream of user entered data that is supposed to contain the user's age in years.  You might expect to get a few errors or nonsense entries.
+# ## Packages
+# 
+# ### Installation
+# 
+# Packages provide additional tools and functions not present in base Python.  Python includes a number of packages to start with, and others can be installed using `pip install <package name>` and/or `conda install <package name>` commands **in your terminal**. 
+# 
+# Open your terminal by:
+# * (PC) Start > Anaconda3(64-bit) > Anaconda Prompt
+# * (Mac) Finder > Applications > Anaconda Navigator > Environments Tab > (play button listed next to "root") > Open Terminal
+# 
+# ### Loading
+# 
+# Once you've installed a package, you can load it into your current Python session with the `import` function.  Otherwise these functions will not be available.
 
-# In[20]:
+# In[76]:
 
 
-user_ages=["34","27","54","19","giraffe","15","83","61","43","91","sixteen"]
+import os #functions for working with your operating system
 
 
-# It would be useful to convert these values to a numeric type to get the average age of our users, but we want to build something that can set non-numeric values aside.  We can attempt to convert to numeric and give Python instructions for errors with a `try`-`except` statement:
+# ## Working Directories
+# 
+# To open a file with Python, you'll need to tell your computer where it's located on your computer.  You can specify the entire absolute filepath (starting with C:\ on PC or / on Mac), or you can set a working directory and work with relative file paths. 
+# 
+# You can determine where a file is located on your computer by:
+# 
+# * (PC) Navigate to your desired folder in Windows Explorer and click on it.  Click in the address bar at the top of the window to copy the path.
+# * (Mac) Right-click a file in your desired directory > Click Get Info > Highlight and copy the path listed next to "Where:"
+# 
+# If a file is located in your working directory, its relative path is just the name of the file!
 
-# In[21]:
+# In[77]:
 
 
-ages=[]
-problems=[]
+myfile="C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales/day1.txt" #absolute path
+os.path.isfile(myfile) #check if Python can find my file 
 
-for age in user_ages:
-    try:
-        a=int(age)
-        ages.append(a)
-    except:
-        problems.append(age)
-        
-print(ages)
-print(problems)
 
+# #### Windows Paths
+# Windows filepaths use `\`, which Python interprets as *escape characters*.  This can be fixed in several ways:
+# 1. Replace `\` with `/`.
+# 2. Replace `\` with `\\`.
+# 3. Preface your path with `r`: 
+# ```
+#         r"C:\Users\mtjansen\Desktop"
+# ```
+
+# In[78]:
+
+
+os.chdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales") #set working directory
+myfile="day1.txt" #relative path
+os.path.isfile(myfile)
+
+
+# We can get a list of all files in the working directory with `os.listdir(".")`.
+
+# In[79]:
+
+
+print(os.listdir("."))
+print(os.listdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales")) #alternatively we can specify a folder
+
+
+# <center>
+# <h3>Exercise</h3>
+# </center>
+# 
+# * Download the zipped data availalble [here](https://github.com/UNC-Libraries-data/Python/raw/master/Python2/Python_Sales/Python_Sales.zip). Unzip them somewhere on your computer.
+# 
+# * Use `import os` and `os.chdir` to set your working directory to the unzipped folder "Python Sales".  Use `os.listdir` to check what files are stored there.
+# 
+# 
+# ## Reading and Writing Files
+# 
+# Python requires you both open and close files explicitly.  If you forget to close a file, it can remain in use, preventing you from opening it later.
+# 
+# Best practices for reading and writing files use the `with` function to make sure files are automatically closed.
+
+# In[80]:
+
+
+with open('Day1.txt',"r") as txtfile: #"r" indicates that we are reading the textfile and not writing to it
+    raw=txtfile.read() #read() retrieves raw text information from the file opened in txtfile
+    
+print(raw)
+
+
+# In[81]:
+
+
+rawlist=raw.splitlines() #.splitlines() uses each new line to split the string into a list
+print(rawlist)
+
+
+# In[82]:
+
+
+total=0
+for item in rawlist:
+    n=float(item) #convert strings to decimal numbers (i.e. floats)
+    total=total+n
+print(total)
+
+
+# Let's write a new file with the total.
+
+# In[83]:
+
+
+total=str(total) #we need to convert numerics to strings before writing
+with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that we're writing to the file
+    txtfile.write(total)
+
+
+# <center>
+# <h3>Exercises</h3>
+# </center>
+# 
+# * Use a loop to extend the above to get the total for each of the three files, Day1.txt, Day2.txt, and Day3.txt. Create a new file that contains the overall total.  There shouldn't be any sales over 100, so if you find any exclude them!
 
 # # Running Scripts
 # 
@@ -454,6 +383,8 @@ print(problems)
 # Installing packages known to Anaconda can be done with the `conda install <package name>` command in your Anaconda Prompt window.  Otherwise you may need to use a different manager like `pip install <package name>`.
 # 
 # <a href="https://conda.io/docs/user-guide/tasks/manage-pkgs.html">More information about managing packages in Python is available here.</a>
+# 
+# You can also <a href="https://docs.anaconda.com/anaconda/navigator/tutorials/manage-packages/">install packages from the Anaconda Navigator window</a>.
 
 # 
 # ## Data Analysis
@@ -464,26 +395,119 @@ print(problems)
 # 
 # ### Pandas 
 # 
-# The <a href="https://pandas.pydata.org/">`pandas` package</a> provides high-level data manipulation functionality, similar to that found by default in R.  That means new objects like data frames and time series, as well as new functions to manage missing values, merge, and/or reshape datasets.
+# The <a href="https://pandas.pydata.org/"> `pandas` package</a> provides high-level data manipulation functionality, similar to that found by default in R.  That means new objects like data frames and time series, as well as new functions to manage missing values, merge, and/or reshape datasets.
+# 
+# Notice that we load pandas with the usual `import pandas` and an extra `as pd` statement.  This allows us to call functions from `pandas` with `pd.<function>` instead of `pandas.<function>` for convenience.  `as pd` is not necessary to load the package. 
 # 
 # Download the csv file <a href="https://github.com/UNC-Libraries-data/Python/raw/master/Python2/CountyHealthData_2014-2015.csv"> 
-# CountyHealthData_2014-2015.csv</a>.
+# CountyHealthData_2014-2015.csv</a>.  I've stored my copy in the Python2 folder inside my Python folder on my desktop.
+# 
+# `pd.read_csv` reads the tabular data from a Comma Separated Values (csv) file into a `DataFrame` object.
 
-# In[22]:
+# In[84]:
 
 
-import pandas as pd #pd shortens the name to make it easier to call functions from pandas
-os.chdir("C:/Users/mtjansen/Desktop/Python/Python2")
+import pandas as pd 
+os.chdir("C:/Users/mtjansen/Desktop/Python/Python2") #change this to match your path
 
 df = pd.read_csv("CountyHealthData_2014-2015.csv")
+#df = pd.read_csv("C:/Users/mtjansen/Desktop/Python/Python2/CountyHealthData_2014-2015.csv")
+
+
+# #### Exploring a DataFrame
+# 
+# 
+# 
+# A good first step in understanding our DataFrame is to examine some of its basic attributes.  In Pandas, we access attributes with the following syntax:
+# ```
+# <DataFrame name>.<attribute name>
+# ```
+# 
+# Here we us the `.shape` attribute to determine how many rows and columns (in that order) are available.
+
+# In[85]:
+
+
+df.shape
+
+
+# Other useful attributes include:
+# * `.columns` provides the column names for the DataFrame
+# * `.dtypes` provides the Pandas datatype for each column
+# 
+# Much of the functionality for working with dataframes comes in the form of methods.  Methods are specialized functions that only work for a certain type of object, with the syntax:
+# ```
+# <object name>.<method>()
+# ```
+# 
+# We can look at the first 5 or last 5 rows in the dataset directly with the `.head()` and `.tail()` methods.
+
+# In[86]:
+
 
 df.head()
 
 
-# In[23]:
+# The `.describe()` method allows us to quickly summarize all numeric columns.
+
+# In[87]:
 
 
-df.groupby("Region").mean()
+df.describe()
+
+
+# A full list of attributes and methods available for DataFrames is available <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">here</a>.
+# 
+# #### Indexing
+
+# We'll often want to select certain rows or columns from a large dataframe with indexing.  Rows and columns can be extracted using square brackets with either of the following:
+# * integers to index **rows**, ranges can be supplied with colons (e.g. 0:5)
+# * strings or lists of strings of columns names to index **columns**
+
+# In[88]:
+
+
+df[0:3]
+
+
+# In[89]:
+
+
+df["State"][0:3]
+
+
+# The `.iloc` attribute lets us directly suppy integer indices for rows and columns simultaneously:
+
+# In[90]:
+
+
+df.iloc[:4,:4]
+
+
+# We can also select using column names (or row names if applicable) instead of integers with `.loc`:
+
+# In[91]:
+
+
+df.loc[:,["State","County","Food environment index"]].head()
+
+
+# In this case, we can use integers directly for the row indices since there are no string row labels defined.
+
+# In[92]:
+
+
+df.loc[15:20,["State","County","Food environment index"]]
+
+
+# Finally, we can nest square brackets to select based on conditions.  
+# * The inner statement, `df["State"]=="RI"` extracts a **column** on column name and checks if it equals "RI"
+# * The outer statement `df[ ... ]` uses the resulting column of True/Falue values to select **rows**
+
+# In[93]:
+
+
+df[df["State"]=="RI"]
 
 
 # **Learn more:**
@@ -494,27 +518,40 @@ df.groupby("Region").mean()
 # 
 # <a href="https://matplotlib.org/">`matplotlib`</a> is a commonly used data visualization package for Python, oriented towards static, scientific plotting.  There are a number of other packages for visualization including:
 # 
-# * `seaborn` provides aesthetic extensions to matplotlib
+# * `seaborn` provides aesthetic extensions to matplotlib and better compatibility with Pandas
 # * `ggplot` - a Python version of the popular ggplot2 package for R
 # * `Bokeh` and `Plotly` help create interactive web visualizations
 # 
+# Here's an example `seaborn` plot with our County Health Data from above:
+
+# In[97]:
+
+
+import seaborn as sns
+
+states=df.groupby(["State","Region"]).mean().reset_index()  #aggregate data to state-level means using DataFrame methods
+states=states[["Region","Poor or fair health","Poor physical health days","Poor mental health days","Median household income"]]
+
+sns.pairplot(states,hue="Region")
+
+
 # ## Other Areas
 # 
 # ### BeautifulSoup (for parsing HTML or XML data)
 # 
 # Python's built-in `urllib.request` package makes it relatively easy to download the underlying html from a web page. Note that the `from package import function` notation used here allows you to selectively import only parts of a package as needed.
 
-# In[24]:
+# In[95]:
 
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-page = urlopen("https://unc-libraries-data.github.io/Python/Python2/Python-2.html")  #The Python 2 materials!
+page = urlopen("https://unc-libraries-data.github.io/Python/Python1/Python-1.html")  #The Python 1 materials!
 html = page.read()
 print(html[:300]) #print only the first 300 characters
 
 
-# In[25]:
+# In[96]:
 
 
 soup=BeautifulSoup(html,"html.parser")
@@ -529,9 +566,7 @@ soup=BeautifulSoup(html,"html.parser")
 # 
 # ## Jupyter Notebooks
 # 
-# Sooner or later, you'll want to share your code or projects with other people (even if only future-you!).  <a href="http://jupyter.org/">Jupyter notebooks</a>, included with Anaconda, provide integration between code, its output, images, and formatted text beyond what's possible with in-code comments.  The materials for these workshops were created in Jupyter notebooks.
-# 
-# If you're interested in learning more about Jupyter, consider attending [Jupyter Day in the Triangle](https://libcce.github.io/TriangleJupyter/) at the Carolina Club, Tuesday November 13, 2018.
+# Sooner or later, you'll want to share your code or projects with other people (even if only future-you!).  <a href="http://jupyter.org/">Jupyter notebooks</a>, included with Anaconda, provide integration between code, its output, images, and formatted text beyond what's possible with in-code comments.  The materials for these workshops were created in Jupyter notebooks, then exported to html.
 # 
 # ## GitHub
 # 
@@ -543,13 +578,13 @@ soup=BeautifulSoup(html,"html.parser")
 # 
 # We'd love your input on future workshop topics and ways we could improve this workshop next time we teach it!
 
-# # Other Resources:
+# ## Resources / Learn more:
 # 
 # * <a href="https://jakevdp.github.io/PythonDataScienceHandbook/">Python Data Science Handbook</a>  This free ebook emphasizes Numpy, Scipy, Matplotlib, Pandas and other data analysis packages in Python, assuming some familiarity with the basic principles of the language.
 # 
-# ### From Python I:
-# 
 # * <a href="https://automatetheboringstuff.com/">Automate the Boring Stuff with Python</a>
+# 
+# * <a href="https://ehmatthes.github.io/pcc/cheatsheets/README.html">Python Cheatsheets</a>
 # 
 # * <a href="https://stackoverflow.com/questions/tagged/python-3.x?sort=frequent&pageSize=15">Stack Overflow</a>
 # 
