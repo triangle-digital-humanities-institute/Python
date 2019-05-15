@@ -3,13 +3,13 @@
 
 # <center><h1>Python I</h1></center>
 # 
-# [*Matt Jansen, Davis Library Research Hub*](https://guides.lib.unc.edu/mattjansen)
+# <center>Claire Cahoon, Matt Jansen, Nathan Kelber, and Kristina Bush</center>
 # 
-# February 19th, 2018
+# Thursday, May 23, 2019
 
 # **<font color=red>Note:</font>** 
-# * Please install Anaconda following the instructions in section **0. Setup** below **before** the workshop if possible.
-# * If you haven't already installed Anaconda, please begin downloading the [Anaconda distribution of Python](https://www.anaconda.com/download/) as soon as you can.  It's a large download and can be slow to download over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.
+# * Please install Anaconda following the instructions in [Setup](https://unc-libraries-data.github.io/Python/Setup.html)  **before** the workshop if possible.
+# * If you haven't already installed Anaconda, please begin downloading the [Anaconda distribution of Python](https://www.anaconda.com/download/) as soon as possible.  It's a large download and can be slow to download over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.
 # 
 # **Goals:**
 # 
@@ -38,48 +38,6 @@
 # #### <font color=red>Warning!</font>
 # 
 # If you're already very comfortable with programming, you may find this workshop very simple.  You're welcome to come back next week for Python II, if you're already familiar with the concepts below and just need to learn the syntax.  You're also welcome to stay, review, and help other attendees!
-# 
-# <center> <h1>0. Setup</h1> </center>
-# 
-# If you use macOS or Linux, then you most likely already have Python on your computer!  Python does not come with Windows, but it may be on your machine as part of other software (e.g. ArcGIS Desktop).
-# 
-# ### Why not work with an existing installation?
-# 
-# Unless you've worked with Python already, your pre-existing installation may only include the bare minimum and may be an out of date version.  Therefore, we recommend installing a distribution, with Python and many useful add-ons already setup.
-# 
-# ## Anaconda distribution
-# 
-# Anaconda packages the current version of Python 2 or 3 with over 150 packages included in the installation and supports hundreds of others.  This includes many of the most heavily used packages supporting data transformation and analysis, and software to manage and add new packages, create virtual environments, and more.
-# 
-# [Read more here](https://docs.anaconda.com/anaconda/packages/pkg-docs)
-#     
-# [Download Anaconda Python 3.7, 64-bit](https://www.anaconda.com/download/)
-# 
-# ![Download](https://github.com/UNC-Libraries-data/Python/raw/master/Python1/images/Conda_dl.png)
-# 
-# ####  PATH Variables and Default Installation
-# 
-# In most cases, it is best to leave the default settings for installation. 
-# 
-# ![Anaconda_install_settings.png](https://github.com/UNC-Libraries-data/Python/raw/master/Python1/images/Anaconda_install_settings.png)
-# 
-# 1. **PATH**
-# 
-#   * Do not add Anaconda to your PATH variable.
-#   
-# 2. **Registering Python**
-# 
-#   * If you are installing Python for the first time, select "Register Anaconda as the system Python"
-# 
-#   * If you have Python-dependent software (e.g. ArcGIS, CAD software, etc), do not check "Register Anaconda as the system Python" or it may cause issues with your other programs.
-#     + If you're unsure, open your PC's Command Line (Start>Windows System>Command Prompt) or Mac's Terminal (Applications>Utilities>Terminal) and type `python` and press Enter.  If you already have Python you should see something like the image below - do not check Register Anaconda as the system Python.
-#     
-#   ![Command Prompt Python](https://github.com/UNC-Libraries-data/Python/raw/master/Python1/images/Test_CMD.png)
-# 
-# 
-# 3. **Visual Studio Code**
-# 
-#   * **Skip** installing Microsoft VSCode.
 # 
 # ####  Python 2 vs Python 3
 # 
