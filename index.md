@@ -1,6 +1,8 @@
 Python Workshops at UNC
 ====
 
+* [Setup](https://unc-libraries-data.github.io/Python/Python1/Setup.html)
+
 * [Python 1](https://unc-libraries-data.github.io/Python/Python1/Python-1.html)
   +  [Python 1 Extra](https://unc-libraries-data.github.io/Python/Extras/Python-1-Extras.html)
 
