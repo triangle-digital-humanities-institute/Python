@@ -13116,7 +13116,21 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<center><h1>Python I</h1></center><center>Claire Cahoon, Matt Jansen, Nathan Kelber, and Kristina Bush</center><p>Thursday, May 23, 2019</p>
+<center><h1>Python I: Beginner Basics</h1></center>
+<center>Claire Cahoon, Matt Jansen, Nathan Kelber, and Kristina Bush</center><center>Thursday, May 23, 2019</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><font color=red>Note:</font></strong> 
+If you would like to use Python for the duration of this workshop without downloading anything (or have problems downloading Anaconda), we recommend using <a href="https://pyfiddle.io/">pyfiddle.io</a>.  Make sure you set Python version to 3.6 on the left side of the screen.</p>
+<p>If you would like to save your work and continue to use Python on your computer, we recommend downloading Anaconda.</p>
+<ul>
+<li>Please install Anaconda following the instructions in <a href="https://unc-libraries-data.github.io/Python/Setup.html">Setup</a>  <strong>before</strong> the workshop if possible.</li>
+<li>If you haven't already installed Anaconda, please begin downloading the <a href="https://www.anaconda.com/download/">Anaconda distribution of Python</a> as soon as possible.  It's a large download and can be slow to download over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.</li>
+</ul>
 
 </div>
 </div>
@@ -13124,21 +13138,16 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong><font color=red>Note:</font></strong></p>
-<ul>
-<li>Please install Anaconda following the instructions in <a href="https://unc-libraries-data.github.io/Python/Setup.html">Setup</a>  <strong>before</strong> the workshop if possible.</li>
-<li>If you haven't already installed Anaconda, please begin downloading the <a href="https://www.anaconda.com/download/">Anaconda distribution of Python</a> as soon as possible.  It's a large download and can be slow to download over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.</li>
-</ul>
-<p><strong>Goals:</strong></p>
+<center> <h1>Getting Started</h1> </center><p><strong>Goals:</strong></p>
 <ul>
 <li>Get the Anaconda Distribution of Python 3.7 downloaded and installed on your computer</li>
 <li>Learn to work with basic Python objects</li>
 <li>Introduce Loops and Conditionals</li>
 </ul>
-<h3 id="Why-Python?">Why Python?<a class="anchor-link" href="#Why-Python?">&#182;</a></h3><p>Python is a general-purpose programming language that has become popular in a number of application areas.  Python can be easier to learn than some other languages because it emphasizes (human) readability and flexibility.  Python is <a href="https://octoverse.github.com/projects#languages">the third most used language on GitHub</a>; this popularity translates into a wide variety of packages (user-developed functionality) to apply Python to different problems and tasks.</p>
-<p>If you haven't worked with a programming language before, learning Python will introduce you to approaches and thought processes common to many similar programming languages.</p>
-<h4 id="Use-Cases:">Use Cases:<a class="anchor-link" href="#Use-Cases:">&#182;</a></h4><ul>
-<li><p>Scripting: writing code to automate labor-intensive, repeptitive tasks.  For example, extracting text from thousands of pdf files, and sorting them into directories based on the resulting text files.'</p>
+<h2 id="Why-Python?">Why Python?<a class="anchor-link" href="#Why-Python?">&#182;</a></h2><p>Python is a general-purpose programming language that has become popular in a number of application areas.  Python can be easier to learn than some other languages because it emphasizes (human) readability and flexibility.  Python is <a href="https://octoverse.github.com/projects#languages">the third most used language on GitHub</a>; this popularity translates into a wide variety of packages (sets of functionality developed by other users) to apply Python to different problems and tasks.</p>
+<p>If you haven't worked with a programming language before, learning Python will introduce you to approaches and thought processes common to many similar programming languages, making it easier to learn other languages.</p>
+<h3 id="Use-Cases:">Use Cases:<a class="anchor-link" href="#Use-Cases:">&#182;</a></h3><ul>
+<li><p>Scripting: writing code to automate labor-intensive, repeptitive tasks.  For example, extracting text from thousands of pdf files and sorting them into directories based on the resulting text files.</p>
 </li>
 <li><p>Quantitative analysis: specialized tools and functions for everything from fitting deep learning models with <code>tensorflow</code> to  creating interactive visualizations with <code>bokeh</code>.</p>
 </li>
@@ -13149,10 +13158,10 @@ div#notebook {
 </ul>
 <p>However, there are few things you can do in Python that can't also be done elsewhere!  If you already know one or more programming language, you'll have to decide where Python best fits or helps in your own workflows.</p>
 <h4><font color=red>Warning!</font></h4>
-<p>If you're already very comfortable with programming, you may find this workshop very simple.  You're welcome to come back next week for Python II, if you're already familiar with the concepts below and just need to learn the syntax.  You're also welcome to stay, review, and help other attendees!</p>
-<h4 id="Python-2-vs-Python-3">Python 2 vs Python 3<a class="anchor-link" href="#Python-2-vs-Python-3">&#182;</a></h4><p>Both Python 2 and Python 3 are widely used in research.  Unfortunately, while both Python 2 and 3 are very similar, they are not completely compatible.  Python 3 was released in 2008; nearly all important tools have been re-written or updated for Python 3.  Python 2 will no longer be supported after 2020.  This workshop will focus on Python 3.</p>
-<h3 id="Anaconda-Alternative---Pyfiddle">Anaconda Alternative - Pyfiddle<a class="anchor-link" href="#Anaconda-Alternative---Pyfiddle">&#182;</a></h3><p>If you have problems installing Anaconda, you can also follow along today with <a href="https://pyfiddle.io/">pyfiddle.io</a>.  Make sure you set Python version to 3.6 on the left side of the screen.</p>
-<h2 id="Integrated-Development-Environments-(IDEs)">Integrated Development Environments (IDEs)<a class="anchor-link" href="#Integrated-Development-Environments-(IDEs)">&#182;</a></h2><p>While not required, an IDE can make Python easier to use.  As you gain experience, you can choose whether an IDE is right for your uses.  For the purposes of this workshop, we will use the Spyder IDE, which comes packaged with Anaconda.</p>
+<p>If you're already very comfortable with programming, you may find this workshop very simple.  Python II later in the day may be more helpful if you're already familiar with the concepts below and just need to learn new syntax, but both workshops will be focused on the basics.  You're welcome to stay, review, and help other attendees!</p>
+<h4 id="Python-2-vs-Python-3">Python 2 vs Python 3<a class="anchor-link" href="#Python-2-vs-Python-3">&#182;</a></h4><p>Both Python 2 and Python 3 are widely used in research.  Unfortunately, while both Python 2 and 3 are very similar, there are a few key syntax differences. Python 3 was released in 2008; nearly all important tools have been re-written or updated for Python 3.  Python 2 will no longer be supported after 2020.  This workshop will focus on Python 3.</p>
+<h2 id="Integrated-Development-Environments-(IDEs)">Integrated Development Environments (IDEs)<a class="anchor-link" href="#Integrated-Development-Environments-(IDEs)">&#182;</a></h2><p>An IDE is software that groups together the many components needed to develop in a programming language, such as a code editor, compiler, and debugger, in a convenient interface. There are many different IDEs to choose from.</p>
+<p>While not required, an IDE can make Python easier to use.  As you gain experience, you can choose whether an IDE is right for your uses and which one works best for you. For the purposes of this workshop, we will use the Spyder IDE, which comes packaged with Anaconda.</p>
 <p>Open Spyder:</p>
 <ul>
 <li><strong>Windows</strong>: Start&gt;Anaconda3 64-bit&gt;Spyder</li>
@@ -13321,7 +13330,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<center> <h1>2. Variables</h1> </center><p>Ultimately, we need Python to store various values and objects for future re-use. Python has many default data types available.  We will focus on a few common examples.</p>
+<center> <h1>2. Variables</h1> </center><p>We need Python to store various values and objects for future re-use. Python has many default data types available.  We will focus on a few common examples.</p>
 <h2 id="Strings-and-Numbers">Strings and Numbers<a class="anchor-link" href="#Strings-and-Numbers">&#182;</a></h2><p>We assign a value to a variable using <code>=</code>.  We do not need to declare a type or give any other information.</p>
 
 </div>
@@ -13344,7 +13353,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>String objects, like <code>text</code> above, contain textual values.  These are identified to Python by quotes; you can use either ' or " as long as you use the same type to begin and end your string.</p>
+<p>String objects, like <code>text</code> above, contain textual values.  These are identified to Python by quotes; you can use either ' or " as long as you use the same type to begin and end your string. You can't do mathmatical operations on strings.</p>
 <p>Python uses several different numeric data types for storing different values. Examples include integers, long integers, and floating point numbers (decimals).  Numbers can also be stored in string values using quotes.</p>
 <p>For example:</p>
 
@@ -13353,10 +13362,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[151]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">notnumber</span><span class="o">=</span><span class="s2">&quot;42&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">notnumber</span><span class="o">=</span><span class="s2">&quot;42&quot;</span> <span class="c1">#This is stored as text, not a number</span>
 </pre></div>
 
     </div>
@@ -13406,9 +13415,12 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Note:</strong> The print command is one of the most basic differences between Python 2 and Python 3. In Python 2, print does not require parentheses:</p>
+<p><strong>Note:</strong> The print command is one of the most basic differences between Python 2 and Python 3. 
+In Python 2, print does not require parentheses:</p>
 <p><code>print text</code></p>
-<p>We can also modify the contents of objects in various ways such as redefining them or changing their type. In some cases this is crucial to how Python can work with them.  For example:</p>
+<p>In Python 3, you must include parentheses:</p>
+<p><code>print(text)</code></p>
+<p>We can also modify the contents of variables in various ways, including redefining them or changing their type. In some cases this is crucial to how Python can work with them.  For example:</p>
 
 </div>
 </div>
@@ -13614,7 +13626,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>int</code> objects can only hold integer values.  If you have decimal values, use the <code>float</code> (floating decimal) type instead.</p>
+<p><code>int</code> objects can only hold integer values (whole numbers).  If you have decimal values, use the <code>float</code> (floating decimal) type instead.</p>
 
 </div>
 </div>
@@ -13748,7 +13760,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[161]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">obj0</span><span class="o">=</span><span class="mi">12</span>
@@ -13791,10 +13803,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[162]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_list1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>
+<span class="n">my_list1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_list1</span><span class="p">)</span>
 </pre></div>
 
@@ -13812,7 +13825,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[12, &#39;cat&#39;, [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], &#39;dog&#39;]
+<pre>[12, &#39;cat&#39;, [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], &#39;dog&#39;, 42]
 </pre>
 </div>
 </div>
@@ -13827,7 +13840,7 @@ div#notebook {
 <center>
 <h3>Exercise</h3>
 </center><ol>
-<li><p>Create a list of:</p>
+<li><p>Create a list that includes:</p>
 <ul>
 <li>your favorite color</li>
 <li><p>your two favorite holidays (as a list within the list)</p>
@@ -13836,10 +13849,12 @@ div#notebook {
 </li>
 </ul>
 </li>
+<li><p>Then append the number of pets you have as a new list item</p>
+</li>
 </ol>
 <h3 id="Indexing">Indexing<a class="anchor-link" href="#Indexing">&#182;</a></h3><p>Python retains the order of elements in our list and uses that order to retrieve objects in lists.  These numbered positions are called indices.</p>
 <p>We use <code>[</code> and <code>]</code> to contain indices.</p>
-<p>Most importantly,<strong>Python starts counting at zero</strong>: The first element in your list is denoted <code>[0]</code>, the second <code>[1]</code>, the third <code>[2]</code> and so on.</p>
+<p>Most importantly, <strong>Python starts counting at zero</strong>: The first element in your list is denoted <code>[0]</code>, the second <code>[1]</code>, the third <code>[2]</code> and so on.</p>
 
 </div>
 </div>
@@ -14000,6 +14015,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Indexing-beyond-lists">Indexing beyond lists<a class="anchor-link" href="#Indexing-beyond-lists">&#182;</a></h4><p>Indexes can also be used with any sequential data type, which includes strings.</p>
+<p>If you want to find a range of indexes, you can use two numbers with <code>:</code> in between. Note that Python does not stops at the index before the one you note as the end of the range.</p>
 <p>For example:</p>
 
 </div>
@@ -14131,8 +14147,7 @@ The
 <li>Try to use indexing to get the tenth digit of <code>my_pi</code> as defined below.  Does it work as defined?  Do we need to change the variable somehow?
 <pre><code>my_pi=3.141592653589793</code></pre>
 </li>
-<li><p>Below is a list of lists containing the NATO phonetic codes for each letter of the alphabet.  Each list within <code>nato</code> contains a letter of the alphabet and its corresponding code.</p>
-
+<li>Below is a list of lists containing the NATO phonetic codes for each letter of the alphabet.  Each list within <code>nato</code> contains a letter of the alphabet and its corresponding code.
 <pre><code>nato=[["A","Alfa"],
        ["B","Bravo"],
        ["C","Charlie"],
@@ -14160,11 +14175,12 @@ The
        ["Y","Yankee"],
        ["Z","Zulu"]]</code></pre>
 </li>
-<li><p>What is the fifteenth letter of the alphabet?</p>
-</li>
+</ol>
+<ul>
+<li>What is the fifteenth letter of the alphabet?</li>
 <li>What is the code for the twenty-third letter of the alphabet?</li>
 <li>What is the fourth letter of the code for the eighth letter of the alphabet?</li>
-</ol>
+</ul>
 <p>There are several other important data types we won't cover today.  We will cover Python's data type for mapping between values, dictionaries, in Python II.</p>
 <p>Read more about Python's built-in data types <a href=https://docs.python.org/3/library/stdtypes.html>here</a>.</p>
 
@@ -14266,7 +14282,7 @@ The
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Conditional-Statements">Conditional Statements<a class="anchor-link" href="#Conditional-Statements">&#182;</a></h2><p>A conditional statement allows your code to branch and behave differently based on these conditions.</p>
+<h2 id="Conditional-Statements">Conditional Statements<a class="anchor-link" href="#Conditional-Statements">&#182;</a></h2><p>A conditional statement allows your code to branch and behave differently based on defined conditions.</p>
 <p>A simple conditional statement takes the form:</p>
 
 <pre><code>if &lt;condition&gt;:
@@ -14556,12 +14572,13 @@ if &lt;condition using testword&gt;:
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Nesting loops - indentation is key!</span>
 <span class="n">newnato</span><span class="o">=</span><span class="p">[]</span> <span class="c1">#initialize an empty list</span>
-<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="c1">#Loops 5 times</span>
     <span class="n">total</span><span class="o">=</span><span class="mi">0</span> <span class="c1">#resets to zero each loop</span>
-    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">nato</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">nato</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span> <span class="c1">#loops through list items at index[index] in the nato list we used earlier </span>
         <span class="n">total</span><span class="o">=</span><span class="n">total</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span> <span class="c1">#add up length of both strings in each entry</span>
-    <span class="n">new</span><span class="o">=</span><span class="p">[</span><span class="n">nato</span><span class="p">[</span><span class="n">index</span><span class="p">],</span><span class="n">total</span><span class="p">]</span>
-    <span class="n">newnato</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
+        <span class="c1">#example: at index[0], this loop will go through &quot;A&quot; and then &quot;Alpha,&quot; adding the length of each to the total</span>
+    <span class="n">new</span><span class="o">=</span><span class="p">[</span><span class="n">nato</span><span class="p">[</span><span class="n">index</span><span class="p">],</span><span class="n">total</span><span class="p">]</span> <span class="c1">#Create a list that includes the item from nato and the total</span>
+    <span class="n">newnato</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new</span><span class="p">)</span> <span class="c1">#Append these lists to a larger list</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">newnato</span><span class="p">)</span>
 </pre></div>
 
@@ -14710,7 +14727,7 @@ if &lt;condition using testword&gt;:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3><font color=blue>Breaks(Advanced)</font></h3>
+<h3><font color=blue>Breaks (Advanced)</font></h3>
 <p>We can use the break statement with a conditional to stop the loop if a certain condition occurs.</p>
 <p>First, lets get some new functions from a package called <code>random</code>.</p>
 <ul>
@@ -14823,10 +14840,7 @@ if &lt;condition using testword&gt;:
 </ul>
 </li>
 </ul>
-<h2 id="Getting-ready-for-next-week:">Getting ready for next week:<a class="anchor-link" href="#Getting-ready-for-next-week:">&#182;</a></h2><p>If you'd like more practice, please attempt our <strong><a href="https://unc-libraries-data.github.io/Python/Extras/Python-1-Extras.html">Python I: Extra</a></strong>.</p>
-<p>I'm available for one-on-one consultations on Python if you need help.  <a href="http://guides.lib.unc.edu/mattjansen">Contact me here.</a></p>
-<h2 id="Questions?">Questions?<a class="anchor-link" href="#Questions?">&#182;</a></h2><p>If you're planning to attend Python II next week, please feel free to share any ideas or topics you'd like to see covered.</p>
-<p>You can also share ideas while filling out our <a href="https://unc.libsurveys.com/davishubfeedback"><strong>Feedback Survey</strong></a>.</p>
+<h2 id="Learn-More:">Learn More:<a class="anchor-link" href="#Learn-More:">&#182;</a></h2><p>If you'd like more practice, you can attempt our <strong><a href="https://unc-libraries-data.github.io/Python/Extras/Python-1-Extras.html">Python I: Extra</a></strong>.</p>
 <p>Thanks for coming!</p>
 
 </div>
@@ -14848,6 +14862,19 @@ if &lt;condition using testword&gt;:
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
     </div>
   </div>

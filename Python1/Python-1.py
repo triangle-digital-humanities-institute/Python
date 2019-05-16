@@ -1,15 +1,24 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# <center><h1>Python I</h1></center>
-# 
+# <center><h1>Python I: Beginner Basics</h1></center>
 # <center>Claire Cahoon, Matt Jansen, Nathan Kelber, and Kristina Bush</center>
 # 
-# Thursday, May 23, 2019
+# <center>Thursday, May 23, 2019</center>
 
 # **<font color=red>Note:</font>** 
-# * Please install Anaconda following the instructions in [Setup](https://unc-libraries-data.github.io/Python/Setup.html)  **before** the workshop if possible.
-# * If you haven't already installed Anaconda, please begin downloading the [Anaconda distribution of Python](https://www.anaconda.com/download/) as soon as possible.  It's a large download and can be slow to download over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.
+# If you would like to use Python for the duration of this workshop without downloading anything (or have problems downloading Anaconda), we recommend using [pyfiddle.io](https://pyfiddle.io/).  Make sure you set Python version to 3.6 on the left side of the screen.
+# 
+# If you would like to save your work and continue to use Python on your computer, we recommend downloading Anaconda. 
+# 
+#    * Please install Anaconda following the instructions in [Setup](https://unc-libraries-data.github.io/Python/Setup.html)  **before** the workshop if possible.
+#    * If you haven't already installed Anaconda, please begin downloading the [Anaconda distribution of Python](https://www.anaconda.com/download/) as soon as possible.  It's a large download and can be slow to download over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.
+# 
+# 
+# 
+# 
+
+# <center> <h1>Getting Started</h1> </center>
 # 
 # **Goals:**
 # 
@@ -17,15 +26,15 @@
 # * Learn to work with basic Python objects
 # * Introduce Loops and Conditionals
 # 
-# ### Why Python?
+# ## Why Python?
 # 
-# Python is a general-purpose programming language that has become popular in a number of application areas.  Python can be easier to learn than some other languages because it emphasizes (human) readability and flexibility.  Python is [the third most used language on GitHub](https://octoverse.github.com/projects#languages); this popularity translates into a wide variety of packages (user-developed functionality) to apply Python to different problems and tasks.
+# Python is a general-purpose programming language that has become popular in a number of application areas.  Python can be easier to learn than some other languages because it emphasizes (human) readability and flexibility.  Python is [the third most used language on GitHub](https://octoverse.github.com/projects#languages); this popularity translates into a wide variety of packages (sets of functionality developed by other users) to apply Python to different problems and tasks.
 # 
-# If you haven't worked with a programming language before, learning Python will introduce you to approaches and thought processes common to many similar programming languages.
+# If you haven't worked with a programming language before, learning Python will introduce you to approaches and thought processes common to many similar programming languages, making it easier to learn other languages.
 # 
-# #### Use Cases:
+# ### Use Cases:
 # 
-# * Scripting: writing code to automate labor-intensive, repeptitive tasks.  For example, extracting text from thousands of pdf files, and sorting them into directories based on the resulting text files.'
+# * Scripting: writing code to automate labor-intensive, repeptitive tasks.  For example, extracting text from thousands of pdf files and sorting them into directories based on the resulting text files.
 # 
 # * Quantitative analysis: specialized tools and functions for everything from fitting deep learning models with `tensorflow` to  creating interactive visualizations with `bokeh`.
 # 
@@ -37,19 +46,19 @@
 # 
 # #### <font color=red>Warning!</font>
 # 
-# If you're already very comfortable with programming, you may find this workshop very simple.  You're welcome to come back next week for Python II, if you're already familiar with the concepts below and just need to learn the syntax.  You're also welcome to stay, review, and help other attendees!
+# If you're already very comfortable with programming, you may find this workshop very simple.  Python II later in the day may be more helpful if you're already familiar with the concepts below and just need to learn new syntax, but both workshops will be focused on the basics.  You're welcome to stay, review, and help other attendees!
 # 
 # ####  Python 2 vs Python 3
 # 
-# Both Python 2 and Python 3 are widely used in research.  Unfortunately, while both Python 2 and 3 are very similar, they are not completely compatible.  Python 3 was released in 2008; nearly all important tools have been re-written or updated for Python 3.  Python 2 will no longer be supported after 2020.  This workshop will focus on Python 3.
+# Both Python 2 and Python 3 are widely used in research.  Unfortunately, while both Python 2 and 3 are very similar, there are a few key syntax differences. Python 3 was released in 2008; nearly all important tools have been re-written or updated for Python 3.  Python 2 will no longer be supported after 2020.  This workshop will focus on Python 3.
 # 
-# ### Anaconda Alternative - Pyfiddle
 # 
-# If you have problems installing Anaconda, you can also follow along today with [pyfiddle.io](https://pyfiddle.io/).  Make sure you set Python version to 3.6 on the left side of the screen.
 # 
 # ## Integrated Development Environments (IDEs)
 # 
-# While not required, an IDE can make Python easier to use.  As you gain experience, you can choose whether an IDE is right for your uses.  For the purposes of this workshop, we will use the Spyder IDE, which comes packaged with Anaconda.
+# An IDE is software that groups together the many components needed to develop in a programming language, such as a code editor, compiler, and debugger, in a convenient interface. There are many different IDEs to choose from.
+# 
+# While not required, an IDE can make Python easier to use.  As you gain experience, you can choose whether an IDE is right for your uses and which one works best for you. For the purposes of this workshop, we will use the Spyder IDE, which comes packaged with Anaconda.
 # 
 # Open Spyder:
 # * **Windows**: Start>Anaconda3 64-bit>Spyder
@@ -62,8 +71,6 @@
 # * The Editor pane (left) is a scripting window for writing Python code.
 # * The Console pane (bottom right) contains a console for executing code.
 # * The Explorer pane (top right) contains other helpful tools listing defined variables, files in the working directory, and other help.
-# 
-# 
 
 # <center> <h1>1. Entering code</h1> </center>
 # 
@@ -117,7 +124,7 @@
 
 # <center> <h1>2. Variables</h1> </center>
 # 
-# Ultimately, we need Python to store various values and objects for future re-use. Python has many default data types available.  We will focus on a few common examples.
+# We need Python to store various values and objects for future re-use. Python has many default data types available.  We will focus on a few common examples.
 # 
 # ## Strings and Numbers
 # 
@@ -130,16 +137,16 @@ text="Hello, World"
 number=42
 
 
-# String objects, like `text` above, contain textual values.  These are identified to Python by quotes; you can use either ' or " as long as you use the same type to begin and end your string.
+# String objects, like `text` above, contain textual values.  These are identified to Python by quotes; you can use either ' or " as long as you use the same type to begin and end your string. You can't do mathmatical operations on strings.
 # 
 # Python uses several different numeric data types for storing different values. Examples include integers, long integers, and floating point numbers (decimals).  Numbers can also be stored in string values using quotes.
 # 
 # For example:
 
-# In[151]:
+# In[2]:
 
 
-notnumber="42"
+notnumber="42" #This is stored as text, not a number
 
 
 # Once we have defined an object, we can use it again, most simply by printing it.
@@ -150,11 +157,16 @@ notnumber="42"
 print(text)
 
 
-# **Note:** The print command is one of the most basic differences between Python 2 and Python 3. In Python 2, print does not require parentheses:
+# **Note:** The print command is one of the most basic differences between Python 2 and Python 3. 
+# In Python 2, print does not require parentheses:
 # 
 # `print text`
 # 
-# We can also modify the contents of objects in various ways such as redefining them or changing their type. In some cases this is crucial to how Python can work with them.  For example:
+# In Python 3, you must include parentheses:
+# 
+# `print(text)`
+# 
+# We can also modify the contents of variables in various ways, including redefining them or changing their type. In some cases this is crucial to how Python can work with them.  For example:
 
 # In[153]:
 
@@ -197,7 +209,7 @@ print(newnumber)
 type(newnumber)
 
 
-# `int` objects can only hold integer values.  If you have decimal values, use the `float` (floating decimal) type instead.
+# `int` objects can only hold integer values (whole numbers).  If you have decimal values, use the `float` (floating decimal) type instead.
 
 # In[158]:
 
@@ -226,6 +238,7 @@ print(number+newnumber)
 # 2. What is the sum of `j` and `k`? The product?  Write code for each of these in the editor window.
 # 3. Now define `j` and `k` to be 8 and 3.  Re-use your code from the editor to determine their sum and product.
 # 
+# 
 # ## Lists
 # 
 # Python's lists store objects in a sequence.  For example, we can save numbers and characters:
@@ -239,7 +252,7 @@ print(my_list)
 
 # We can also directly place previously defined objects into a list (even other lists!):
 
-# In[161]:
+# In[5]:
 
 
 obj0=12
@@ -251,10 +264,11 @@ print(my_list1)
 
 # Once we've defined a list, we can add more elements to it with the `.append` function.
 
-# In[162]:
+# In[6]:
 
 
 my_list1.append("dog")
+my_list1.append(42)
 print(my_list1)
 
 
@@ -262,12 +276,14 @@ print(my_list1)
 # <h3>Exercise</h3>
 # </center>
 # 
-# 1. Create a list of:
+# 1. Create a list that includes:
 #      * your favorite color
 #      * your two favorite holidays (as a list within the list)
 #     
 #     For example:
 #     `["red",["Halloween","New Years"]]`
+#     
+# 2. Then append the number of pets you have as a new list item
 #  
 # 
 # 
@@ -277,7 +293,7 @@ print(my_list1)
 # 
 # We use `[` and `]` to contain indices.
 # 
-# Most importantly,**Python starts counting at zero**: The first element in your list is denoted `[0]`, the second `[1]`, the third `[2]` and so on.
+# Most importantly, **Python starts counting at zero**: The first element in your list is denoted `[0]`, the second `[1]`, the third `[2]` and so on.
 
 # In[163]:
 
@@ -316,6 +332,8 @@ print(my_indices1)
 # #### Indexing beyond lists
 # 
 # Indexes can also be used with any sequential data type, which includes strings.
+# 
+# If you want to find a range of indexes, you can use two numbers with `:` in between. Note that Python does not stops at the index before the one you note as the end of the range.
 # 
 # For example:
 
@@ -431,7 +449,7 @@ letter in ["a","b","c"]
 
 # ## Conditional Statements
 # 
-# A conditional statement allows your code to branch and behave differently based on these conditions.
+# A conditional statement allows your code to branch and behave differently based on defined conditions.
 # 
 # A simple conditional statement takes the form:
 # 
@@ -506,7 +524,6 @@ else:
 # if <condition using testword>:
 #         print(testword)
 # ```
-# 
 
 # <center> <h1>4. Loops</h1> </center>
 # 
@@ -555,12 +572,13 @@ for n in my_nums:
 
 #Nesting loops - indentation is key!
 newnato=[] #initialize an empty list
-for index in range(5):
+for index in range(5): #Loops 5 times
     total=0 #resets to zero each loop
-    for entry in nato[index]:
+    for entry in nato[index]: #loops through list items at index[index] in the nato list we used earlier 
         total=total+len(entry) #add up length of both strings in each entry
-    new=[nato[index],total]
-    newnato.append(new)
+        #example: at index[0], this loop will go through "A" and then "Alpha," adding the length of each to the total
+    new=[nato[index],total] #Create a list that includes the item from nato and the total
+    newnato.append(new) #Append these lists to a larger list
 print(newnato)
 
 
@@ -605,7 +623,7 @@ print(grades)
 # 2. How many numbers between 1 and 100 are divisible by 7?
 # 3. Make a new list of NATO codes keeping only those that use the letter "a" in their code.
 
-# ### <font color=blue>Breaks(Advanced)</font>
+# ### <font color=blue>Breaks (Advanced)</font>
 # 
 # We can use the break statement with a conditional to stop the loop if a certain condition occurs.
 # 
@@ -655,17 +673,9 @@ print(total)
 # * Survey of useful packages for Data Analysis
 #     + Pandas
 # 
-# ## Getting ready for next week:
+# ## Learn More:
 # 
-# If you'd like more practice, please attempt our **[Python I: Extra](https://unc-libraries-data.github.io/Python/Extras/Python-1-Extras.html)**.
-# 
-# I'm available for one-on-one consultations on Python if you need help.  [Contact me here.](http://guides.lib.unc.edu/mattjansen)
-# 
-# ## Questions?
-# 
-# If you're planning to attend Python II next week, please feel free to share any ideas or topics you'd like to see covered.  
-# 
-# You can also share ideas while filling out our [**Feedback Survey**](https://unc.libsurveys.com/davishubfeedback).
+# If you'd like more practice, you can attempt our **[Python I: Extra](https://unc-libraries-data.github.io/Python/Extras/Python-1-Extras.html)**.
 # 
 # 
 # Thanks for coming!
@@ -679,3 +689,9 @@ print(total)
 # * <a href="https://www.google.com/">Google!</a>
 # 
 # * <a href="http://www.karsdorp.io/python-course/">Python Programming for the Humanities</a>
+
+# In[ ]:
+
+
+
+
