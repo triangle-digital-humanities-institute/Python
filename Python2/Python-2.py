@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# <center><h1>Python 2: Advanced Beginner</h1></center>
+# <center><h1>Python II: Advanced Beginner</h1></center>
 #     
 # *Claire Cahoon, Matt Jansen, Nathan Kelber, and Kristina Bush*
 # 
@@ -477,13 +477,9 @@ soup=BeautifulSoup(html,"html.parser")
 # 
 # ## GitHub
 # 
-# The materials for this workshop series are maintained in Git and hosted on GitHub.  The materials from our Git / GitHub workshop are available [here](https://github.com/UNC-Libraries-data/Intro-to-Git).
+# The materials for this workshop series are maintained in Git and hosted on GitHub.  The materials for the UNC Chapel Hill Research Hub's Git / GitHub workshop are available [here](https://github.com/UNC-Libraries-data/Intro-to-Git).
 # 
-# ## Feedback
 # 
-# Please fill out our [**Feedback Survey**](http://unc.libsurveys.com/davishubfeedback).
-# 
-# We'd love your input on future workshop topics and ways we could improve this workshop next time we teach it!
 
 # ## Resources / Learn more:
 # 
