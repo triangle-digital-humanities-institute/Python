@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Python II
+# <center><h1>Python 2: Advanced Beginner</h1></center>
+#     
+# *Claire Cahoon, Matt Jansen, Nathan Kelber, and Kristina Bush*
 # 
-# [*Matt Jansen, Davis Library Research Hub*](https://guides.lib.unc.edu/mattjansen)
-# 
-# February 26, 2019
+# Thursday, May 23, 2019
 # 
 # **Abstract:**
 # This workshop will:
@@ -84,7 +84,7 @@
 # 
 # * Write pseudocode to summarize the following code:
 
-# In[1]:
+# In[11]:
 
 
 random_words=["statement", "toy", "cars", "shoes", "ear", "busy", 
@@ -116,7 +116,7 @@ for word in random_words:
 # 
 # Here's a possible answer to the previous exercise.
 
-# In[2]:
+# In[12]:
 
 
 #1. Get or define the list my_numbers
@@ -143,7 +143,7 @@ my_numbers=list(range(100))
 # 
 # Errors and warnings are a regular occurrence in coding, and an important part of the learning process.  In some cases, they can also be useful in designing an algorithm.  For example, suppose we have a stream of user entered data that is supposed to contain the user's age in years.  You might expect to get a few errors or nonsense entries.
 
-# In[3]:
+# In[13]:
 
 
 user_ages=["34","27","54","19","giraffe","15","83","61","43","91","sixteen"]
@@ -151,7 +151,7 @@ user_ages=["34","27","54","19","giraffe","15","83","61","43","91","sixteen"]
 
 # It would be useful to convert these values to a numeric type to get the average age of our users, but we want to build something that can set non-numeric values aside.  We can attempt to convert to numeric and give Python instructions for errors with a `try`-`except` statement:
 
-# In[4]:
+# In[14]:
 
 
 ages=[]
@@ -181,7 +181,7 @@ print(problems)
 # 
 # The `mean` function below returns the mean of a list of numbers.  (Base Python does not include a function for the mean.)
 
-# In[5]:
+# In[15]:
 
 
 def mean(number_list):
@@ -211,7 +211,7 @@ print(mean(numbers))
 # * Test your function(s) with the lists below:
 # 
 
-# In[6]:
+# In[16]:
 
 
 data1 = list(range(1,100))
@@ -237,7 +237,7 @@ data2 = normal(loc=0,scale=2,size=100) #scale=2 defines the standard deviation a
 # 
 # Once you've installed a package, you can load it into your current Python session with the `import` function.  Otherwise these functions will not be available.
 
-# In[7]:
+# In[17]:
 
 
 import os #functions for working with your operating system
@@ -254,7 +254,7 @@ import os #functions for working with your operating system
 # 
 # If a file is located in your working directory, its relative path is just the name of the file!
 
-# In[8]:
+# In[18]:
 
 
 myfile="C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales/day1.txt" #absolute path
@@ -270,7 +270,7 @@ os.path.isfile(myfile) #check if Python can find my file
 #         r"C:\Users\mtjansen\Desktop"
 # ```
 
-# In[9]:
+# In[19]:
 
 
 os.chdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales") #set working directory
@@ -280,7 +280,7 @@ os.path.isfile(myfile)
 
 # We can get a list of all files in the working directory with `os.listdir(".")`.
 
-# In[10]:
+# In[20]:
 
 
 print(os.listdir("."))
@@ -302,7 +302,7 @@ print(os.listdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales")) #alte
 # 
 # Best practices for reading and writing files use the `with` function to make sure files are automatically closed.
 
-# In[11]:
+# In[21]:
 
 
 with open('Day1.txt',"r") as txtfile: #"r" indicates that we are reading the textfile and not writing to it
@@ -311,14 +311,14 @@ with open('Day1.txt',"r") as txtfile: #"r" indicates that we are reading the tex
 print(raw)
 
 
-# In[12]:
+# In[22]:
 
 
 rawlist=raw.splitlines() #.splitlines() uses each new line to split the string into a list
 print(rawlist)
 
 
-# In[13]:
+# In[23]:
 
 
 total=0
@@ -330,7 +330,7 @@ print(total)
 
 # Let's write a new file with the total.
 
-# In[14]:
+# In[24]:
 
 
 total=str(total) #we need to convert numerics to strings before writing
@@ -404,7 +404,7 @@ with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that 
 # 
 # `pd.read_csv` reads the tabular data from a Comma Separated Values (csv) file into a `DataFrame` object.
 
-# In[15]:
+# In[25]:
 
 
 import pandas as pd 
@@ -412,102 +412,6 @@ os.chdir("C:/Users/mtjansen/Desktop/Python/Python2") #change this to match your 
 
 df = pd.read_csv("CountyHealthData_2014-2015.csv")
 #df = pd.read_csv("C:/Users/mtjansen/Desktop/Python/Python2/CountyHealthData_2014-2015.csv")
-
-
-# #### Exploring a DataFrame
-# 
-# 
-# 
-# A good first step in understanding our DataFrame is to examine some of its basic attributes.  In pandas, we access attributes with the following syntax:
-# ```
-# <DataFrame name>.<attribute name>
-# ```
-# 
-# Here we us the `.shape` attribute to determine how many rows and columns (in that order) are available.
-
-# In[16]:
-
-
-df.shape
-
-
-# Other useful attributes include:
-# * `.columns` provides the column names for the DataFrame
-# * `.dtypes` provides the pandas datatype for each column
-# 
-# Much of the functionality for working with dataframes comes in the form of methods.  Methods are specialized functions that only work for a certain type of object, with the syntax:
-# ```
-# <object name>.<method>()
-# ```
-# 
-# We can look at the first 5 or last 5 rows in the dataset directly with the `.head()` and `.tail()` methods.
-
-# In[17]:
-
-
-df.head()
-
-
-# The `.describe()` method allows us to quickly summarize all numeric columns.
-
-# In[18]:
-
-
-df.describe()
-
-
-# A full list of attributes and methods available for DataFrames is available <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">here</a>.
-# 
-# #### Indexing
-
-# We'll often want to select certain rows or columns from a large dataframe with indexing.  Rows and columns can be extracted using square brackets with either of the following:
-# * integers to index **rows**, ranges can be supplied with colons (e.g. 0:5)
-# * strings or lists of strings of columns names to index **columns**
-
-# In[19]:
-
-
-df[0:3]
-
-
-# In[20]:
-
-
-df["State"][0:3]
-
-
-# The `.iloc` attribute lets us directly suppy integer indices for rows and columns simultaneously:
-
-# In[21]:
-
-
-df.iloc[:4,:4]
-
-
-# We can also select using column names (or row names if applicable) instead of integers with `.loc`:
-
-# In[22]:
-
-
-df.loc[:,["State","County","Food environment index"]].head()
-
-
-# In this case, we can use integers directly for the row indices since there are no string row labels defined.
-
-# In[23]:
-
-
-df.loc[15:20,["State","County","Food environment index"]]
-
-
-# Finally, we can nest square brackets to select based on conditions.  
-# * The inner statement, `df["State"]=="RI"` extracts a **column** on column name and checks if it equals "RI"
-# * The outer statement `df[ ... ]` uses the resulting column of True/Falue values to select **rows**
-
-# In[24]:
-
-
-df[df["State"]=="RI"]
 
 
 # **Learn more:**
@@ -524,15 +428,18 @@ df[df["State"]=="RI"]
 # 
 # Here's an example `seaborn` plot with our County Health Data from above:
 
-# In[25]:
+# In[26]:
 
 
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 states=df.groupby(["State","Region"]).mean().reset_index()  #aggregate data to state-level means using DataFrame methods
 states=states[["Region","Poor or fair health","Poor physical health days","Poor mental health days","Median household income"]]
 
+get_ipython().run_line_magic('matplotlib', 'inline')
 sns.pairplot(states,hue="Region")
+plt.show()
 
 
 # ## Other Areas
@@ -541,7 +448,7 @@ sns.pairplot(states,hue="Region")
 # 
 # Python's built-in `urllib.request` package makes it relatively easy to download the underlying html from a web page. Note that the `from package import function` notation used here allows you to selectively import only parts of a package as needed.
 
-# In[26]:
+# In[27]:
 
 
 from urllib.request import urlopen
@@ -551,7 +458,7 @@ html = page.read()
 print(html[:300]) #print only the first 300 characters
 
 
-# In[27]:
+# In[28]:
 
 
 soup=BeautifulSoup(html,"html.parser")
