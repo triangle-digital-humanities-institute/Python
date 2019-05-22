@@ -568,22 +568,26 @@ for n in my_nums:
 
 # We can also loop within loops.  Indentation is key to control which blocks of code are executed within which loop.
 
-# In[184]:
+# In[1]:
 
 
 #Nesting loops - indentation is key!
-newnato=[] #initialize an empty list
-for index in range(5): #Loops 5 times
-    total=0 #resets to zero each loop
-    for entry in nato[index]: #loops through list items at index[index] in the nato list we used earlier 
-        total=total+len(entry) #add up length of both strings in each entry
-        #example: at index[0], this loop will go through "A" and then "Alpha," adding the length of each to the total
-    new=[nato[index],total] #Create a list that includes the item from nato and the total
-    newnato.append(new) #Append these lists to a larger list
-print(newnato)
+listOfWords = ["blue", "yellow", "red", "green"]
+newList = [] #initialize an empty list
+
+for color in listOfWords:
+    numLetters = 0 #resets to zero each time the loop runs
+    for letter in color:
+        numLetters += 1
+    temporaryList = [color, numLetters]
+    newList.append(temporaryList)
+    
+print(newList)
 
 
 # Notice that before the loop begins we create an **empty list**.  This is a common stragegy to collect outputs from some or all of the loops iterations.  This can generalize to numbers by defining a zero-valued variable before the loop and modifying it with each iteration.
+
+# **Bonus:** How could we write the code above with fewer lines? Is there a simpler way to find the length of each word?
 
 # ## For Loops with Conditionals
 # 
