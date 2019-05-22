@@ -12,7 +12,7 @@
 # 
 # If you would like to save your work and continue to use Python on your computer, we recommend downloading Anaconda. 
 # 
-#    * Please install Anaconda following the instructions in [Setup](https://triangle-digital-humanities-institute.github.io/Python/Setup.html)  **before** the workshop if possible.
+#    * Please install Anaconda following the instructions in [Setup](../Python/Setup.html)  **before** the workshop if possible.
 #    * If you haven't already installed Anaconda, please begin downloading the [Anaconda distribution of Python](https://www.anaconda.com/download/) as soon as possible.  It's a large download and can be slow to download over wifi.  If needed, we also have a limited number of thumb drives with the Anaconda installers.  Please flag one of the staff if you need to copy the installer.
 # 
 # 
