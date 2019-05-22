@@ -291,7 +291,7 @@ print(os.listdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales")) #alte
 # <h3>Exercise</h3>
 # </center>
 # 
-# * Download the zipped data availalble [here](https://github.com/UNC-Libraries-data/Python/raw/master/Python2/Python_Sales/Python_Sales.zip). Unzip them somewhere on your computer.
+# * Download the zipped data availalble [here](/Python_Sales/Python_Sales.zip). Unzip them somewhere on your computer.
 # 
 # * Use `import os` and `os.chdir` to set your working directory to the unzipped folder "Python Sales".  Use `os.listdir` to check what files are stored there.
 # 
@@ -357,7 +357,7 @@ with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that 
 # * (PC) Start > Anaconda3(64-bit) > Anaconda Prompt
 # * (Mac) Finder > Applications > Anaconda Navigator > Environments Tab > (play button listed next to "root") > Open Terminal
 # 
-# Download [file_explore.py](https://github.com/UNC-Libraries-data/Python/raw/master/Python2/file_explore.py)
+# Download [file_explore.py](file_explore.py)
 # 
 # First, we need to point our terminal at the folder containing our .py file.  In the command prompt type: `cd` followed by the path to the folder.
 # 
@@ -399,7 +399,7 @@ with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that 
 # 
 # Notice that we load pandas with the usual `import pandas` and an extra `as pd` statement.  This allows us to call functions from `pandas` with `pd.<function>` instead of `pandas.<function>` for convenience.  `as pd` is not necessary to load the package. 
 # 
-# Download the csv file <a href="https://github.com/UNC-Libraries-data/Python/raw/master/Python2/CountyHealthData_2014-2015.csv"> 
+# Download the csv file <a href="CountyHealthData_2014-2015.csv"> 
 # CountyHealthData_2014-2015.csv</a>.  I've stored my copy in the Python2 folder inside my Python folder on my desktop.
 # 
 # `pd.read_csv` reads the tabular data from a Comma Separated Values (csv) file into a `DataFrame` object.
