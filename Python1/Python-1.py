@@ -677,6 +677,11 @@ print(total)
 # * Loading Packages
 # * Survey of useful packages for Data Analysis
 #     + Pandas
+#     
+# **<font color=red>Note:</font>** 
+# If you are taking Python II later today and do not have Anaconda downloaded yet, please begin the process as soon as possible (see [Setup](../Setup.html)) since some of the material in Python II cannot be completed using pyfiddle. If you are having trouble with installing or need to borrow a computer for the workshop, see one of the instructors!
+# 
+#    
 # 
 # ## Learn More:
 # 
