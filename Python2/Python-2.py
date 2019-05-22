@@ -33,7 +33,7 @@
 # 
 # # Review
 # 
-# Last week, we introduced:
+# Last class, we introduced:
 # 
 # * Numeric types (`int`,`float`): 
 # ```
@@ -382,7 +382,7 @@ with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that 
 # 
 # Installing packages known to Anaconda can be done with the `conda install <package name>` command in your Anaconda Prompt window.  Otherwise you may need to use a different manager like `pip install <package name>`.
 # 
-# <a href="https://conda.io/docs/user-guide/tasks/manage-pkgs.html">More information about managing packages in Python is available here.</a>
+# <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html">More information about managing packages in Python is available here.</a>
 # 
 # You can also <a href="https://docs.anaconda.com/anaconda/navigator/tutorials/manage-packages/">install packages from the Anaconda Navigator window</a>.
 
@@ -493,8 +493,12 @@ soup=BeautifulSoup(html,"html.parser")
 # 
 # * <a href="https://www.google.com/">Google!</a>
 # 
-# * <a href="http://guides.lib.unc.edu/mattjansen">Make an appointment with Matt</a>
-# 
 # * <a href="http://www.karsdorp.io/python-course/">Python Programming for the Humanities</a>
 # 
 # 
+
+# In[ ]:
+
+
+
+
