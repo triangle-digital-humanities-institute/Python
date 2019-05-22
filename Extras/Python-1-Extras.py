@@ -3,7 +3,7 @@
 
 # # Python I: Extras
 # 
-# This extra material is intended for self study between the [Python I](https://unc-libraries-data.github.io/Python/Python1/Python-1.html) and [Python II](https://unc-libraries-data.github.io/Python/Python2/Python-2.html) workshops.  It should help you review and expand on the topics covered in Python I.
+# This extra material is intended for self study between the [Python I](../Python1/Python-1.html) and [Python II](../Python2/Python-2.html) workshops.  It should help you review and expand on the topics covered in Python I.
 # 
 # This material may also be a useful reference if you're already familiar with these ideas and want to learn about Python's syntax.
 # 
