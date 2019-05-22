@@ -676,7 +676,7 @@ print(total)
 # 
 # ## Learn More:
 # 
-# If you'd like more practice, you can attempt our **[Python I: Extra](https://unc-libraries-data.github.io/Python/Extras/Python-1-Extras.html)**.
+# If you'd like more practice, you can attempt our **[Python I: Extra](../Extras/Python-1-Extras.html)**.
 # 
 # 
 # Thanks for coming!
