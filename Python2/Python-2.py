@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# <center><h1>Python II: Advanced Beginner</h1></center>
+# <center><h1>Python II</h1></center>
 #     
 # *Claire Cahoon, Matt Jansen, Nathan Kelber, and Kristina Bush*
 # 
-# Thursday, May 23, 2019
+# *Thursday, May 23, 2019*
 # 
 # **Abstract:**
 # This workshop will:
@@ -84,7 +84,7 @@
 # 
 # * Write pseudocode to summarize the following code:
 
-# In[11]:
+# In[1]:
 
 
 random_words=["statement", "toy", "cars", "shoes", "ear", "busy", 
@@ -116,7 +116,7 @@ for word in random_words:
 # 
 # Here's a possible answer to the previous exercise.
 
-# In[12]:
+# In[2]:
 
 
 #1. Get or define the list my_numbers
@@ -141,17 +141,19 @@ my_numbers=list(range(100))
 
 # # Try / Except - Making your code robust
 # 
-# Errors and warnings are a regular occurrence in coding, and an important part of the learning process.  In some cases, they can also be useful in designing an algorithm.  For example, suppose we have a stream of user entered data that is supposed to contain the user's age in years.  You might expect to get a few errors or nonsense entries.
+# Errors and warnings are a frequent and important part of the Python learning process.  In some cases, they can also be useful in designing your algorithm.  
+# 
+# Suppose we have a stream of user entered data that is supposed to contain the user's age in years.  We might expect to get a few errors or nonsense entries.
 
-# In[13]:
+# In[3]:
 
 
 user_ages=["34","27","54","19","giraffe","15","83","61","43","91","sixteen"]
 
 
-# It would be useful to convert these values to a numeric type to get the average age of our users, but we want to build something that can set non-numeric values aside.  We can attempt to convert to numeric and give Python instructions for errors with a `try`-`except` statement:
+# It would be useful to convert these values to a numeric type to get the average age of our users, but we want to set non-numeric values aside.  We can attempt to convert to numeric and give Python instructions for errors with a `try`-`except` statement:
 
-# In[14]:
+# In[4]:
 
 
 ages=[]
@@ -168,6 +170,8 @@ print(ages)
 print(problems)
 
 
+# As we've already seen in `if-else` and `for` statements, Python organizes groups of instructions with indentation.  It's important to be consistent with how you indent (spaces vs tab) and making sure to use the right level of indentation (e.g. one tab vs two) when using nested statements.
+
 # # Defining your own Functions
 # 
 # While Python (and its available packages) provide a wide variety of functions, sometimes it's useful to create your own.  Python's syntax for defining a function is as follows:
@@ -181,7 +185,7 @@ print(problems)
 # 
 # The `mean` function below returns the mean of a list of numbers.  (Base Python does not include a function for the mean.)
 
-# In[15]:
+# In[5]:
 
 
 def mean(number_list):
@@ -199,19 +203,12 @@ print(mean(numbers))
 # </center>
 # 
 # Choose one of the following (or both if you're feeling ambitious!):
-# * Define a function, `median` to find the median of a list.  The median is the middle number of an odd-numbered list or the average of the middle two numbers in an even numbered list.  (Hint: Use `sorted(<your_list>)` to create a list sorted from low to high values.
+# * Define a function, `median` to find the median of a list.  The median is the middle number of a list with an odd number of objects or the average of the middle two numbers in a list with an even number of objects.  (Hint: Use `sorted(<your_list>)` to create a list sorted from low to high values.
 # 
-# * Define your own function, `variance` to calculate the (population) variance, of a list of numbers:
-# 
-# $$ \sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i-\mu)^2 $$
-# 
-# Where $N$ is the length of the list, $x_1, x_2, ... x_N$ are the values in the list, and $\mu$ is the sample average (you can re-use the `mean` function above).  
-# 
-# 
-# * Test your function(s) with the lists below:
+# * Test your function with the lists below:
 # 
 
-# In[16]:
+# In[6]:
 
 
 data1 = list(range(1,100))
@@ -227,7 +224,7 @@ data2 = normal(loc=0,scale=2,size=100) #scale=2 defines the standard deviation a
 # 
 # ### Installation
 # 
-# Packages provide additional tools and functions not present in base Python.  Python includes a number of packages to start with, and others can be installed using `pip install <package name>` and/or `conda install <package name>` commands **in your terminal**. 
+# Packages provide additional tools and functions not present in base Python.  Python includes a number of packages to start with, and others can be installed using `pip install <package name>` and/or `conda install <package name>` commands **in your Anaconda terminal**. 
 # 
 # Open your terminal by:
 # * (PC) Start > Anaconda3(64-bit) > Anaconda Prompt
@@ -237,7 +234,7 @@ data2 = normal(loc=0,scale=2,size=100) #scale=2 defines the standard deviation a
 # 
 # Once you've installed a package, you can load it into your current Python session with the `import` function.  Otherwise these functions will not be available.
 
-# In[17]:
+# In[7]:
 
 
 import os #functions for working with your operating system
@@ -254,7 +251,7 @@ import os #functions for working with your operating system
 # 
 # If a file is located in your working directory, its relative path is just the name of the file!
 
-# In[18]:
+# In[8]:
 
 
 myfile="C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales/day1.txt" #absolute path
@@ -270,7 +267,7 @@ os.path.isfile(myfile) #check if Python can find my file
 #         r"C:\Users\mtjansen\Desktop"
 # ```
 
-# In[19]:
+# In[9]:
 
 
 os.chdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales") #set working directory
@@ -280,7 +277,7 @@ os.path.isfile(myfile)
 
 # We can get a list of all files in the working directory with `os.listdir(".")`.
 
-# In[20]:
+# In[10]:
 
 
 print(os.listdir("."))
@@ -302,7 +299,7 @@ print(os.listdir("C:/Users/mtjansen/Desktop/Python/Python2/Python_Sales")) #alte
 # 
 # Best practices for reading and writing files use the `with` function to make sure files are automatically closed.
 
-# In[21]:
+# In[11]:
 
 
 with open('Day1.txt',"r") as txtfile: #"r" indicates that we are reading the textfile and not writing to it
@@ -311,14 +308,14 @@ with open('Day1.txt',"r") as txtfile: #"r" indicates that we are reading the tex
 print(raw)
 
 
-# In[22]:
+# In[12]:
 
 
 rawlist=raw.splitlines() #.splitlines() uses each new line to split the string into a list
 print(rawlist)
 
 
-# In[23]:
+# In[13]:
 
 
 total=0
@@ -330,7 +327,7 @@ print(total)
 
 # Let's write a new file with the total.
 
-# In[24]:
+# In[14]:
 
 
 total=str(total) #we need to convert numerics to strings before writing
@@ -351,7 +348,7 @@ with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that 
 # We can re-open these files in Spyder with File>Open, and then run or change them.
 # 
 # ### From the terminal
-# We can also run Python scripts directly from the Anaconda Prompt.
+# Once saved, we can also run Python scripts directly from the Anaconda Prompt.
 # 
 # Open your Anaconda Prompt / Anaconda Terminal by:
 # * (PC) Start > Anaconda3(64-bit) > Anaconda Prompt
@@ -404,7 +401,7 @@ with open("Day1_TOTAL.txt","w") as txtfile: #like "r" above, "w" specifies that 
 # 
 # `pd.read_csv` reads the tabular data from a Comma Separated Values (csv) file into a `DataFrame` object.
 
-# In[25]:
+# In[15]:
 
 
 import pandas as pd 
@@ -428,7 +425,7 @@ df = pd.read_csv("CountyHealthData_2014-2015.csv")
 # 
 # Here's an example `seaborn` plot with our County Health Data from above:
 
-# In[26]:
+# In[16]:
 
 
 import seaborn as sns
@@ -448,7 +445,7 @@ plt.show()
 # 
 # Python's built-in `urllib.request` package makes it relatively easy to download the underlying html from a web page. Note that the `from package import function` notation used here allows you to selectively import only parts of a package as needed.
 
-# In[27]:
+# In[17]:
 
 
 from urllib.request import urlopen
@@ -458,7 +455,7 @@ html = page.read()
 print(html[:300]) #print only the first 300 characters
 
 
-# In[28]:
+# In[18]:
 
 
 soup=BeautifulSoup(html,"html.parser")
@@ -496,9 +493,3 @@ soup=BeautifulSoup(html,"html.parser")
 # * <a href="http://www.karsdorp.io/python-course/">Python Programming for the Humanities</a>
 # 
 # 
-
-# In[ ]:
-
-
-
-

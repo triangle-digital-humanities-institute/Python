@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# <center><h1>Python I: Beginner Basics</h1></center>
+# <center><h1>Python I: Basics</h1></center>
 # 
-# <center>Claire Cahoon, Matt Jansen, Nathan Kelber, and Kristina Bush</center>
+# *Claire Cahoon, Matt Jansen, Nathan Kelber, and Kristina Bush*
 # 
-# <center>Thursday, May 23, 2019</center>
+# *Thursday, May 23, 2019*
 
-# **<font color=red>Note:</font>** 
-# If you would like to use Python for the duration of this workshop without downloading anything (or have problems downloading Anaconda), we recommend using [pyfiddle.io](https://pyfiddle.io/).  Make sure you set Python version to 3.6 on the left side of the screen.
+# <div style="margin-left: 5em;">
+# <strong><font color=red>Note:</font></strong> If you would like to use Python for the duration of this workshop without downloading anything (or have problems downloading Anaconda), we recommend using [pyfiddle.io](https://pyfiddle.io/).  Make sure you set Python version to 3.6 on the left side of the screen.
+# </div>
 # 
 # If you would like to save your work and continue to use Python on your computer, we recommend downloading Anaconda. 
 # 
@@ -29,37 +30,36 @@
 # 
 # ## Why Python?
 # 
-# Python is a general-purpose programming language that has become popular in a number of application areas.  Python can be easier to learn than some other languages because it emphasizes (human) readability and flexibility.  Python is [the third most used language on GitHub](https://octoverse.github.com/projects#languages); this popularity translates into a wide variety of packages (sets of functionality developed by other users) to apply Python to different problems and tasks.
+# Python is a general-purpose programming language that has become popular for data and text analysis.  Python can be easier to learn than other languages because it emphasizes (human) readability and flexibility.  Python is [the third most used language on GitHub](https://octoverse.github.com/projects#languages); this means you'll find packages (sets of functionality developed by other users) to use Python for a wide variety of problems and tasks.
 # 
-# If you haven't worked with a programming language before, learning Python will introduce you to approaches and thought processes common to many similar programming languages, making it easier to learn other languages.
+# If you haven't worked with a programming language before, learning Python will introduce you to approaches and thought processes common to many similar languages, making it easier to learn other languages like Java and R.
 # 
 # ### Use Cases:
 # 
-# * Scripting: writing code to automate labor-intensive, repeptitive tasks.  For example, extracting text from thousands of pdf files and sorting them into directories based on the resulting text files.
+# * Scripting: writing code to automate repeptitive tasks.  For example, extracting text from thousands of pdf files and sorting them into directories based on the information in the texts.
 # 
-# * Quantitative analysis: specialized tools and functions for everything from fitting deep learning models with `tensorflow` to  creating interactive visualizations with `bokeh`.
+# * Quantitative analysis: specialized tools and functions for everything from fitting deep learning models with `tensorflow` to creating interactive visualizations with `bokeh`.
 # 
 # * Natural Language Processing: extracting text from different file formats and parsing and analyzing sentiment using tools from the `NLTK` package.
 # 
-# * Web development, Image processing, Web scraping, Acessing APIs, and many more.
+# * Web development(`Django`), Image processing (`pillow`), Web scraping (`BeautifulSoup`), Acessing APIs, and many more.
 # 
 # However, there are few things you can do in Python that can't also be done elsewhere!  If you already know one or more programming language, you'll have to decide where Python best fits or helps in your own workflows.
 # 
 # #### <font color=red>Warning!</font>
 # 
-# If you're already very comfortable with programming, you may find this workshop very simple.  Python II later in the day may be more helpful if you're already familiar with the concepts below and just need to learn new syntax, but both workshops will be focused on the basics.  You're welcome to stay, review, and help other attendees!
+# If you're already comfortable with basic programming concepts, you may find this workshop very simple.  Python II later in the day may be more helpful if you're already familiar with the concepts below and just need to learn new syntax, but both workshops will be focused on the basics.  You're welcome to stay, review, and help other attendees!
 # 
 # ####  Python 2 vs Python 3
 # 
-# Both Python 2 and Python 3 are widely used in research.  Unfortunately, while both Python 2 and 3 are very similar, there are a few key syntax differences. Python 3 was released in 2008; nearly all important tools have been re-written or updated for Python 3.  Python 2 will no longer be supported after 2020.  This workshop will focus on Python 3.
-# 
+# Both Python 2 and Python 3 are widely used in research.  Unfortunately, while both Python 2 and 3 are very similar, there are a few key syntax differences. Python 3 was released in 2008; nearly all important tools have been re-written or updated for Python 3.  **Python 2 will not be maintained after January 1, 2020.**  This workshop will focus on Python 3.
 # 
 # 
 # ## Integrated Development Environments (IDEs)
 # 
-# An IDE is software that groups together the many components needed to develop in a programming language, such as a code editor, compiler, and debugger, in a convenient interface. There are many different IDEs to choose from.
+# An IDE is software that groups together the many tools to ease development in a programming language, such as a code editor, compiler, and debugger in a convenient interface. There are many different IDEs to choose from.  IDEs are not necessary, but often good for beginners.
 # 
-# While not required, an IDE can make Python easier to use.  As you gain experience, you can choose whether an IDE is right for your uses and which one works best for you. For the purposes of this workshop, we will use the Spyder IDE, which comes packaged with Anaconda.
+# As you gain experience, you can choose whether an IDE is right for your uses and which one works best for you. For the purposes of this workshop, we will use Spyder, which comes packaged with Anaconda.
 # 
 # Open Spyder:
 # * **Windows**: Start>Anaconda3 64-bit>Spyder
@@ -79,7 +79,7 @@
 # 
 # For the purposes of this workshop, Python code will be presented in numbered grey cells as below.  Any output generated will also be displayed.
 
-# In[147]:
+# In[40]:
 
 
 2+2
@@ -100,7 +100,7 @@
 # 
 # Standard arithmetic operations are available in Python.
 
-# In[148]:
+# In[41]:
 
 
 3*3
@@ -108,7 +108,7 @@
 
 # **Note:** We can annotate our code with comments.  Python uses `#` to denote comments.  Anything typed after a `#` will be ignored on execution of the code.
 
-# In[149]:
+# In[42]:
 
 
 #1+2
@@ -125,13 +125,13 @@
 
 # <center> <h1>2. Variables</h1> </center>
 # 
-# We need Python to store various values and objects for future re-use. Python has many default data types available.  We will focus on a few common examples.
+# We often need Python to store values for future re-use. Python has many default data object types available; we will focus on a few common examples.
 # 
 # ## Strings and Numbers
 # 
 # We assign a value to a variable using `=`.  We do not need to declare a type or give any other information.
 
-# In[150]:
+# In[43]:
 
 
 text="Hello, World"
@@ -144,21 +144,22 @@ number=42
 # 
 # For example:
 
-# In[2]:
+# In[44]:
 
 
 notnumber="42" #This is stored as text, not a number
 
 
-# Once we have defined an object, we can use it again, most simply by printing it.
+# Once we have defined an object, we can view it again by printing it.
 
-# In[152]:
+# In[45]:
 
 
 print(text)
 
 
-# **Note:** The print command is one of the most basic differences between Python 2 and Python 3. 
+# <div style="margin-left: 5em;">
+# <strong>Note:</strong> The print command is one of the most basic differences between Python 2 and Python 3. 
 # In Python 2, print does not require parentheses:
 # 
 # `print text`
@@ -166,10 +167,11 @@ print(text)
 # In Python 3, you must include parentheses:
 # 
 # `print(text)`
+# </div>
 # 
-# We can also modify the contents of variables in various ways, including redefining them or changing their type. In some cases this is crucial to how Python can work with them.  For example:
+# We can also modify the contents of an object: for example, including redefining them or changing their type. The object's type determines what Python can do with the object.
 
-# In[153]:
+# In[46]:
 
 
 print(number+58)
@@ -178,31 +180,33 @@ print(number+58)
 
 # So we can add a value, 58, to our number object, but we can't add our notnumber object.  Let's double check what notnumber contains:
 
-# In[154]:
+# In[47]:
 
 
 print(notnumber)
 
 
-# In[155]:
+# In[48]:
 
 
 print(number)
 
 
-# Even those these appear the same to our eye, Python uses them very differently.  Remember how we defined notnumber?  Let's check what data type Python is using with `type`.
+# Even those these appear the same, Python treats them very differently.  Remember how we defined notnumber?  Let's check what data type Python is using with `type`.
 
-# In[156]:
+# In[49]:
 
 
 type(notnumber)
 
 
-# Fortunately Python provides a set of *functions* to convert objects between different data types.  A function packages a set of prewritten commands to accomplish a particular task.  Most functions take one or more objects as inputs or 'arguments' and produce some new object as output.
+# Fortunately Python provides a set of *functions* to convert objects between different data types.  A function stores prewritten commands to accomplish a particular task.  Most functions take one or more objects as 'arguments' (i.e. inputs) and produce some new object as output.
+# 
+# We've already seen two functions: `type` and `print`.
 # 
 # The `int` function takes an object as an argument and converts it to an `int` (integer) numeric object.  The usage is as follows:
 
-# In[157]:
+# In[50]:
 
 
 newnumber=int(notnumber)
@@ -212,7 +216,7 @@ type(newnumber)
 
 # `int` objects can only hold integer values (whole numbers).  If you have decimal values, use the `float` (floating decimal) type instead.
 
-# In[158]:
+# In[51]:
 
 
 myfloat=float(newnumber)+0.5
@@ -221,7 +225,7 @@ print(myfloat)
 
 # Now we can try adding objects again.
 
-# In[159]:
+# In[52]:
 
 
 print(number+newnumber)
@@ -235,16 +239,16 @@ print(number+newnumber)
 # <h3>Exercises</h3>
 # </center>
 # 
-# 1. Define two variables, `j` and `k` with values 37 and 52 respectively.
-# 2. What is the sum of `j` and `k`? The product?  Write code for each of these in the editor window.
+# 1. Define two variables, `j` and `k`, with values 37 and 52 respectively.
+# 2. What is the sum of `j` and `k`? The product?  Write code for each of these in the **editor window**, and run with the keyboard shortcut (refer back to Section 1. Entering Code).
 # 3. Now define `j` and `k` to be 8 and 3.  Re-use your code from the editor to determine their sum and product.
 # 
 # 
 # ## Lists
 # 
-# Python's lists store objects in a sequence.  For example, we can save numbers and characters:
+# Lists store multiple objects together.  For example, we can save numbers and characters:
 
-# In[160]:
+# In[53]:
 
 
 my_list=[1,2,3,"four"]
@@ -253,7 +257,7 @@ print(my_list)
 
 # We can also directly place previously defined objects into a list (even other lists!):
 
-# In[5]:
+# In[54]:
 
 
 obj0=12
@@ -263,9 +267,9 @@ my_list1=[obj0,obj1,obj2]
 print(my_list1)
 
 
-# Once we've defined a list, we can add more elements to it with the `.append` function.
+# Once we've defined a list, we can add more elements to the end with the `.append` function.
 
-# In[6]:
+# In[55]:
 
 
 my_list1.append("dog")
@@ -290,13 +294,13 @@ print(my_list1)
 # 
 # ### Indexing
 # 
-# Python retains the order of elements in our list and uses that order to retrieve objects in lists.  These numbered positions are called indices.
+# Python retains the **order** of elements in our list and uses that order to retrieve objects in lists.  These numbered positions are called indices.
 # 
-# We use `[` and `]` to contain indices.
+# We use `[` and `]` to provide indices to Python.
 # 
-# Most importantly, **Python starts counting at zero**: The first element in your list is denoted `[0]`, the second `[1]`, the third `[2]` and so on.
+# Most importantly, **Python starts counting at zero**: The first element in your list is denoted `[0]`, the second `[1]`, the third `[2]` and so on.  This can take some getting used to!
 
-# In[163]:
+# In[56]:
 
 
 my_list2 = ["cat","dog","parrot"]
@@ -305,7 +309,7 @@ print(my_list2[2])
 
 # We can use multiple indices for lists within lists, one after the other:
 
-# In[164]:
+# In[57]:
 
 
 #recall
@@ -315,15 +319,17 @@ print(my_list1[2][1]) #i.e. the second element of the list held in the third ele
 
 # The `len` function provides the length of an object in Python.
 
-# In[165]:
+# In[58]:
 
 
 print(len(my_list1))
 
 
-# If `len(my_new_list)=10` that means there are ten elements in the list, so the indices are 0 through 9.  We can use the `range` function with `len` to generate a list of indices.
+# If `len(my_new_list)=10` that means there are ten elements in the list.  Remember that Python starts counting at 0, so the indices are 0 through 9.  
+# 
+# We can use the `range` function with `len` to generate a list of indices.
 
-# In[166]:
+# In[59]:
 
 
 my_indices1 = list(range(len(my_list1)))
@@ -332,13 +338,13 @@ print(my_indices1)
 
 # #### Indexing beyond lists
 # 
-# Indexes can also be used with any sequential data type, which includes strings.
+# Indexes can also be used with any sequential data type, including strings.
 # 
-# If you want to find a range of indexes, you can use two numbers with `:` in between. Note that Python does not stops at the index before the one you note as the end of the range.
+# If you want to retrieve a range of indexes, you can use two numbers with `:` in between. Note that Python stops at the index **before** the one you note as the end of the range.
 # 
 # For example:
 
-# In[167]:
+# In[60]:
 
 
 my_str="The quick brown fox jumps over the lazy dog."
@@ -346,34 +352,36 @@ print(my_str[4])
 print(my_str[4:9]) #4:9 indicates characters 4-8
 
 
-# We can also work from right to left using negative numbers.  Furthermore, using `:` ranges with one end blank will automatically go to the end of the object.
+# Using `:` ranges with one end blank will automatically go to the end of the object.
+# 
+# We can also work from right to left using negative numbers.
 
-# In[168]:
+# In[61]:
 
 
-print(my_str[-4:])
 print(my_str[:4])
+print(my_str[-4:])
 
 
-# We can still use multiple nested indices across sequential data types.  For instance, a list of strings:
+# We can still use multiple nested indices across different sequential data types.
 
-# In[169]:
+# In[62]:
 
 
 ["home","away"][0][0:3]
 
 
-# Unfortunately, not all data types are sequential - indices will not work on numeric values:  
+# Unfortunately, not all data types are sequential - indices will not work on numeric values. 
 # 
 # <center>
 # <h3>Exercises</h3>
 # </center>
 # 
-# 1. Try to use indexing to get the tenth digit of `my_pi` as defined below.  Does it work as defined?  Do we need to change the variable somehow?
+# 1. Try to use indexing to get the tenth digit of `my_pi` as defined below.  Does it work as defined?  If not, how could we make it work?
 # ```
 # my_pi=3.141592653589793
 # ```
-# 2. Below is a list of lists containing the NATO phonetic codes for each letter of the alphabet.  Each list within `nato` contains a letter of the alphabet and its corresponding code.
+# 2. Below is a list of lists of strings containing the NATO phonetic codes for each letter of the alphabet.  Each list within `nato` contains a letter of the alphabet and its corresponding code.
 # ```
 # nato=[["A","Alfa"],
 #           ["B","Bravo"],
@@ -407,15 +415,15 @@ print(my_str[:4])
 # * What is the code for the twenty-third letter of the alphabet?
 # * What is the fourth letter of the code for the eighth letter of the alphabet?
 # 
-# There are several other important data types we won't cover today.  We will cover Python's data type for mapping between values, dictionaries, in Python II.
+# There are other important data types we won't cover today.  We will cover Python's data type for mapping between values, dictionaries, in the [Python I Extra](../Extras/Python-1-Extras.html).
 # 
-# Read more about Python's built-in data types <a href=https://docs.python.org/3/library/stdtypes.html>here</a>.
+# Read more about Python's built-in data types [here](https://docs.python.org/3/library/stdtypes.html).
 
 # <center> <h1>3. Conditionals</h1> </center>
 # 
 # ## Conditions and Booleans
 # 
-# Conditionals allow for more flexible instructions, letting our code react differently as our inputs change.
+# Conditions let us check if a certain statement is true.
 # 
 # Conditions often arise from comparisons:
 # 
@@ -430,18 +438,20 @@ print(my_str[:4])
 #         in 	    sequence membership
 #         not in 	sequence non-membership
 # 
-# **Note:** `=` is used for assignment, whereas `==` checks if two objects are equal.
+# <div style="margin-left: 4em;">
+# <strong>Note:</strong> `=` is used for assignment, whereas `==` checks if two objects are equal.
+# </div>
 # 
 # Each condition considered evaluates to a Boolean value - `True` or `False`.
 
-# In[170]:
+# In[63]:
 
 
 num=5
 num<3
 
 
-# In[171]:
+# In[64]:
 
 
 letter="a"
@@ -459,9 +469,9 @@ letter in ["a","b","c"]
 #     <do something only if condition1 is true>
 # ```
 # 
-# Your instructions can be as long as necessary, provided they remain indented.  Indentation is very important in Python as it groups lines of code without using explict characters like `{` and `}` as in many other language.  You can indent with spaces or tabs, but you must be **consistent**.
+# Your instructions can be as long as necessary, but they have to remain indented.  Indentation is very important in Python as it groups lines of code without using explict characters like `{` and `}` as in many other language.  You can indent with spaces or tabs, but you must be **consistent**.
 #  
-# We can supply alternate steps if the condition is false with `else`, or even consider multiple conditions with `elif` (i.e. else if).
+# We can supply alternate instructions if the condition is false with `else`, or even consider multiple conditions with `elif` (i.e. else if).
 # 
 # ```
 # if <condition1>:
@@ -472,7 +482,7 @@ letter in ["a","b","c"]
 #     <do a third thing if neither condition is true>
 # ```
 
-# In[172]:
+# In[65]:
 
 
 num=5
@@ -480,7 +490,7 @@ if num>4:
     print("This number is greater than four")
 
 
-# In[173]:
+# In[66]:
 
 
 num=3
@@ -490,7 +500,7 @@ if num>4:
 
 # Adding `else` lets us give instructions if our condition is `False`.
 
-# In[174]:
+# In[67]:
 
 
 num=3
@@ -502,7 +512,7 @@ else:
 
 # Finally, the `elif` command lets us split the possible values of `num` into more groups.
 
-# In[175]:
+# In[68]:
 
 
 num=8
@@ -530,9 +540,9 @@ else:
 # 
 # ## For Loops
 # 
-# A "for loop" allows us to apply the same steps to each element in a list or other iterable.  In essence, loops let us automate tasks relative to some sequence that we might *otherwise* write like this:
+# A "for loop" allows us to apply the same steps to each element in a list or other sequence of objects.  In essence, loops let us automate tasks relative to some sequence that we might *otherwise* write like this:
 
-# In[182]:
+# In[69]:
 
 
 sales=[5,2,7,9,3]
@@ -557,7 +567,7 @@ print(total_sales)
 # * `<list>` is a pre-defined list or other iterable object.
 # * **Reminder: Indentation is very important in Python and must be used consistently across the loop(s)** Only the code indented under the loop will be run in each iteration.
 
-# In[183]:
+# In[70]:
 
 
 my_nums=list(range(6))
@@ -566,9 +576,9 @@ for n in my_nums:
     print(n)
 
 
-# We can also loop within loops.  Indentation is key to control which blocks of code are executed within which loop.
+# We can also loop within loops.  Like conditionals, indentation is key to control which blocks of code are executed within which loop.
 
-# In[1]:
+# In[71]:
 
 
 #Nesting loops - indentation is key!
@@ -587,13 +597,13 @@ print(newList)
 
 # Notice that before the loop begins we create an **empty list**.  This is a common stragegy to collect outputs from some or all of the loops iterations.  This can generalize to numbers by defining a zero-valued variable before the loop and modifying it with each iteration.
 
-# **Bonus:** How could we write the code above with fewer lines? Is there a simpler way to find the length of each word?
+# How could we write the code above with fewer lines? Is there a simpler way to find the length of each word?
 
 # ## For Loops with Conditionals
 # 
 # Loops become even more useful when combined with conditionals, to perform different steps based on each value in the loop.
 
-# In[185]:
+# In[72]:
 
 
 for number in range(10):
@@ -603,7 +613,7 @@ for number in range(10):
 
 # Recall that we can combine multiple conditions with `and`.
 
-# In[186]:
+# In[73]:
 
 
 scores=[95,90,66,83,71,78,93,81,87,81]
@@ -613,9 +623,9 @@ for score in scores:
         grade="A"
     elif score>=80:
         grade="B"
-    elif score>=70:
+    elif score>=70 and score<80:
         grade="C"
-    elif score>=60:
+    elif score>=60 and score<70:
         grade="D"
     else:
         grade="F"
@@ -624,7 +634,7 @@ print(grades)
 
 
 # **Exercise:**
-# 1. Why do I only specify `score>=80` etc. in the `elif` statements?
+# 1. Why only specify `score>=80` etc. in the `elif` statements?  Can these conditionals be simplified?
 # 2. How many numbers between 1 and 100 are divisible by 7?
 # 3. Make a new list of NATO codes keeping only those that use the letter "a" in their code.
 
@@ -639,7 +649,7 @@ print(grades)
 # 
 # You can read more about the functions in the `random` package [here](https://docs.python.org/3/library/random.html).  We'll revisit packages next week!
 
-# In[187]:
+# In[74]:
 
 
 from random import choices,seed 
@@ -650,7 +660,7 @@ test=choices(population=range(100),k=50)
 print(test)
 
 
-# In[188]:
+# In[75]:
 
 
 total=0
@@ -678,8 +688,7 @@ print(total)
 # * Survey of useful packages for Data Analysis
 #     + Pandas
 #     
-# **<font color=red>Note:</font>** 
-# If you are taking Python II later today and do not have Anaconda downloaded yet, please begin the process as soon as possible (see [Setup](../Setup.html)) since some of the material in Python II cannot be completed using pyfiddle. If you are having trouble with installing or need to borrow a computer for the workshop, see one of the instructors!
+# **If you are taking Python II later today** and do not have Anaconda downloaded yet, please begin the process as soon as possible (see [Setup](../Setup.html)) since some of the material in Python II cannot be completed using pyfiddle. If you are having trouble with installing or need to borrow a computer for the workshop, see one of the instructors!
 # 
 #    
 # 
@@ -699,9 +708,3 @@ print(total)
 # * <a href="https://www.google.com/">Google!</a>
 # 
 # * <a href="http://www.karsdorp.io/python-course/">Python Programming for the Humanities</a>
-
-# In[ ]:
-
-
-
-
